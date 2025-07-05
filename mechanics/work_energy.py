@@ -48,5 +48,4 @@ def work_variable_force(force_function, displacement_initial, displacement_final
     for i in range(steps):
         x = displacement_initial + i * dx
         total_work += force_function(x) * dx
->>>>>>> d69279c (Add mechanics module)
     return total_work
