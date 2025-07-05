@@ -14,5 +14,4 @@ def organ_pipe_frequency_open(length, wave_speed, harmonic=1):
     return harmonic * wave_speed / (2 * length)
 
 def organ_pipe_frequency_closed(length, wave_speed, harmonic=1):
->>>>>>> d69279c (Add mechanics module)
     return (2 * harmonic - 1) * wave_speed / (4 * length)
