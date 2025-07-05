@@ -1,5 +1,7 @@
 from . import constants
+from . import mechanics
 
-__all__=[
-    "constants"
+__all__ = [
+    "constants",
+    "mechanics"
 ]
