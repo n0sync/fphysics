@@ -2,7 +2,7 @@ pysics - A Comprehensive Physics Library in Python
 
 pysics is a pure Python library that provides an extensive collection of physical constants, equations, and formulae for students, researchers, educators, and developers. It supports a wide range of physics domains — from classical mechanics to quantum physics — allowing for quick calculations, simulations, and scientific tool development.
 
-🚀 Features
+Features
 
 All Major Constants: From SI base constants to quantum and astronomical units
 
@@ -12,13 +12,13 @@ Unit Conversion Utilities: Easily switch between SI, CGS, natural units, and oth
 
 Designed for Education and Research: Easy to integrate into educational tools, calculators, and simulations
 
-📦 Installation (Coming Soon)
+Installation (Coming Soon)
 
 Once published:
+``` bash
+    pip install pysics
+```
 
-pip install pysics
-
-
-🌟 Contribute
+Contribute
 
 Want to help expand pysics with more formulas, modules, or translations? Pull requests and suggestions are welcome!
