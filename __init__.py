@@ -3,5 +3,6 @@ from . import mechanics
 
 __all__ = [
     "constants",
-    "mechanics"
+    "mechanics",
+    "utils"
 ]
