@@ -69,6 +69,57 @@ def pendulum_lagrangian(length, mass, angle, angle_dot, gravity=EARTH_GRAVITY):
     V = -mass * gravity * length * math.cos(angle)
     return T - V
 
+def generalized_coordinates(mass, velocities, gravities):
+    return [0.5 * m * v**2 - m * g for m, v, g in zip(mass, velocities, gravities)]
+
+def lagrangian_with_constraints(lagrangian, lagrange_multipliers, constraint_functions):
+    return lagrangian - sum(l * f for l, f in zip(lagrange_multipliers, constraint_functions))
+
+def canonical_angular_momentum(moment_of_inertia, angular_velocity):
+    return moment_of_inertia * angular_velocity
+
+def central_force_conservative(field_strength, displacement):
+    return -field_strength * displacement
+
+def relativistic_lagrangian(mass, velocity, c=SPEED_OF_LIGHT):
+    gamma = 1 / math.sqrt(1 - (velocity / c)**2)
+    return -mass * c**2 * (1 - gamma)
+
+def spring_lagrangian(spring_constant, displacement):
+    return 0.5 * spring_constant * displacement**2
+
+def fluid_pendulum_lagrangian(density, volume, length, angle, angle_dot, gravity=EARTH_GRAVITY):
+    T = 0.5 * density * volume * (length * angle_dot)**2
+    V = -density * gravity * volume * length * math.cos(angle)
+    return T - V
+
+def electromagnetic_lagrangian_density(charge_density, current_density, vector_potential, scalar_potential):
+    return charge_density * scalar_potential - sum(j * a for j, a in zip(current_density, vector_potential))
+
+def central_potential_lagrangian(density, volume, radial_velocity, potential_energy_density):
+    return 0.5 * density * volume * radial_velocity**2 - potential_energy_density
+
+def lagrangian_isotropic_oscillator(mass, frequency, displacement, velocity):
+    T = 0.5 * mass * velocity**2
+    V = 0.5 * mass * frequency**2 * displacement**2
+    return T - V
+
+def lagrange_poincare(L, R, M, v, w):
+    return L - 0.5 * v.transpose() @ M @ v - w @ R @ w
+
+def relativistic_free_particle_lagrangian(mass, velocity):
+    return -mass * SPEED_OF_LIGHT**2 * math.sqrt(1 - (velocity / SPEED_OF_LIGHT)**2)
+
+def double_oscillator_lagrangian(m1, m2, k1, k2, x1, x2, x1_dot, x2_dot):
+    T1 = 0.5 * m1 * x1_dot**2
+    T2 = 0.5 * m2 * x2_dot**2
+    V1 = 0.5 * k1 * x1**2
+    V2 = 0.5 * k2 * (x2 - x1)**2
+    return (T1 + T2) - (V1 + V2)
+
+def gyroscope_lagrangian(I1, I2, I3, omega1, omega2, omega3):
+    return 0.5 * (I1 * omega1**2 + I2 * omega2**2 + I3 * omega3**2)
+
 def double_pendulum_lagrangian(m1, m2, L1, L2, theta1, theta2, theta1_dot, theta2_dot, gravity=EARTH_GRAVITY):
     x1 = L1 * math.sin(theta1)
     y1 = -L1 * math.cos(theta1)
