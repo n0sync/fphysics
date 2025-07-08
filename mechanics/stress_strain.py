@@ -135,3 +135,62 @@ def yield_criterion_tresca(sigma_1, sigma_2, sigma_3, yield_strength):
 def yield_criterion_von_mises(sigma_1, sigma_2, sigma_3, yield_strength):
     von_mises = math.sqrt(0.5 * ((sigma_1 - sigma_2)**2 + (sigma_2 - sigma_3)**2 + (sigma_3 - sigma_1)**2))
     return von_mises <= yield_strength
+
+def combined_stress_bending_axial(axial_stress, bending_stress):
+    return axial_stress + bending_stress
+
+def combined_stress_torsion_bending(bending_stress, torsional_stress):
+    return math.sqrt(bending_stress**2 + 3 * torsional_stress**2)
+
+def impact_stress(static_stress, height, static_deflection):
+    return static_stress * (1 + math.sqrt(1 + 2 * height / static_deflection))
+
+def stress_concentration_circular_hole(nominal_stress, hole_diameter, width):
+    return nominal_stress * (1 + 2 * hole_diameter / width)
+
+def endurance_limit_steel(ultimate_tensile_strength):
+    return 0.5 * ultimate_tensile_strength
+
+def goodman_relation(mean_stress, alternating_stress, ultimate_strength, endurance_limit):
+    return alternating_stress / endurance_limit + mean_stress / ultimate_strength
+
+def soderberg_relation(mean_stress, alternating_stress, yield_strength, endurance_limit):
+    return alternating_stress / endurance_limit + mean_stress / yield_strength
+
+def residual_stress_thermal_gradient(elastic_modulus, thermal_expansion, temp_gradient):
+    return elastic_modulus * thermal_expansion * temp_gradient
+
+def contact_stress_hertz(force, radius1, radius2, elastic_modulus, poissons_ratio):
+    effective_radius = (radius1 * radius2) / (radius1 + radius2)
+    effective_modulus = elastic_modulus / (2 * (1 - poissons_ratio**2))
+    return math.sqrt(force * effective_modulus / (PI * effective_radius))
+
+def bearing_stress(load, bearing_area):
+    return load / bearing_area
+
+def punching_shear_stress(load, perimeter, thickness):
+    return load / (perimeter * thickness)
+
+def plate_bending_stress(moment, thickness, poissons_ratio):
+    return 6 * moment / (thickness**2 * (1 - poissons_ratio**2))
+
+def membrane_stress_pressure_vessel(pressure, radius, thickness):
+    return pressure * radius / thickness
+
+def hoop_stress_thick_cylinder(internal_pressure, internal_radius, external_radius, radius):
+    return internal_pressure * internal_radius**2 / (external_radius**2 - internal_radius**2) * (1 + external_radius**2 / radius**2)
+
+def radial_stress_thick_cylinder(internal_pressure, internal_radius, external_radius, radius):
+    return internal_pressure * internal_radius**2 / (external_radius**2 - internal_radius**2) * (1 - external_radius**2 / radius**2)
+
+def stress_relaxation_time(initial_stress, relaxation_time, time):
+    return initial_stress * math.exp(-time / relaxation_time)
+
+def viscoelastic_maxwell_model(stress, relaxation_time, elastic_modulus, time):
+    return stress * math.exp(-time / relaxation_time) / elastic_modulus
+
+def creep_compliance(initial_strain, steady_state_rate, time):
+    return initial_strain + steady_state_rate * time
+
+def paris_law_crack_growth(stress_intensity_range, material_constant, exponent):
+    return material_constant * (stress_intensity_range**exponent)
