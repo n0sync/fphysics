@@ -85,3 +85,63 @@ def wedge_mechanical_advantage(length, thickness):
 
 def wheel_and_axle_advantage(wheel_radius, axle_radius):
     return wheel_radius / axle_radius
+
+def moment_of_inertia_rectangle(width, height):
+    return width * height**3 / 12
+
+def moment_of_inertia_circle(radius):
+    return PI * radius**4 / 4
+
+def moment_of_inertia_triangle(base, height):
+    return base * height**3 / 36
+
+def centroid_composite_area(areas, centroids):
+    total_area = sum(areas)
+    x_c = sum(A * x for A, (x, y) in zip(areas, centroids)) / total_area
+    y_c = sum(A * y for A, (x, y) in zip(areas, centroids)) / total_area
+    return x_c, y_c
+
+def parallel_axis_theorem(I_centroid, area, distance):
+    return I_centroid + area * distance**2
+
+def section_modulus(moment_of_inertia, distance_from_neutral):
+    return moment_of_inertia / distance_from_neutral
+
+def shear_flow(shear_force, first_moment, moment_of_inertia):
+    return shear_force * first_moment / moment_of_inertia
+
+def cable_tension_distributed_load(load_per_unit, span, sag):
+    return load_per_unit * span**2 / (8 * sag)
+
+def cable_length_parabolic(span, sag):
+    return span * (1 + (8 * sag**2) / (3 * span**2))
+
+def arch_thrust(load, span, rise):
+    return load * span / (8 * rise)
+
+def friction_angle(friction_coefficient):
+    return math.atan(friction_coefficient)
+
+def wedge_friction_force(normal_force, wedge_angle, friction_coefficient):
+    return normal_force * (math.sin(wedge_angle) + friction_coefficient * math.cos(wedge_angle))
+
+def belt_friction_tension(T1, friction_coefficient, wrap_angle):
+    return T1 * math.exp(friction_coefficient * wrap_angle)
+
+def hydrostatic_pressure(density, height, gravity=EARTH_GRAVITY):
+    return density * gravity * height
+
+def hydrostatic_force_on_surface(pressure, area):
+    return pressure * area
+
+def buoyant_force(fluid_density, displaced_volume, gravity=EARTH_GRAVITY):
+    return fluid_density * gravity * displaced_volume
+
+def stability_metacentric_height(center_of_buoyancy, center_of_gravity):
+    return center_of_buoyancy - center_of_gravity
+
+def plastic_section_modulus_rectangle(width, height):
+    return width * height**2 / 4
+
+def plastic_moment_capacity(yield_strength, plastic_section_modulus):
+    return yield_strength * plastic_section_modulus
