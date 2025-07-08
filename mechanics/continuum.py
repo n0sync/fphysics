@@ -128,3 +128,38 @@ def tensor_transformation_2d(tensor, transformation_matrix):
               [temp[1][0]*T[0][0] + temp[1][1]*T[1][0], temp[1][0]*T[0][1] + temp[1][1]*T[1][1]]]
     
     return result
+
+def volumetric_stress(epsilon_xx, epsilon_yy, epsilon_zz, lam, mu):
+    return lam * (epsilon_xx + epsilon_yy + epsilon_zz) + 2 * mu * epsilon_xx
+
+def deviatoric_stress(sigma_xx, sigma_yy, sigma_zz):
+    mean_stress = (sigma_xx + sigma_yy + sigma_zz) / 3
+    return [[sigma_xx - mean_stress, 0, 0], [0, sigma_yy - mean_stress, 0], [0, 0, sigma_zz - mean_stress]]
+
+def elasticity_tensor_2d(elastic_modulus, poissons_ratio):
+    E, nu = elastic_modulus, poissons_ratio
+    factor = E / (1 - nu**2)
+    return [[factor, factor * nu, 0], [factor * nu, factor, 0], [0, 0, factor * (1 - nu) / 2]]
+
+def hydrostatic_press_strain(volumetric_strain, bulk_modulus):
+    return bulk_modulus * volumetric_strain
+
+def creep_constitutive_law(stress, A, n, m, time):
+    return A * stress**n * time**m
+
+def stress_deviator_invariant_j2(stress_tensor):
+    s11, s22, s33 = stress_tensor[0][0], stress_tensor[1][1], stress_tensor[2][2]
+    s12, s13, s23 = stress_tensor[0][1], stress_tensor[0][2], stress_tensor[1][2]
+    mean_stress = (s11 + s22 + s33) / 3
+    return ((s11 - mean_stress)**2 + (s22 - mean_stress)**2 + (s33 - mean_stress)**2) / 2 + s12**2 + s13**2 + s23**2
+
+def octahedral_shear_stress(j2_invariant):
+    return math.sqrt(2 * j2_invariant / 3)
+
+def strain_rate_tensor(velocity_gradients):
+    return [[velocity_gradients[0][0], 0.5 * (velocity_gradients[0][1] + velocity_gradients[1][0])],
+            [0.5 * (velocity_gradients[0][1] + velocity_gradients[1][0]), velocity_gradients[1][1]]]
+
+def vorticity_tensor(velocity_gradients):
+    return [[0, 0.5 * (velocity_gradients[0][1] - velocity_gradients[1][0])],
+            [0.5 * (velocity_gradients[1][0] - velocity_gradients[0][1]), 0]]
