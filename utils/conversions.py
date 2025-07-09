@@ -1,4 +1,5 @@
 import math
+from constants import *
 
 LENGTH_CONVERSIONS = {
     'm': 1.0,
@@ -13,7 +14,10 @@ LENGTH_CONVERSIONS = {
     'μm': 1e-6,
     'pm': 1e-12,
     'ly': 9.461e15,
-    'au': 1.496e11
+    'au': 1.496e11,
+    'bohr': 5.29177210903e-11,
+    'planck': 1.616255e-35,
+    'Å': 1e-10
 }
 
 MASS_CONVERSIONS = {
@@ -24,7 +28,10 @@ MASS_CONVERSIONS = {
     'oz': 0.0283495,
     'ton': 1000.0,
     'slug': 14.5939,
-    'u': 1.66054e-27
+    'u': 1.66054e-27,
+    'MeV/c²': ELECTRON_VOLT * 1e6 / SPEED_OF_LIGHT**2,
+    'electron_mass': 9.1093837015e-31,
+    'proton_mass': 1.67262192369e-27
 }
 
 TIME_CONVERSIONS = {
@@ -58,7 +65,9 @@ ENERGY_CONVERSIONS = {
     'MeV': 1.602e-13,
     'kWh': 3.6e6,
     'erg': 1e-7,
-    'ft_lb': 1.35582
+    'ft_lb': 1.35582,
+    'Hartree': 4.3597447222071e-18,
+    'Rydberg': 2.17987236110355e-18
 }
 
 POWER_CONVERSIONS = {
@@ -115,6 +124,17 @@ def time_conversion(value, from_unit, to_unit):
 def temperature_conversion(value, from_unit, to_unit):
     if from_unit not in TEMPERATURE_CONVERSIONS or to_unit not in TEMPERATURE_CONVERSIONS:
         raise ValueError(f"Unsupported temperature unit: {from_unit} or {to_unit}")
+    
+    # Convert to Kelvin first to check for absolute zero
+    if from_unit == 'K' and value < 0:
+        raise ValueError("Temperature cannot be below absolute zero")
+    elif from_unit == 'C' and value < -273.15:
+        raise ValueError("Temperature cannot be below absolute zero")
+    elif from_unit == 'F' and value < -459.67:
+        raise ValueError("Temperature cannot be below absolute zero")
+    elif from_unit == 'R' and value < 0:
+        raise ValueError("Temperature cannot be below absolute zero")
+    
     return TEMPERATURE_CONVERSIONS[from_unit][to_unit](value)
 
 def energy_conversion(value, from_unit, to_unit):
@@ -140,6 +160,30 @@ def angle_conversion(value, from_unit, to_unit):
         raise ValueError(f"Unsupported angle unit: {from_unit} or {to_unit}")
     radians = value * ANGLE_CONVERSIONS[from_unit]
     return radians / ANGLE_CONVERSIONS[to_unit]
+
+def voltage_conversion(value, from_unit, to_unit):
+    conversions = {
+        'V': 1.0,
+        'mV': 1e-3,
+        'kV': 1e3,
+        'MV': 1e6
+    }
+    if from_unit not in conversions or to_unit not in conversions:
+        raise ValueError(f"Unsupported voltage unit: {from_unit} or {to_unit}")
+    volts = value * conversions[from_unit]
+    return volts / conversions[to_unit]
+
+def current_conversion(value, from_unit, to_unit):
+    conversions = {
+        'A': 1.0,
+        'mA': 1e-3,
+        'μA': 1e-6,
+        'kA': 1e3
+    }
+    if from_unit not in conversions or to_unit not in conversions:
+        raise ValueError(f"Unsupported current unit: {from_unit} or {to_unit}")
+    amperes = value * conversions[from_unit]
+    return amperes / conversions[to_unit]
 
 def frequency_conversion(value, from_unit, to_unit):
     conversions = {
@@ -305,3 +349,4 @@ def resistance_conversion(value, from_unit, to_unit):
         raise ValueError(f"Unsupported resistance unit: {from_unit} or {to_unit}")
     ohms = value * conversions[from_unit]
     return ohms / conversions[to_unit]
+
