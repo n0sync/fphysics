@@ -25,7 +25,7 @@ FINE_STRUCTURE_CONSTANT = 7.2973525693e-3
 RYDBERG_CONSTANT = 10973731.568160
 THOMSON_CROSS_SECTION = 6.6524587321e-29
 FARADAY_CONSTANT = 96485.33212
-ELECTRON_CHARGE_TO_MASS = -1.75882001076e11
+ELECTRON_CHARGE_TO_MASS = 1.75882001076e11
 ATMOSPHERIC_PRESSURE = 101325
 EARTH_GRAVITY = 9.80665
 STANDARD_TEMPERATURE = 273.15
@@ -92,7 +92,7 @@ VON_KLITZING_CONSTANT = 25812.80745
 CONDUCTANCE_QUANTUM = 7.748091729e-5
 
 # Electromagnetic Constants
-VACUUM_IMPEDANCE = 376.730313668
+VACUUM_IMPEDANCE = math.sqrt(VACUUM_PERMEABILITY / VACUUM_PERMITTIVITY)
 FIRST_RADIATION_CONSTANT = 3.741771852e-16
 SECOND_RADIATION_CONSTANT = 1.438776877e-2
 RADIATION_DENSITY_CONSTANT = 7.5657e-16
@@ -192,7 +192,7 @@ GOLDEN_RATIO = (1 + math.sqrt(5)) / 2
 EULER_GAMMA = 0.5772156649015329
 
 # Derived Physical Constants
-BOHR_VELOCITY = ELEMENTARY_CHARGE**2 / (2 * VACUUM_PERMITTIVITY * PLANCK_CONSTANT)
+BOHR_VELOCITY = FINE_STRUCTURE_CONSTANT * SPEED_OF_LIGHT
 HYDROGEN_GROUND_STATE_ENERGY = -13.6057
 CLASSICAL_ELECTRON_ORBIT_FREQUENCY = 6.579e15
 CHARACTERISTIC_IMPEDANCE_FREE_SPACE = math.sqrt(VACUUM_PERMEABILITY / VACUUM_PERMITTIVITY)
@@ -307,3 +307,90 @@ __all__ = [
     # Standard Model
     'FERMI_COUPLING_CONSTANT', 'WEINBERG_ANGLE', 'QCD_SCALE', 'STRONG_COUPLING_CONSTANT',
 ]
+
+# Utility Functions
+
+def convert_energy(value, from_unit, to_unit):
+    """Convert energy between different units (J, eV, cal, BTU, etc.)"""
+    conversions = {
+        'J': 1.0,
+        'eV': ELECTRON_VOLT,
+        'cal': CALORIE_TO_JOULE,
+        'BTU': BTU_TO_JOULE,
+        'Hartree': HARTREE_ENERGY,
+        'Rydberg': HARTREE_ENERGY / 2,
+    }
+    
+    if from_unit not in conversions or to_unit not in conversions:
+        raise ValueError(f"Unsupported unit. Available: {list(conversions.keys())}")
+    
+    joules = value * conversions[from_unit]
+    return joules / conversions[to_unit]
+
+def convert_mass(value, from_unit, to_unit):
+    """Convert mass between different units (kg, g, u, MeV/c², etc.)"""
+    conversions = {
+        'kg': 1.0,
+        'g': 1e-3,
+        'u': ATOMIC_MASS_UNIT,
+        'MeV/c²': ELECTRON_VOLT * 1e6 / SPEED_OF_LIGHT**2,
+        'electron_mass': ELECTRON_MASS,
+        'proton_mass': PROTON_MASS,
+    }
+    
+    if from_unit not in conversions or to_unit not in conversions:
+        raise ValueError(f"Unsupported unit. Available: {list(conversions.keys())}")
+    
+    kg = value * conversions[from_unit]
+    return kg / conversions[to_unit]
+
+def convert_length(value, from_unit, to_unit):
+    """Convert length between different units (m, cm, Å, fm, etc.)"""
+    conversions = {
+        'm': 1.0,
+        'cm': 1e-2,
+        'mm': 1e-3,
+        'μm': 1e-6,
+        'nm': 1e-9,
+        'Å': 1e-10,
+        'pm': 1e-12,
+        'fm': 1e-15,
+        'bohr': BOHR_RADIUS,
+        'planck': PLANCK_LENGTH,
+    }
+    
+    if from_unit not in conversions or to_unit not in conversions:
+        raise ValueError(f"Unsupported unit. Available: {list(conversions.keys())}")
+    
+    meters = value * conversions[from_unit]
+    return meters / conversions[to_unit]
+
+def natural_units_conversion(quantity, unit_type):
+    """Convert to natural units where ℏ = c = kB = 1"""
+    if unit_type == 'energy':
+        return quantity / ELECTRON_VOLT
+    elif unit_type == 'mass':
+        return quantity * SPEED_OF_LIGHT**2 / ELECTRON_VOLT
+    elif unit_type == 'length':
+        return quantity / (REDUCED_PLANCK * SPEED_OF_LIGHT / ELECTRON_VOLT)
+    elif unit_type == 'time':
+        return quantity / (REDUCED_PLANCK / ELECTRON_VOLT)
+    else:
+        raise ValueError("Supported types: 'energy', 'mass', 'length', 'time'")
+
+if __name__ == "__main__":
+    print("Physics Constants Library")
+    print("=" * 50)
+    print(f"Speed of light: {SPEED_OF_LIGHT:.0f} m/s")
+    print(f"Planck constant: {PLANCK_CONSTANT:.6e} J·s")
+    print(f"Electron mass: {ELECTRON_MASS:.6e} kg = {ELECTRON_MASS_MEV:.6f} MeV/c²")
+    print(f"Proton mass: {PROTON_MASS:.6e} kg = {PROTON_MASS_MEV:.6f} MeV/c²")
+    print(f"Fine structure constant: {FINE_STRUCTURE_CONSTANT:.10f}")
+    print(f"Bohr radius: {BOHR_RADIUS:.6e} m = {convert_length(BOHR_RADIUS, 'm', 'Å'):.4f} Å")
+    
+    print("\nConversion Examples:")
+    print(f"1 eV = {convert_energy(1, 'eV', 'J'):.6e} J")
+    print(f"1 u = {convert_mass(1, 'u', 'kg'):.6e} kg")
+    print(f"1 Å = {convert_length(1, 'Å', 'm'):.2e} m")
+    
+    print(f"\nTotal constants exported: {len(__all__)}")
