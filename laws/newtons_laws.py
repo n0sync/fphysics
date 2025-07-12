@@ -1,5 +1,5 @@
 import math
-from ..constants import *
+from constants import *
 
 def newtons_first_law(net_force):
     return net_force == 0
