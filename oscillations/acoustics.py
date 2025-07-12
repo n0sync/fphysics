@@ -1,5 +1,5 @@
 import math
-from ..constants import *
+from constants import *
 
 def sound_speed_air(temperature):
     return 331.3 * math.sqrt(1 + temperature / 273.15)
