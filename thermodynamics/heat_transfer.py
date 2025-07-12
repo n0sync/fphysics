@@ -1,5 +1,5 @@
 import math
-from ..constants import *
+from constants import *
 
 def fourier_law_conduction(thermal_conductivity, area, temperature_gradient):
     return -thermal_conductivity * area * temperature_gradient
