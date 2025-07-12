@@ -1,5 +1,5 @@
 import math
-from ..constants import *
+from constants import *
 
 def coupled_pendulum_normal_modes(length, coupling_constant, gravity=EARTH_GRAVITY):
     omega0 = math.sqrt(gravity / length)
