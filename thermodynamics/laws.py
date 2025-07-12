@@ -1,5 +1,5 @@
 import math
-from ..constants import *
+from constants import *
 
 def ideal_gas_law(pressure, volume, temperature, moles):
     return pressure * volume == moles * GAS_CONSTANT * temperature
