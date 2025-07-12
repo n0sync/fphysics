@@ -1,5 +1,5 @@
 import math
-from ..constants import *
+from constants import *
 
 def carnot_efficiency(hot_temp, cold_temp):
     return (hot_temp - cold_temp) / hot_temp
