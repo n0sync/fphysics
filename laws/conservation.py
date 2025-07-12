@@ -1,5 +1,5 @@
 import math
-from ..constants import *
+from constants import *
 
 def conservation_of_energy(kinetic_initial, potential_initial, kinetic_final, potential_final):
     return kinetic_initial + potential_initial == kinetic_final + potential_final
