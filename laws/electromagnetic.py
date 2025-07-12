@@ -1,5 +1,5 @@
 import math
-from ..constants import *
+from constants import *
 
 def coulombs_law(q1, q2, distance):
     return COULOMB_CONSTANT * q1 * q2 / distance**2
