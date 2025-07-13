@@ -1,7 +1,8 @@
 # A collection of fascinating concepts and theories from physics and mathematics that I find intriguing and worth exploring.
+        # Mentions: Most of these concepts were inspired by videos from Veritasium, 3Blue1Brown, and Real Engineering.
 
 
-import math, cmath , random
+import math, cmath , random, itertools, time
 
 def Depressed_Cubic(p=None, q=None, *, show_explanation=True):
     """
@@ -114,3 +115,86 @@ but Copenhagen remains one of the most widely taught viewpoints.
         return outcome
 
     return None
+
+def P_vs_NP(
+        *, 
+        show_explanation: bool = True,
+        demo: bool = False,
+        instance=None,
+        certificate=None
+    ):
+    """
+    Print an overview of the P vs NP problem and optionally demonstrate that
+    verifying a certificate is fast even if finding it may be slow.
+
+    Parameters
+    ----------
+    show_explanation : bool
+        Print the historical/theoretical summary.
+    demo : bool
+        If True, run a tiny Subset‑Sum search + verification.
+    instance : tuple[list[int], int] | None
+        A pair (numbers, target) for the demo search.
+    certificate : list[int] | None
+        A purported solution subset; will be verified in O(n).
+
+    Returns
+    -------
+    verified : bool | None
+        Whether the certificate is valid (if demo and certificate supplied).
+    """
+
+    if show_explanation:
+        print("""\
+Title: The P vs NP Problem – A Million Dollar Mystery
+
+One of the most famous unsolved problems in computer science and mathematics:
+
+    Is P = NP?
+
+Where:
+• P  = problems solvable quickly (in polynomial time)
+• NP = problems where solutions can be verified quickly
+
+Key idea: If you can quickly *check* a solution, can you also *find* one quickly?
+
+• NP-complete problems (e.g., SAT, Subset-Sum, Traveling Salesman) are the hardest in NP.
+• A polynomial-time solution to any NP-complete problem implies P = NP.
+
+This problem was formally posed by Stephen Cook in 1971 and remains unsolved.
+It is one of the seven Millennium Prize Problems—solving it earns you **$1,000,000** from the Clay Mathematics Institute.
+
+So far, no one knows the answer.
+""")
+
+    if not demo:
+        return None
+    
+    # Default demo instance if none given
+    if instance is None:
+        instance = ([3, 34, 4, 12, 5, 2], 9)   # classic small subset‑sum
+    numbers, target = instance
+
+    print(f"\nDemo — Subset‑Sum instance: numbers = {numbers}, target = {target}")
+
+    # Brute‑force search (exponential)
+    start = time.perf_counter()
+    solution = None
+    for r in range(len(numbers) + 1):
+        for subset in itertools.combinations(numbers, r):
+            if sum(subset) == target:
+                solution = list(subset)
+                break
+        if solution is not None:
+            break
+    brute_time = (time.perf_counter() - start) * 1e3  # ms
+    print(f"Brute‑force search found subset {solution} in {brute_time:.2f} ms")
+
+    # Verification step (polynomial)
+    if certificate is None:
+        certificate = solution
+        print("Using the found subset as certificate.")
+    is_valid = sum(certificate) == target and all(x in numbers for x in certificate)
+    print(f"Certificate {certificate} verification → {is_valid}")
+
+    return is_valid
