@@ -546,5 +546,66 @@ emerge, rewarding cooperation and punishing betrayal — encouraging trust over 
 • **Pareto Inefficient:** Mutual cooperation is better for both, yet unstable without trust.
 • **Zero-Sum Misconception:** The dilemma is not zero-sum — both players can win or lose together.
 
+def noethers_theorem(show_explanation=True):
+    """
+    Print an explanation of Noether’s Theorem and its profound connection
+    between symmetries and conserved quantities in physics.
+
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the theoretical background and significance.
+    """
+    if show_explanation:
+        print("""\
+Title: Noether’s Theorem — The Deep Link Between Symmetry and Conservation
+
+Developed by Emmy Noether in 1915 and published in 1918, Noether’s Theorem is one of the most profound results in theoretical physics and mathematics.
+
+--- Core Idea ---
+
+**Every differentiable symmetry of the action of a physical system corresponds to a conservation law.**
+
+In simpler terms:
+- If a system’s laws don’t change under a continuous transformation (a symmetry),
+- Then something measurable remains **conserved**.
+
+--- Examples of Symmetry ↔ Conservation ---
+
+1. **Time Translation Symmetry**  
+   → Laws don’t change over time  
+   → ⟹ **Energy is conserved**
+
+2. **Spatial Translation Symmetry**  
+   → Laws don’t depend on location in space  
+   → ⟹ **Linear momentum is conserved**
+
+3. **Rotational Symmetry**  
+   → Laws remain unchanged under spatial rotation  
+   → ⟹ **Angular momentum is conserved**
+
+--- The Mathematics (Simplified) ---
+
+In Lagrangian mechanics, the *action* \( S \) is the integral over time of the Lagrangian \( L = T - V \) (kinetic - potential energy):
+
+\[
+S = \int L(q, \dot{q}, t)\, dt
+\]
+
+Noether showed that if the action \( S \) is invariant under a continuous transformation of the coordinates \( q(t) \), then there exists a conserved quantity \( Q \) along the solutions of the Euler–Lagrange equations.
+
+This deep connection is central to all of modern theoretical physics — classical mechanics, quantum mechanics, general relativity, and quantum field theory.
+
+--- Legacy and Importance ---
+
+• Noether’s Theorem is considered a cornerstone of **modern physics**.
+• It provides a **mathematical foundation** for why conservation laws hold.
+• It bridges **symmetry (geometry)** with **dynamics (physics)**.
+• It is essential in **Lagrangian** and **Hamiltonian** formulations.
+
+Albert Einstein himself called Emmy Noether a **mathematical genius** and praised the theorem’s beauty and power.
+
+""")
+
 This game beautifully models the tension between short-term incentives and long-term cooperation.
 """)
