@@ -198,3 +198,73 @@ So far, no one knows the answer.
     print(f"Certificate {certificate} verification → {is_valid}")
 
     return is_valid
+
+def goldbach_conjecture(*, show_explanation=True, demo=False, n=None):
+    """
+    Print an overview of Goldbach's Conjectures and optionally demonstrate the conjecture for a given number.
+
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the historical/theoretical summary.
+    demo : bool, default False
+        If True, check the conjecture for the given number n.
+    n : int | None
+        An even number > 2 (for strong) or odd number > 5 (for weak), to verify the conjecture.
+
+    Returns
+    -------
+    result : list[tuple[int, int]] or list[tuple[int, int, int]] | None
+        A list of prime pairs or triplets satisfying the conjecture, or None if demo=False.
+    """
+
+    if show_explanation:
+        print("""\
+Title: Goldbach’s Conjectures – A Timeless Enigma in Number Theory
+
+Proposed in 1742 by Christian Goldbach in correspondence with Euler, the conjectures are:
+
+• **Strong Goldbach Conjecture**: Every even integer greater than 2 is the sum of two prime numbers.
+    → Example: 28 = 11 + 17
+
+• **Weak Goldbach Conjecture**: Every odd integer greater than 5 is the sum of three primes.
+    → Example: 29 = 7 + 11 + 11
+
+Euler considered the strong version a special case of the weak one.
+Though tested up to very large numbers, both remain unproven in general.
+
+• The weak conjecture was **proven in 2013** by Harald Helfgott.
+• The strong conjecture is still **open** — but no counterexample has ever been found.
+""")
+
+    if not demo or n is None:
+        return None
+
+    def is_prime(k):
+        if k < 2:
+            return False
+        for i in range(2, int(k ** 0.5) + 1):
+            if k % i == 0:
+                return False
+        return True
+
+    results = []
+
+    if n % 2 == 0:
+        # Strong Goldbach demo (even number > 2)
+        for a in range(2, n // 2 + 1):
+            b = n - a
+            if is_prime(a) and is_prime(b):
+                results.append((a, b))
+        print(f"Strong Goldbach pairs for {n}: {results}")
+    else:
+        # Weak Goldbach demo (odd number > 5)
+        for a in range(2, n - 4):
+            if not is_prime(a): continue
+            for b in range(a, n - a - 1):
+                c = n - a - b
+                if c >= b and is_prime(b) and is_prime(c):
+                    results.append((a, b, c))
+        print(f"Weak Goldbach triplets for {n}: {results}")
+
+    return results if results else None
