@@ -467,3 +467,84 @@ Einstein’s Equivalence Principle marks the shift from Newtonian gravity to the
 
 This principle is one of the deepest and most beautiful insights in all of physics.
 """)
+
+def prisoners_dilemma(show_explanation=True, show_table=True):
+    """
+    Print a detailed explanation of the Prisoner’s Dilemma, including the game setup,
+    payoff matrix, and strategic implications in game theory.
+
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the background and theoretical explanation.
+    show_table : bool, default True
+        Whether to print the payoff matrix of the game.
+    """
+    
+    if show_explanation:
+        print("""\
+Title: The Prisoner’s Dilemma – A Game Theory Classic
+
+The Prisoner's Dilemma is a foundational problem in game theory that illustrates how 
+individual rational choices can lead to a collectively suboptimal outcome.
+
+--- Setup ---
+
+Two individuals, Alice and Bob, are arrested for a serious crime. Prosecutors separate them 
+and offer each the same deal:
+
+• If one testifies (defects) and the other remains silent (cooperates), the defector goes free,
+  and the cooperator gets 5 years in prison.
+
+• If both testify (defect), both receive 3 years in prison.
+
+• If both remain silent (cooperate), both serve only 1 year due to lack of evidence.
+
+Each prisoner must choose without knowing what the other will do. The dilemma lies in the fact
+that no matter what the other does, betrayal offers a better personal outcome.
+
+--- Core Insight ---
+
+• Mutual cooperation yields a better outcome than mutual defection.
+• Yet, rational self-interest pushes both to defect.
+• Hence, mutual defection is a **Nash Equilibrium** — a stable state where no one can benefit 
+  from changing their decision alone.
+
+This contradiction between collective benefit and individual rationality makes the dilemma a 
+central theme in understanding real-world issues like trust, competition, and strategy.
+
+""")
+    
+    if show_table:
+        print("""\
+--- Payoff Matrix ---
+
+        | Bob Cooperates | Bob Defects
+------------------------------------------
+Alice Cooperates | (−1, −1)       | (−5,  0)
+Alice Defects    | ( 0, −5)       | (−3, −3)
+
+Each pair (A, B) = (Years for Alice, Years for Bob)
+""")
+
+        print("""\
+--- Implications and Applications ---
+
+• **Arms Races:** Countries build weapons even though disarmament would benefit all.
+• **Climate Change:** Nations hesitate to reduce emissions unless others do the same.
+• **Cartel Pricing:** Firms may lower prices to gain market share, even when collusion yields more profit.
+• **Evolutionary Biology:** Cooperation and altruism in species can be studied using repeated dilemmas.
+
+--- Iterated Prisoner’s Dilemma ---
+
+When the game is played repeatedly, strategies like **Tit for Tat** (cooperate first, then copy the opponent) can
+emerge, rewarding cooperation and punishing betrayal — encouraging trust over time.
+
+--- Theoretical Notes ---
+
+• **Nash Equilibrium:** Mutual defection is stable; no unilateral change improves outcome.
+• **Pareto Inefficient:** Mutual cooperation is better for both, yet unstable without trust.
+• **Zero-Sum Misconception:** The dilemma is not zero-sum — both players can win or lose together.
+
+This game beautifully models the tension between short-term incentives and long-term cooperation.
+""")
