@@ -377,3 +377,93 @@ the actual trajectory is the one that balances all trade-offs in the action.
 As Feynman said:
 > “Nature doesn’t sit there and calculate what force to apply. Instead, every path is tried, and the one with stationary action is the one we see.”
 """)
+
+def einstein_equivalence_principle(show_explanation=True):
+    """
+    Provides a detailed overview of Einstein's Equivalence Principle, including its conceptual framework,
+    historical development, and implications for general relativity.
+
+    Parameters
+    ----------
+    show_explanation : bool
+        Whether to print the theoretical and historical explanation.
+    """
+    if show_explanation:
+        print("""\
+Title: Einstein’s Equivalence Principle — The Geometrization of Gravity
+
+## Historical Background
+
+The Equivalence Principle has its roots in Galileo’s 17th-century observation that all objects fall at the same rate in a vacuum, regardless of their mass. Newton’s law of gravitation preserved this principle by assuming that the **gravitational mass** (how strongly gravity pulls on an object) and the **inertial mass** (how much an object resists acceleration) are equal — an unexplained coincidence in classical mechanics.
+
+In 1907, while working in a Swiss patent office, **Albert Einstein** had what he later called "the happiest thought of my life":  
+> *A person in free fall does not feel their own weight.*
+
+From this thought experiment, Einstein formulated a revolutionary idea: **locally**, the effects of gravity are indistinguishable from those of acceleration.
+
+---
+
+## Types of Equivalence Principles
+
+### 1. Weak Equivalence Principle (WEP)
+> The trajectory of a freely falling test particle is independent of its internal structure or composition.
+
+This principle has been tested to extreme precision (better than 1 part in 10¹⁵) in modern torsion balance and lunar laser ranging experiments.
+
+### 2. Einstein Equivalence Principle (EEP)
+> All local, non-gravitational experiments in a freely falling frame yield results independent of the velocity and location of the frame.
+
+It includes:
+- **WEP**
+- **Local Lorentz Invariance (LLI)** — Laws of physics do not depend on the velocity of the frame.
+- **Local Position Invariance (LPI)** — Laws of physics do not depend on where or when the experiment is done.
+
+### 3. Strong Equivalence Principle (SEP)
+> Extends EEP to include gravitational experiments and self-gravitating bodies.
+
+Only general relativity fully satisfies SEP; most alternative gravity theories violate it.
+
+---
+
+## Einstein’s Elevator Thought Experiment
+
+Imagine you're in a sealed elevator:
+
+- **Case 1:** The elevator is in deep space, far from any mass, accelerating upward at 9.8 m/s².
+- **Case 2:** The elevator is stationary on Earth's surface.
+
+Inside, there's no way to tell which situation you're in without looking outside. You feel a downward "force" in both cases. A beam of light, aimed horizontally across the elevator, appears to bend downward in both.
+
+**Conclusion:** Locally, gravity is equivalent to acceleration.
+
+---
+
+## Mathematical Implication
+
+This insight leads to the conclusion that **gravity is not a force**, but a manifestation of spacetime curvature. Mathematically, in general relativity:
+
+- Objects move along **geodesics**, the straightest possible paths in curved spacetime.
+- The gravitational field is described by the **metric tensor** \( g_{\mu\nu} \), which determines distances and time intervals.
+- The curvature is encoded in the **Riemann curvature tensor**, and how matter curves spacetime is governed by **Einstein’s field equations**:
+
+\[
+R_{\mu\nu} - \frac{1}{2} g_{\mu\nu} R = \frac{8\pi G}{c^4} T_{\mu\nu}
+\]
+
+---
+
+## Physical Predictions from the Equivalence Principle
+
+- **Gravitational time dilation**: Clocks tick slower in stronger gravitational fields (verified by GPS and gravitational redshift experiments).
+- **Gravitational redshift**: Light climbing out of a gravitational well loses energy (becomes redder).
+- **Light deflection by gravity**: Light bends around massive objects (confirmed by Eddington's 1919 solar eclipse expedition).
+- **Perihelion precession of Mercury**: Explained precisely by general relativity.
+
+---
+
+## Summary
+
+Einstein’s Equivalence Principle marks the shift from Newtonian gravity to the geometric framework of **general relativity**. It teaches us that **freely falling frames are the truest form of inertial frames** in a curved universe. Gravity, in Einstein’s view, is not a force but the shape of spacetime itself.
+
+This principle is one of the deepest and most beautiful insights in all of physics.
+""")
