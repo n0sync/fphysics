@@ -265,6 +265,115 @@ Though tested up to very large numbers, both remain unproven in general.
                 c = n - a - b
                 if c >= b and is_prime(b) and is_prime(c):
                     results.append((a, b, c))
+                        
         print(f"Weak Goldbach triplets for {n}: {results}")
 
     return results if results else None
+
+def Principle_of_Least_Action(*, show_explanation=True):
+    """
+    Print a full explanation of the Principle of Least Action,
+    including its historical development, derivative, and classical interpretation.
+    """
+
+    if show_explanation:
+        print("""\
+Title: The Principle of Least Action – A Unifying Law of Motion
+
+Nature, in all its complexity, seems to follow a very simple rule:
+    "Of all possible paths a system could take, the one actually taken is the one
+     that makes the action stationary (usually minimal)."
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. The Action Integral and Lagrangian Mechanics
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+The **action** S is defined as:
+
+        S = ∫ L dt        (from t₁ to t₂)
+
+where L is the **Lagrangian**:
+
+        L = T - V
+
+        • T: kinetic energy
+        • V: potential energy
+
+This formulation, developed by **Euler** and **Lagrange**, leads to:
+
+    ◾ Euler–Lagrange Equation:
+
+        d/dt (∂L/∂𝑞̇) − ∂L/∂q = 0
+
+This differential equation is the **variational derivative** of the action.
+It’s equivalent to **Newton’s Second Law**, but more general and powerful.
+
+▶ Example:
+    A particle of mass m in a potential V(q):
+
+        L = (1/2)m𝑞̇² − V(q)
+
+    Applying the Euler–Lagrange equation:
+
+        d/dt (m𝑞̇) = −dV/dq   ⟶   m𝑞̈ = −∇V
+
+This recovers Newton’s familiar form: **F = ma**.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. Maupertuis' Principle – The Older Formulation
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+Pierre-Louis **Maupertuis** proposed an earlier version (c. 1744), sometimes called:
+
+    “The Principle of Least Path” or “Least Action in the kinetic form”
+
+He defined action as:
+
+        S = ∫ p · ds  = ∫ m·v · ds
+
+    ◾ Here:
+        • p is momentum (mv)
+        • ds is an infinitesimal segment of the path
+        • This applies to conservative systems where energy is constant
+
+▶ In scalar form (for 1D or arc length ds):
+
+        S = ∫ m·v·ds
+
+This approach focuses on the geometry of the path, rather than time evolution.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. Comparison & Derivatives
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+Both formulations lead to the **same equations of motion**:
+
+    ▸ Lagrangian mechanics uses time as the key variable:
+        δS = 0 → Euler–Lagrange differential equation (time-dependent)
+
+    ▸ Maupertuis' approach is energy-conserving and “geometrical”:
+        It focuses on space paths with fixed total energy.
+
+▶ Derivative of the Lagrangian action gives:
+    
+        δS = 0  ⇨  d/dt (∂L/∂𝑞̇) − ∂L/∂q = 0
+
+This is a **functional derivative** — it finds functions (paths q(t)) that make
+the integral minimal, not just numbers.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. Why It’s Deep
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+✓ It unifies **Newtonian mechanics**, **Hamiltonian mechanics**, **quantum mechanics** (Feynman path integrals), and **general relativity**.
+
+✓ It allows reformulating physical laws in terms of optimization.
+
+✓ It’s the foundation for modern theoretical physics.
+
+In short: **Nature acts economically.** Forces aren’t “causing” motion — instead,
+the actual trajectory is the one that balances all trade-offs in the action.
+
+As Feynman said:
+> “Nature doesn’t sit there and calculate what force to apply. Instead, every path is tried, and the one with stationary action is the one we see.”
+""")
