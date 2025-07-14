@@ -546,6 +546,9 @@ emerge, rewarding cooperation and punishing betrayal — encouraging trust over 
 • **Pareto Inefficient:** Mutual cooperation is better for both, yet unstable without trust.
 • **Zero-Sum Misconception:** The dilemma is not zero-sum — both players can win or lose together.
 
+This game beautifully models the tension between short-term incentives and long-term cooperation.
+""")
+            
 def noethers_theorem(show_explanation=True):
     """
     Print an explanation of Noether’s Theorem and its profound connection
@@ -588,9 +591,7 @@ In simpler terms:
 
 In Lagrangian mechanics, the *action* \( S \) is the integral over time of the Lagrangian \( L = T - V \) (kinetic - potential energy):
 
-\[
-S = \int L(q, \dot{q}, t)\, dt
-\]
+\[S = \int L(q, \dot{q}, t)\, dt\]
 
 Noether showed that if the action \( S \) is invariant under a continuous transformation of the coordinates \( q(t) \), then there exists a conserved quantity \( Q \) along the solutions of the Euler–Lagrange equations.
 
@@ -605,7 +606,4 @@ This deep connection is central to all of modern theoretical physics — classic
 
 Albert Einstein himself called Emmy Noether a **mathematical genius** and praised the theorem’s beauty and power.
 
-""")
-
-This game beautifully models the tension between short-term incentives and long-term cooperation.
 """)
