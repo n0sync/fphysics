@@ -675,3 +675,87 @@ As Feynman said:
 
     return None
 
+def axiom_of_choice(*, show_explanation=True, show_paradox=True):
+    """
+    Explain the Axiom of Choice and its philosophical and mathematical consequences,
+    including the Banach–Tarski paradox.
+
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the full explanation and implications.
+    show_paradox : bool, default True
+        Whether to include the Banach–Tarski paradox as an illustration.
+
+    Returns
+    -------
+    result : str | None
+        A summary of the paradox if shown, else None.
+    """
+    if show_explanation:
+        print("""\
+Title: The Axiom of Choice — Choosing Without a Rule
+
+Imagine an infinite number of non-empty boxes, each with at least one object inside. 
+You’re asked to pick one object from each box. But there’s a catch — no rule or pattern is given. 
+The Axiom of Choice says you can still make those selections, even if there’s no way to describe how.
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. Formal Statement
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+The axiom states:
+
+> For any collection of non-empty sets, there exists a function that selects exactly 
+> one element from each set — even if the collection is infinite and unstructured.
+
+It’s not about how to choose, just that a complete set of choices exists.
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. Why It's Useful
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+This principle allows us to:
+• Prove that every vector space has a basis — even infinite-dimensional ones.
+• Show that any set can be well-ordered (every subset has a least element).
+• Derive key results in analysis, algebra, and topology — like Tychonoff’s Theorem.
+
+But its power comes with strange consequences.
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. A Paradoxical Consequence
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+""")
+
+    if show_paradox:
+        print("""\
+There’s a result known as the **Banach–Tarski paradox**. Here's what it says:
+
+• You can take a solid sphere.
+• Split it into just five pieces.
+• Move and rotate those pieces — no stretching, no duplicating.
+• Reassemble them into **two identical copies** of the original sphere.
+
+This doesn’t break conservation of volume — because the pieces themselves are 
+non-measurable in the traditional sense. They only exist because the axiom 
+guarantees their selection — not because they can be constructed or seen.
+
+It's a result that stretches the boundary between abstract mathematics and physical reality.
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. Controversy and Choice
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+• The axiom is **non-constructive** — it asserts existence without providing a method.
+• It’s **independent** of standard set theory:
+    ◦ You can accept it and get a rich, complete theory.
+    ◦ You can reject it and get a more grounded, constructive approach.
+
+Both worlds are internally consistent — but they lead to very different mathematics.
+
+So we’re left with a strange philosophical choice:
+> Do we allow principles that grant infinite power, even if they create outcomes
+> we can’t visualize, build, or ever observe?
+
+Mathematics says yes — but it also warns: use with care.
+""")
+        return "Banach–Tarski paradox: A sphere can be split and reassembled into two identical spheres."
+
+    return None
