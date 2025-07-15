@@ -607,3 +607,71 @@ This deep connection is central to all of modern theoretical physics — classic
 Albert Einstein himself called Emmy Noether a **mathematical genius** and praised the theorem’s beauty and power.
 
 """)
+
+def double_slit_experiment(*, show_explanation=True, simulate=False):
+    """
+    Explain the double-slit experiment and the effect of observation on interference patterns.
+    
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the historical and theoretical explanation.
+    simulate : bool, default False
+        If True, simulate simplified outcomes with and without measurement.
+    
+    Returns
+    -------
+    pattern : str | None
+        A string description of the observed pattern if simulate=True, else None.
+    """
+    if show_explanation:
+        print("""\
+Title: The Double-Slit Experiment — Observation Alters Reality
+
+The double-slit experiment, first performed by Thomas Young in 1801 with light and later repeated with electrons, 
+is a cornerstone of quantum mechanics.
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. Setup
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+• A particle source emits electrons (or photons) one at a time.
+• A barrier with two narrow slits lets the particles pass through.
+• A detection screen records where each particle lands.
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. Without Observation
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+• No detectors are placed at the slits.
+• The particles behave like waves, passing through **both slits simultaneously**.
+• Result: An **interference pattern** builds up on the screen — even with single particles.
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. With Observation (Measurement)
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+• Detectors are placed at the slits to observe which path the particle takes.
+• The wavefunction collapses — each particle is forced to choose a definite path.
+• Result: The interference pattern **disappears**, and two classical bands appear.
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. Interpretation
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+• Observation **changes the outcome** — not passively, but fundamentally.
+• The act of measurement collapses the wavefunction into a definite state.
+• This illustrates the **quantum measurement problem** and challenges classical intuition.
+
+As Feynman said:
+> "This is the only mystery of quantum mechanics."
+
+""")
+
+    if simulate:
+        observed = random.choice([True, False])
+        if observed:
+            pattern = "Two distinct bands — classical particle behavior due to wavefunction collapse."
+        else:
+            pattern = "Interference pattern — wave-like superposition across both slits."
+        print(f"Simulated outcome (observation={'Yes' if observed else 'No'}): {pattern}")
+        return pattern
+
+    return None
+
