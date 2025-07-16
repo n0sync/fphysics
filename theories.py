@@ -3,6 +3,7 @@
 
 
 import math, cmath , random, itertools, time
+from scipy.stats import norm
 
 def Depressed_Cubic(p=None, q=None, *, show_explanation=True):
     """
@@ -757,5 +758,118 @@ So we’re left with a strange philosophical choice:
 Mathematics says yes — but it also warns: use with care.
 """)
         return "Banach–Tarski paradox: A sphere can be split and reassembled into two identical spheres."
+
+    return None
+
+def black_scholes_merton(*, show_explanation=True, show_example=False, S=100, K=100, T=1, r=0.05, sigma=0.2):
+    """
+    Explain the Black-Scholes-Merton equation for option pricing, and optionally compute
+    the theoretical price of a European call option.
+
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the theoretical background.
+    show_example : bool, default False
+        If True, compute and display a sample call option price using given parameters.
+    S : float
+        Current price of the underlying asset.
+    K : float
+        Strike price of the option.
+    T : float
+        Time to expiration (in years).
+    r : float
+        Risk-free interest rate (annualized).
+    sigma : float
+        Volatility of the underlying asset (standard deviation of returns).
+
+    Returns
+    -------
+    call_price : float | None
+        Price of the European call option if show_example=True, else None.
+    """
+    if show_explanation:
+        print("""\
+Title: Black–Scholes–Merton Equation – Pricing the Value of Risk
+
+In the 1970s, Fischer Black, Myron Scholes, and Robert Merton introduced a groundbreaking
+model that transformed financial markets forever. Their equation gives a theoretical estimate
+for the price of a **European option** — a financial contract that grants the right, but not
+the obligation, to buy (or sell) an asset at a specified price and time.
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. The Core Idea
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+The value of an option should reflect:
+• The current price of the underlying asset (S),
+• The strike price (K),
+• Time remaining (T),
+• Volatility of the asset (σ),
+• And the risk-free interest rate (r).
+
+To avoid arbitrage (riskless profit), the price must follow a differential equation:
+
+    ∂V/∂t + (1/2)·σ²·S²·∂²V/∂S² + r·S·∂V/∂S − r·V = 0
+
+Where:
+- V = value of the option,
+- S = asset price,
+- t = time.
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. The Solution (for a European Call Option)
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+The closed-form solution for a European call is:
+
+    C = S·N(d₁) − K·e^(−rT)·N(d₂)
+
+Where:
+    d₁ = [ln(S/K) + (r + σ²/2)·T] / (σ·√T)
+    d₂ = d₁ − σ·√T
+    N(x) = Cumulative distribution function of the standard normal distribution
+
+This formula prices the call using the concept of **no-arbitrage** and the idea of constructing 
+a "replicating portfolio" — a mix of stock and cash that behaves exactly like the option.
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. Assumptions Behind the Model
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+• No transaction costs or taxes
+• Continuous trading
+• Constant volatility and interest rate
+• Log-normal price distribution
+• The asset pays no dividends
+
+Real markets aren't perfect — but the Black-Scholes-Merton model works surprisingly well as a baseline.
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. Impact and Insight
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+This equation turned finance into a precise science — earning Scholes and Merton the 1997 Nobel Prize 
+in Economics (Black had passed away).
+
+It shifted thinking from speculative pricing to **quantitative risk management** — and launched an 
+entire industry of derivatives and mathematical finance.
+
+Its deeper message:
+> Even in a world full of randomness, it's possible to construct formulas that tame uncertainty — 
+> if your assumptions are tight enough.
+
+""")
+
+    if show_example:
+            
+        d1 = (math.log(S / K) + (r + sigma ** 2 / 2) * T) / (sigma * math.sqrt(T))
+        d2 = d1 - sigma * math.sqrt(T)
+        call_price = S * norm.cdf(d1) - K * math.exp(-r * T) * norm.cdf(d2)
+
+        print(f"\nSample Calculation — European Call Option Price:")
+        print(f"Underlying Price (S): {S}")
+        print(f"Strike Price (K):     {K}")
+        print(f"Time to Expiry (T):   {T} year(s)")
+        print(f"Risk-Free Rate (r):   {r}")
+        print(f"Volatility (σ):       {sigma}")
+        print(f"\nComputed Call Option Price: {call_price:.4f}")
+        return call_price
 
     return None
