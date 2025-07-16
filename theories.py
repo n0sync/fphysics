@@ -1,19 +1,22 @@
 # A collection of fascinating concepts and theories from physics and mathematics that I find intriguing and worth exploring.
-        # Mentions: Most of these concepts were inspired by videos from Veritasium, 3Blue1Brown, and Real Engineering.
+# Mentions: Most of these concepts were inspired by videos from Veritasium, 3Blue1Brown, and Real Engineering.
 
-
-import math, cmath , random, itertools, time
+import math
+import cmath
+import random
+import itertools
+import time
 from scipy.stats import norm
 
 def Depressed_Cubic(p=None, q=None, *, show_explanation=True):
     """
-    Print Tartaglia’s method and, if p and q are provided, return a real (or complex) root
-    of the depressed cubic x³ + p x = q.
+    Print Tartaglia's method and, if p and q are provided, return a real (or complex) root
+    of the depressed cubic x³ + p x = q.
 
     Parameters
     ----------
     p, q : float | int
-        Coefficients in the equation x³ + p x = q.
+        Coefficients in the equation x³ + p x = q.
     show_explanation : bool, default True
         Whether to print the historical explanation and formula.
 
@@ -25,16 +28,16 @@ def Depressed_Cubic(p=None, q=None, *, show_explanation=True):
 
     if show_explanation:
         print("""\
-Title: Solving the Depressed Cubic – Tartaglia’s Breakthrough
+Title: Solving the Depressed Cubic – Tartaglia's Breakthrough
 
-In the 16th century Niccolò Tartaglia discovered a general solution to the
+In the 16th century Niccolò Tartaglia discovered a general solution to the
 depressed cubic
 
-    x³ + p x = q.
+    x³ + p x = q.
 
-His substitution x = u + v leads to the relations
-    u v = −p/3   and   u³ + v³ = q,
-from which one obtains the closed‑form root published later in Cardano’s *Ars Magna*:
+His substitution x = u + v leads to the relations
+    u v = −p/3   and   u³ + v³ = q,
+from which one obtains the closed‑form root published later in Cardano's *Ars Magna*:
 
         x = ∛(q/2 + Δ) + ∛(q/2 − Δ),
     where Δ = √((q/2)² + (p/3)³).
@@ -90,19 +93,19 @@ def Copenhagen_quantum_theory(
         print("""\
 Title: The Copenhagen Interpretation of Quantum Mechanics
 
-Initiated chiefly by Niels Bohr and Werner Heisenberg (1920s–1930s), the Copenhagen
+Initiated chiefly by Niels Bohr and Werner Heisenberg (1920s–1930s), the Copenhagen
 interpretation holds that:
 
 • The wavefunction |ψ⟩ encodes complete statistical knowledge of a system.
 • Physical properties are not definite prior to measurement; they are *potentialities*.
-• Measurement causes an irreversible, non‑unitary “collapse” of |ψ⟩ onto an eigenstate.
+• Measurement causes an irreversible, non‑unitary "collapse" of |ψ⟩ onto an eigenstate.
 • Complementarity: mutually exclusive experimental arrangements reveal
   complementary aspects (e.g., particle vs. wave).
 • Probabilities follow the Born rule: P(i) = |⟨ψ_i|ψ⟩|².
 • Classical measuring devices are described by classical physics; quantum/classical
   cut is contextual but necessary.
 
-Critics have objected to the vagueness of “collapse” and the role of the observer,
+Critics have objected to the vagueness of "collapse" and the role of the observer,
 but Copenhagen remains one of the most widely taught viewpoints.
 """)
 
@@ -125,7 +128,7 @@ def P_vs_NP(
         certificate=None
     ):
     """
-    Print an overview of the P vs NP problem and optionally demonstrate that
+    Print an overview of the P vs NP problem and optionally demonstrate that
     verifying a certificate is fast even if finding it may be slow.
 
     Parameters
@@ -147,7 +150,7 @@ def P_vs_NP(
 
     if show_explanation:
         print("""\
-Title: The P vs NP Problem – A Million Dollar Mystery
+Title: The P vs NP Problem – A Million Dollar Mystery
 
 One of the most famous unsolved problems in computer science and mathematics:
 
@@ -189,16 +192,18 @@ So far, no one knows the answer.
         if solution is not None:
             break
     brute_time = (time.perf_counter() - start) * 1e3  # ms
-    print(f"Brute‑force search found subset {solution} in {brute_time:.2f} ms")
+    print(f"Brute‑force search found subset {solution} in {brute_time:.2f} ms")
 
     # Verification step (polynomial)
     if certificate is None:
         certificate = solution
         print("Using the found subset as certificate.")
-    is_valid = sum(certificate) == target and all(x in numbers for x in certificate)
-    print(f"Certificate {certificate} verification → {is_valid}")
-
-    return is_valid
+    if certificate is not None:
+        is_valid = sum(certificate) == target and all(x in numbers for x in certificate)
+        print(f"Certificate {certificate} verification → {is_valid}")
+        return is_valid
+    
+    return None
 
 def goldbach_conjecture(*, show_explanation=True, demo=False, n=None):
     """
@@ -221,7 +226,7 @@ def goldbach_conjecture(*, show_explanation=True, demo=False, n=None):
 
     if show_explanation:
         print("""\
-Title: Goldbach’s Conjectures – A Timeless Enigma in Number Theory
+Title: Goldbach's Conjectures – A Timeless Enigma in Number Theory
 
 Proposed in 1742 by Christian Goldbach in correspondence with Euler, the conjectures are:
 
@@ -261,10 +266,13 @@ Though tested up to very large numbers, both remain unproven in general.
     else:
         # Weak Goldbach demo (odd number > 5)
         for a in range(2, n - 4):
-            if not is_prime(a): continue
+            if not is_prime(a): 
+                continue
             for b in range(a, n - a - 1):
+                if not is_prime(b):
+                    continue
                 c = n - a - b
-                if c >= b and is_prime(b) and is_prime(c):
+                if c >= b and is_prime(c):
                     results.append((a, b, c))
                         
         print(f"Weak Goldbach triplets for {n}: {results}")
@@ -304,21 +312,21 @@ This formulation, developed by **Euler** and **Lagrange**, leads to:
 
     ◾ Euler–Lagrange Equation:
 
-        d/dt (∂L/∂𝑞̇) − ∂L/∂q = 0
+        d/dt (∂L/∂q̇) − ∂L/∂q = 0
 
 This differential equation is the **variational derivative** of the action.
-It’s equivalent to **Newton’s Second Law**, but more general and powerful.
+It's equivalent to **Newton's Second Law**, but more general and powerful.
 
 ▶ Example:
     A particle of mass m in a potential V(q):
 
-        L = (1/2)m𝑞̇² − V(q)
+        L = (1/2)mq̇² − V(q)
 
     Applying the Euler–Lagrange equation:
 
-        d/dt (m𝑞̇) = −dV/dq   ⟶   m𝑞̈ = −∇V
+        d/dt (mq̇) = −dV/dq   ⟶   mq̈ = −∇V
 
-This recovers Newton’s familiar form: **F = ma**.
+This recovers Newton's familiar form: **F = ma**.
 
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 2. Maupertuis' Principle – The Older Formulation
@@ -326,7 +334,7 @@ This recovers Newton’s familiar form: **F = ma**.
 
 Pierre-Louis **Maupertuis** proposed an earlier version (c. 1744), sometimes called:
 
-    “The Principle of Least Path” or “Least Action in the kinetic form”
+    "The Principle of Least Path" or "Least Action in the kinetic form"
 
 He defined action as:
 
@@ -352,34 +360,34 @@ Both formulations lead to the **same equations of motion**:
     ▸ Lagrangian mechanics uses time as the key variable:
         δS = 0 → Euler–Lagrange differential equation (time-dependent)
 
-    ▸ Maupertuis' approach is energy-conserving and “geometrical”:
+    ▸ Maupertuis' approach is energy-conserving and "geometrical":
         It focuses on space paths with fixed total energy.
 
 ▶ Derivative of the Lagrangian action gives:
     
-        δS = 0  ⇨  d/dt (∂L/∂𝑞̇) − ∂L/∂q = 0
+        δS = 0  ⇨  d/dt (∂L/∂q̇) − ∂L/∂q = 0
 
 This is a **functional derivative** — it finds functions (paths q(t)) that make
 the integral minimal, not just numbers.
 
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-4. Why It’s Deep
+4. Why It's Deep
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 ✓ It unifies **Newtonian mechanics**, **Hamiltonian mechanics**, **quantum mechanics** (Feynman path integrals), and **general relativity**.
 
 ✓ It allows reformulating physical laws in terms of optimization.
 
-✓ It’s the foundation for modern theoretical physics.
+✓ It's the foundation for modern theoretical physics.
 
-In short: **Nature acts economically.** Forces aren’t “causing” motion — instead,
+In short: **Nature acts economically.** Forces aren't "causing" motion — instead,
 the actual trajectory is the one that balances all trade-offs in the action.
 
 As Feynman said:
-> “Nature doesn’t sit there and calculate what force to apply. Instead, every path is tried, and the one with stationary action is the one we see.”
+> "Nature doesn't sit there and calculate what force to apply. Instead, every path is tried, and the one with stationary action is the one we see."
 """)
 
-def einstein_equivalence_principle(show_explanation=True):
+def einstein_equivalence_principle(*, show_explanation=True):
     """
     Provides a detailed overview of Einstein's Equivalence Principle, including its conceptual framework,
     historical development, and implications for general relativity.
@@ -391,11 +399,11 @@ def einstein_equivalence_principle(show_explanation=True):
     """
     if show_explanation:
         print("""\
-Title: Einstein’s Equivalence Principle — The Geometrization of Gravity
+Title: Einstein's Equivalence Principle — The Geometrization of Gravity
 
 ## Historical Background
 
-The Equivalence Principle has its roots in Galileo’s 17th-century observation that all objects fall at the same rate in a vacuum, regardless of their mass. Newton’s law of gravitation preserved this principle by assuming that the **gravitational mass** (how strongly gravity pulls on an object) and the **inertial mass** (how much an object resists acceleration) are equal — an unexplained coincidence in classical mechanics.
+The Equivalence Principle has its roots in Galileo's 17th-century observation that all objects fall at the same rate in a vacuum, regardless of their mass. Newton's law of gravitation preserved this principle by assuming that the **gravitational mass** (how strongly gravity pulls on an object) and the **inertial mass** (how much an object resists acceleration) are equal — an unexplained coincidence in classical mechanics.
 
 In 1907, while working in a Swiss patent office, **Albert Einstein** had what he later called "the happiest thought of my life":  
 > *A person in free fall does not feel their own weight.*
@@ -426,11 +434,11 @@ Only general relativity fully satisfies SEP; most alternative gravity theories v
 
 ---
 
-## Einstein’s Elevator Thought Experiment
+## Einstein's Elevator Thought Experiment
 
 Imagine you're in a sealed elevator:
 
-- **Case 1:** The elevator is in deep space, far from any mass, accelerating upward at 9.8 m/s².
+- **Case 1:** The elevator is in deep space, far from any mass, accelerating upward at 9.8 m/s².
 - **Case 2:** The elevator is stationary on Earth's surface.
 
 Inside, there's no way to tell which situation you're in without looking outside. You feel a downward "force" in both cases. A beam of light, aimed horizontally across the elevator, appears to bend downward in both.
@@ -444,12 +452,10 @@ Inside, there's no way to tell which situation you're in without looking outside
 This insight leads to the conclusion that **gravity is not a force**, but a manifestation of spacetime curvature. Mathematically, in general relativity:
 
 - Objects move along **geodesics**, the straightest possible paths in curved spacetime.
-- The gravitational field is described by the **metric tensor** \( g_{\mu\nu} \), which determines distances and time intervals.
-- The curvature is encoded in the **Riemann curvature tensor**, and how matter curves spacetime is governed by **Einstein’s field equations**:
+- The gravitational field is described by the **metric tensor** ( g_μν ), which determines distances and time intervals.
+- The curvature is encoded in the **Riemann curvature tensor**, and how matter curves spacetime is governed by **Einstein's field equations**:
 
-\[
-R_{\mu\nu} - \frac{1}{2} g_{\mu\nu} R = \frac{8\pi G}{c^4} T_{\mu\nu}
-\]
+R_μν - (1/2) g_μν R = (8πG/c⁴) T_μν
 
 ---
 
@@ -464,14 +470,14 @@ R_{\mu\nu} - \frac{1}{2} g_{\mu\nu} R = \frac{8\pi G}{c^4} T_{\mu\nu}
 
 ## Summary
 
-Einstein’s Equivalence Principle marks the shift from Newtonian gravity to the geometric framework of **general relativity**. It teaches us that **freely falling frames are the truest form of inertial frames** in a curved universe. Gravity, in Einstein’s view, is not a force but the shape of spacetime itself.
+Einstein's Equivalence Principle marks the shift from Newtonian gravity to the geometric framework of **general relativity**. It teaches us that **freely falling frames are the truest form of inertial frames** in a curved universe. Gravity, in Einstein's view, is not a force but the shape of spacetime itself.
 
 This principle is one of the deepest and most beautiful insights in all of physics.
 """)
 
-def prisoners_dilemma(show_explanation=True, show_table=True):
+def prisoners_dilemma(*, show_explanation=True, show_table=True):
     """
-    Print a detailed explanation of the Prisoner’s Dilemma, including the game setup,
+    Print a detailed explanation of the Prisoner's Dilemma, including the game setup,
     payoff matrix, and strategic implications in game theory.
 
     Parameters
@@ -484,7 +490,7 @@ def prisoners_dilemma(show_explanation=True, show_table=True):
     
     if show_explanation:
         print("""\
-Title: The Prisoner’s Dilemma – A Game Theory Classic
+Title: The Prisoner's Dilemma – A Game Theory Classic
 
 The Prisoner's Dilemma is a foundational problem in game theory that illustrates how 
 individual rational choices can lead to a collectively suboptimal outcome.
@@ -520,10 +526,10 @@ central theme in understanding real-world issues like trust, competition, and st
         print("""\
 --- Payoff Matrix ---
 
-        | Bob Cooperates | Bob Defects
-------------------------------------------
-Alice Cooperates | (−1, −1)       | (−5,  0)
-Alice Defects    | ( 0, −5)       | (−3, −3)
+                    | Bob Cooperates | Bob Defects
+----------------------------------------------------
+Alice Cooperates    | (−1, −1)       | (−5,  0)
+Alice Defects       | ( 0, −5)       | (−3, −3)
 
 Each pair (A, B) = (Years for Alice, Years for Bob)
 """)
@@ -536,7 +542,7 @@ Each pair (A, B) = (Years for Alice, Years for Bob)
 • **Cartel Pricing:** Firms may lower prices to gain market share, even when collusion yields more profit.
 • **Evolutionary Biology:** Cooperation and altruism in species can be studied using repeated dilemmas.
 
---- Iterated Prisoner’s Dilemma ---
+--- Iterated Prisoner's Dilemma ---
 
 When the game is played repeatedly, strategies like **Tit for Tat** (cooperate first, then copy the opponent) can
 emerge, rewarding cooperation and punishing betrayal — encouraging trust over time.
@@ -550,9 +556,9 @@ emerge, rewarding cooperation and punishing betrayal — encouraging trust over 
 This game beautifully models the tension between short-term incentives and long-term cooperation.
 """)
             
-def noethers_theorem(show_explanation=True):
+def noethers_theorem(*, show_explanation=True):
     """
-    Print an explanation of Noether’s Theorem and its profound connection
+    Print an explanation of Noether's Theorem and its profound connection
     between symmetries and conserved quantities in physics.
 
     Parameters
@@ -562,26 +568,26 @@ def noethers_theorem(show_explanation=True):
     """
     if show_explanation:
         print("""\
-Title: Noether’s Theorem — The Deep Link Between Symmetry and Conservation
+Title: Noether's Theorem — The Deep Link Between Symmetry and Conservation
 
-Developed by Emmy Noether in 1915 and published in 1918, Noether’s Theorem is one of the most profound results in theoretical physics and mathematics.
+Developed by Emmy Noether in 1915 and published in 1918, Noether's Theorem is one of the most profound results in theoretical physics and mathematics.
 
 --- Core Idea ---
 
 **Every differentiable symmetry of the action of a physical system corresponds to a conservation law.**
 
 In simpler terms:
-- If a system’s laws don’t change under a continuous transformation (a symmetry),
+- If a system's laws don't change under a continuous transformation (a symmetry),
 - Then something measurable remains **conserved**.
 
 --- Examples of Symmetry ↔ Conservation ---
 
 1. **Time Translation Symmetry**  
-   → Laws don’t change over time  
+   → Laws don't change over time  
    → ⟹ **Energy is conserved**
 
 2. **Spatial Translation Symmetry**  
-   → Laws don’t depend on location in space  
+   → Laws don't depend on location in space  
    → ⟹ **Linear momentum is conserved**
 
 3. **Rotational Symmetry**  
@@ -590,22 +596,22 @@ In simpler terms:
 
 --- The Mathematics (Simplified) ---
 
-In Lagrangian mechanics, the *action* \( S \) is the integral over time of the Lagrangian \( L = T - V \) (kinetic - potential energy):
+In Lagrangian mechanics, the *action* S is the integral over time of the Lagrangian L = T - V (kinetic - potential energy):
 
-\[S = \int L(q, \dot{q}, t)\, dt\]
+S = ∫ L(q, q̇, t) dt
 
-Noether showed that if the action \( S \) is invariant under a continuous transformation of the coordinates \( q(t) \), then there exists a conserved quantity \( Q \) along the solutions of the Euler–Lagrange equations.
+Noether showed that if the action S is invariant under a continuous transformation of the coordinates q(t), then there exists a conserved quantity Q along the solutions of the Euler–Lagrange equations.
 
 This deep connection is central to all of modern theoretical physics — classical mechanics, quantum mechanics, general relativity, and quantum field theory.
 
 --- Legacy and Importance ---
 
-• Noether’s Theorem is considered a cornerstone of **modern physics**.
+• Noether's Theorem is considered a cornerstone of **modern physics**.
 • It provides a **mathematical foundation** for why conservation laws hold.
 • It bridges **symmetry (geometry)** with **dynamics (physics)**.
 • It is essential in **Lagrangian** and **Hamiltonian** formulations.
 
-Albert Einstein himself called Emmy Noether a **mathematical genius** and praised the theorem’s beauty and power.
+Albert Einstein himself called Emmy Noether a **mathematical genius** and praised the theorem's beauty and power.
 
 """)
 
@@ -676,6 +682,7 @@ As Feynman said:
 
     return None
 
+
 def axiom_of_choice(*, show_explanation=True, show_paradox=True):
     """
     Explain the Axiom of Choice and its philosophical and mathematical consequences,
@@ -698,8 +705,8 @@ def axiom_of_choice(*, show_explanation=True, show_paradox=True):
 Title: The Axiom of Choice — Choosing Without a Rule
 
 Imagine an infinite number of non-empty boxes, each with at least one object inside. 
-You’re asked to pick one object from each box. But there’s a catch — no rule or pattern is given. 
-The Axiom of Choice says you can still make those selections, even if there’s no way to describe how.
+You're asked to pick one object from each box. But there's a catch — no rule or pattern is given. 
+The Axiom of Choice says you can still make those selections, even if there's no way to describe how.
 
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 1. Formal Statement
@@ -709,7 +716,7 @@ The axiom states:
 > For any collection of non-empty sets, there exists a function that selects exactly 
 > one element from each set — even if the collection is infinite and unstructured.
 
-It’s not about how to choose, just that a complete set of choices exists.
+It's not about how to choose, just that a complete set of choices exists.
 
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 2. Why It's Useful
@@ -717,7 +724,7 @@ It’s not about how to choose, just that a complete set of choices exists.
 This principle allows us to:
 • Prove that every vector space has a basis — even infinite-dimensional ones.
 • Show that any set can be well-ordered (every subset has a least element).
-• Derive key results in analysis, algebra, and topology — like Tychonoff’s Theorem.
+• Derive key results in analysis, algebra, and topology — like Tychonoff's Theorem.
 
 But its power comes with strange consequences.
 
@@ -728,14 +735,14 @@ But its power comes with strange consequences.
 
     if show_paradox:
         print("""\
-There’s a result known as the **Banach–Tarski paradox**. Here's what it says:
+There's a result known as the **Banach–Tarski paradox**. Here's what it says:
 
 • You can take a solid sphere.
 • Split it into just five pieces.
 • Move and rotate those pieces — no stretching, no duplicating.
 • Reassemble them into **two identical copies** of the original sphere.
 
-This doesn’t break conservation of volume — because the pieces themselves are 
+This doesn't break conservation of volume — because the pieces themselves are 
 non-measurable in the traditional sense. They only exist because the axiom 
 guarantees their selection — not because they can be constructed or seen.
 
@@ -745,21 +752,22 @@ It's a result that stretches the boundary between abstract mathematics and physi
 4. Controversy and Choice
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 • The axiom is **non-constructive** — it asserts existence without providing a method.
-• It’s **independent** of standard set theory:
+• It's **independent** of standard set theory:
     ◦ You can accept it and get a rich, complete theory.
     ◦ You can reject it and get a more grounded, constructive approach.
 
 Both worlds are internally consistent — but they lead to very different mathematics.
 
-So we’re left with a strange philosophical choice:
+So we're left with a strange philosophical choice:
 > Do we allow principles that grant infinite power, even if they create outcomes
-> we can’t visualize, build, or ever observe?
+> we can't visualize, build, or ever observe?
 
 Mathematics says yes — but it also warns: use with care.
 """)
         return "Banach–Tarski paradox: A sphere can be split and reassembled into two identical spheres."
 
     return None
+
 
 def black_scholes_merton(*, show_explanation=True, show_example=False, S=100, K=100, T=1, r=0.05, sigma=0.2):
     """
@@ -858,9 +866,11 @@ Its deeper message:
 """)
 
     if show_example:
-            
+        # Calculate d1 and d2
         d1 = (math.log(S / K) + (r + sigma ** 2 / 2) * T) / (sigma * math.sqrt(T))
         d2 = d1 - sigma * math.sqrt(T)
+        
+        # Calculate call option price using Black-Scholes formula
         call_price = S * norm.cdf(d1) - K * math.exp(-r * T) * norm.cdf(d2)
 
         print(f"\nSample Calculation — European Call Option Price:")
@@ -873,3 +883,4 @@ Its deeper message:
         return call_price
 
     return None
+
