@@ -968,3 +968,109 @@ For example:
     print(" + ".join(f"{d}·{p}^{i}" for i, d in enumerate(expansion)))
     return expansion
 
+
+
+
+def gravity_as_curvature(*, show_explanation=True):
+    """
+    Explains how gravity, according to General Relativity, is not a force but the effect of spacetime curvature.
+    Includes Einstein's falling person, rocket thought experiments, the field equation, and the insight that
+    staying at rest on Earth requires constant acceleration.
+
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the theoretical explanation.
+    """
+    if show_explanation:
+        print("""\
+Title: Gravity Is Not a Force — It's Spacetime Telling Matter How to Move
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. The Man Falling from a Roof
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+Einstein’s “happiest thought” came from a simple scenario:  
+> A person falling freely from a rooftop **feels no gravity**.  
+They are weightless. Everything around them falls at the same rate.  
+No forces act on them. In fact, it feels like **being in outer space**.
+
+This insight led Einstein to ask:
+> “If falling feels like floating, maybe gravity isn't a force at all.”
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. Now Picture a Rocket in Deep Space
+
+You’re in a sealed rocket far from any stars or planets, accelerating upward at 9.8 m/s².  
+You drop a ball — it falls to the floor. You feel weight pressing your feet.
+
+You cannot tell if you're:
+- On Earth feeling gravity  
+- Or in a rocket accelerating in space
+
+**Conclusion:** Gravity and acceleration are locally indistinguishable.  
+This is the **Equivalence Principle**, and it’s at the heart of General Relativity.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. Curved Spacetime, Not a Force
+
+Einstein’s revolutionary idea:
+
+> Mass and energy **curve** spacetime.  
+> Objects move naturally along **geodesics** — the straightest possible paths in this curved geometry.
+
+This is why planets orbit stars, apples fall, and time runs differently near black holes — not because they're being "pulled," but because **spacetime tells them how to move**.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. Standing Still on Earth = Constant Upward Acceleration
+
+Here’s the most mind-bending part:
+
+> If you’re standing on the ground and not falling — you are **accelerating upward** through spacetime.
+
+You're not "at rest" — you're being pushed off your natural free-fall geodesic by the ground.  
+The normal force from the floor **is what accelerates you**, resisting your natural (free-fall) motion.
+
+In contrast:
+- An orbiting astronaut feels weightless — because they are **not accelerating**.
+- A person standing on Earth feels weight — because they **are accelerating**, upward!
+
+**Gravity isn't pulling you down — the ground is pushing you up.**
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+5. Einstein’s Field Equation
+
+This idea is captured by Einstein’s equation:
+
+\[
+R_{μν} - \frac{1}{2} g_{μν} R = \frac{8πG}{c⁴} T_{μν}
+\]
+
+It means:
+- The geometry (left side) is shaped by the energy and momentum (right side).
+- Spacetime is **not a stage**, it's dynamic and interactive.
+
+> "Energy tells spacetime how to curve. Curved spacetime tells matter how to move."
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+6. Real-World Evidence
+
+✓ Light bending near stars  
+✓ Time dilation (GPS, gravitational redshift)  
+✓ Orbit precession (Mercury)  
+✓ Gravitational waves  
+✓ Black holes
+
+All of these phenomena are not due to a force — but due to **geometry**.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+7. Summary: Gravity Is an Illusion of Curvature
+
+- Objects fall because their **natural path through spacetime is curved**.
+- To avoid falling — like standing still — you must **accelerate away from that path**.
+- This acceleration feels like weight. It’s not gravity acting on you — it’s the ground **preventing** you from moving naturally.
+
+> What we call gravity is simply the experience of resisting the curvature of spacetime.
+
+""")
+
