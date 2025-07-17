@@ -884,3 +884,87 @@ Its deeper message:
 
     return None
 
+def p_adics(*, show_explanation=True, simulate=False, p=10, digits=10):
+    """
+    Explain the concept of p-adic numbers and optionally simulate a p-adic expansion.
+
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the theoretical and intuitive background.
+    simulate : bool, default False
+        If True, demonstrate p-adic expansion of a sample number.
+    p : int, default 10
+        Base prime (or 10 for decimal-like behavior); must be ≥ 2.
+    digits : int, default 10
+        Number of digits to show in the p-adic expansion (right-to-left).
+
+    Returns
+    -------
+    expansion : list[int] | None
+        The list of digits in the p-adic expansion, or None if simulate=False.
+    """
+    if show_explanation:
+        print(f"""\
+Title: p-adic Numbers — A Different Notion of Distance and Expansion
+
+p-adics are a surprising alternative to the real numbers. While real numbers are built
+around powers of 1/10 or 1/2, **p-adics are built from powers of a fixed base p, but going
+in the opposite direction**.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. What Makes p-adics Different?
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+• In real numbers:
+  1.9999... = 2.0000...
+
+• In p-adics:
+  9999...9 (with infinite 9s to the left) may *not* equal a finite integer.
+  Instead, infinite-left expansions are **normal** and meaningful!
+
+• The "distance" between numbers is defined using **divisibility** by p.
+  Two numbers are "close" if their difference is divisible by a high power of p.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. p-adic Expansion (for integers)
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+Any integer has a **p-adic expansion** like:
+
+    x = a₀ + a₁·p + a₂·p² + a₃·p³ + ...
+
+Where aᵢ ∈ {0, 1, ..., p−1}
+
+For example:
+• In base 10 (10-adics), the number −1 is represented as 9 + 9·10 + 9·10² + ...
+• In 2-adics, −1 becomes 1 + 2 + 4 + 8 + 16 + ... (an infinite sum)
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. Why It Matters
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+• p-adics are **complete number systems**, just like reals — but with totally different geometry.
+• They are crucial in **number theory**, **modular arithmetic**, and **algebraic geometry**.
+• They help solve congruences that are hard in the real world but easy in p-adics.
+""")
+
+    if not simulate:
+        return None
+
+    def p_adic_expansion(n, base, digits):
+        """Return the p-adic expansion of integer n in base `base`, up to `digits` terms."""
+        coeffs = []
+        for _ in range(digits):
+            r = n % base
+            coeffs.append(r)
+            n = (n - r) // base
+        return coeffs
+
+    # Simulate −1 by default to demonstrate infinite digit behavior
+    number = -1
+    expansion = p_adic_expansion(number, p, digits)
+    print(f"\n{p}-adic expansion of {number} (up to {digits} digits):")
+    print(" + ".join(f"{d}·{p}^{i}" for i, d in enumerate(expansion)))
+    return expansion
+
