@@ -1074,3 +1074,103 @@ All of these phenomena are not due to a force — but due to **geometry**.
 
 """)
 
+def fast_fourier_transform(*, show_explanation=True):
+    """
+    Explains the Fast Fourier Transform (FFT), how it converts time-domain signals into frequency-domain representations,
+    why it's useful, how it's computed efficiently, and some real-world applications.
+
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the theoretical explanation.
+    """
+    if show_explanation:
+        print("""\
+Title: Fast Fourier Transform (FFT) — Seeing the Hidden Frequencies
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. What Is the Fourier Transform?
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+Imagine a signal — like a sound wave or electrical current — that varies over time.
+
+The **Fourier Transform** answers this question:
+> “What frequencies make up this signal?”
+
+It converts a **time-domain** signal into a **frequency-domain** representation — breaking it into sine and cosine components of different frequencies.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. Why Is This Useful?
+
+Fourier analysis reveals the **hidden periodic structure** in signals:
+
+✓ Detect pitch in audio  
+✓ Filter out noise  
+✓ Analyze communication signals  
+✓ Compress images (JPEG)  
+✓ Solve differential equations
+
+> Time-based signals often look messy.  
+> Frequency domain reveals **patterns and simplicity**.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. The Problem with Classical Fourier Transform
+
+To calculate the Discrete Fourier Transform (DFT) of *N* data points:
+
+- It requires **O(N²)** computations.
+- Very slow for large N (e.g., audio, images, real-time processing).
+
+This was a big bottleneck in signal processing.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. The Fast Fourier Transform (FFT)
+
+In 1965, Cooley and Tukey rediscovered a faster algorithm:
+> FFT reduces the complexity from **O(N²)** to **O(N log N)**.
+
+It works by:
+- Dividing the problem into smaller DFTs (recursive divide-and-conquer)
+- Reusing symmetries in complex exponentials (roots of unity)
+
+This is a massive performance boost, allowing real-time signal analysis.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+5. Mathematical Insight (Simplified)
+
+The DFT formula is:
+
+\[
+X_k = \sum_{n=0}^{N-1} x_n \cdot e^{-2πi kn/N}
+\]
+
+The FFT efficiently computes this for all *k*, by:
+- Splitting input into even and odd parts  
+- Recursively solving and combining them using complex rotation identities
+
+This recursive trick is why it's "fast".
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+6. Real-World Applications
+
+✓ Audio processing (equalizers, pitch detection)  
+✓ Medical imaging (MRI, EEG)  
+✓ Communication systems (modulation, error correction)  
+✓ Video compression  
+✓ Vibration analysis and fault detection in machines
+
+Without FFT, many modern technologies wouldn’t be possible.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+7. Summary: FFT = Frequency Vision
+
+- FFT reveals the frequency **spectrum** of any signal  
+- It’s the backbone of digital signal processing  
+- Its speed makes real-time applications possible  
+- It turns messy data into understandable patterns
+
+> "If time is how a signal behaves, frequency is what it's made of."
+
+"The Most Important numerical algorithm of our lifetime." 
+                                                        ~Gilbert Strang
+""")
