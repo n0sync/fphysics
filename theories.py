@@ -1255,3 +1255,90 @@ He showed that **regular hexagons** minimize total perimeter among all possible 
 > “The bees, by divine instinct, have discovered a geometry theorem.”  
     — Pappus of Alexandria (4th Century)
 """)
+        
+def bike_balancing_and_countersteering(*, show_explanation=True):
+    """
+    Explains how a bicycle stays balanced and why turning left first requires a rightward tilt — a concept known as
+    countersteering. Combines physics, gyroscopic effects, and real-world dynamics.
+
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the theoretical explanation.
+    """
+    if show_explanation:
+        print("""\
+Title: Bicycle Balancing & Countersteering — Stability in Motion
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. Why Doesn’t a Moving Bike Fall Over?
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+A stationary bike easily topples, but when it's moving — it balances itself.
+
+**Why?**
+
+✓ **Angular momentum**: The spinning wheels create gyroscopic stability  
+✓ **Steering geometry**: The front fork is tilted backward (called 'trail'), which causes self-correcting steering  
+✓ **Rider input**: Subtle shifts in body and handlebar steer the bike to stay under its center of mass
+
+> "A moving bike automatically adjusts to stay upright — like balancing a broomstick by moving the base."
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. The Counterintuitive Truth: Turn Left by Steering Right
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+To take a **left turn**, a skilled cyclist first makes a **quick rightward steer or lean**.
+
+> This is called **countersteering**.
+
+✓ Turning right causes the bike’s **center of mass** to shift left  
+✓ Gravity then pulls the bike into a **leftward lean**  
+✓ Once leaning, the rider steers left to follow the curve
+
+It's a split-second maneuver — barely noticeable, but critical.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. The Physics Behind It
+
+When you steer right:
+- The wheels push the contact patch to the **right**
+- The upper body (center of mass) continues left due to inertia
+- Result: The bike **leans left**, which is required for a **left turn**
+
+Turning requires **leaning**, and leaning requires an initial push in the opposite direction.
+
+✓ It's like tipping over intentionally so that the turn becomes stable.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. Why Is This Necessary?
+
+In sharp turns:
+- The bike must **lean** to counteract the centrifugal force  
+- Without a lean, the rider would be flung outward  
+- Countersteering initiates this lean **instantly and predictably**
+
+At higher speeds, **you can’t turn without countersteering**.
+
+> "You steer away from the turn — to begin the turn."
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+5. Real-World Applications
+
+✓ Motorcycles: Riders must countersteer to make safe, fast turns  
+✓ Racing: Lean angle is key to cornering performance  
+✓ Robotics: Autonomous bikes use these same principles for balance  
+✓ Physics education: Demonstrates conservation of angular momentum
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+6. Summary: Balance and Intuition Collide
+
+- A moving bike balances through **dynamics**, not magic  
+- **Countersteering** is essential — turn left by first turning right  
+- Combines inertia, gravity, and angular momentum  
+- Once you feel it, you never forget it
+
+> “The faster you go, the more stable you are — and the more your instincts betray the physics.”
+
+"A perfect example of how real-world motion often defies common sense — but never physics."
+""")
