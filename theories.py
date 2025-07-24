@@ -1342,3 +1342,84 @@ At higher speeds, **you can’t turn without countersteering**.
 
 "A perfect example of how real-world motion often defies common sense — but never physics."
 """)
+
+def grovers_algorithm(*, show_explanation=True):
+    """
+    Explains Grover's Algorithm — a quantum algorithm that provides a quadratic speedup for unstructured search problems.
+    Includes conceptual insights, mechanics, and real-world relevance.
+
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the theoretical explanation.
+    """
+    if show_explanation:
+        print("""\
+Title: Grover’s Algorithm — Quantum Speed in Unstructured Search
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. What Problem Does Grover’s Algorithm Solve?
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+Imagine searching for a name in an unsorted phone book with *N* entries.
+
+**Classical algorithm**: On average, checks N/2 entries → O(N)  
+**Grover’s algorithm**: Finds it in about √N steps → **O(√N)**
+
+> “Grover’s algorithm offers a *quadratic speedup* — not magical, but deeply significant.”
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. How Does It Work? (Conceptual Overview)
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+Grover’s algorithm amplifies the correct answer using quantum interference.
+
+✓ **Initialization**: Start in a superposition of all possible states  
+✓ **Oracle**: Marks the correct answer by flipping its phase  
+✓ **Diffusion operator**: Inverts all amplitudes about the average — boosts the marked one  
+✓ **Repetition**: Repeat ~√N times to make the marked state dominate
+
+> Like pushing a swing: each push (iteration) builds amplitude toward the correct answer.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. Quantum Intuition: Amplifying the Right Answer
+
+- All states start equally likely  
+- Oracle identifies the "winner" by flipping its phase (a subtle mark)  
+- The diffusion operator makes the "winner" stand out by constructive interference  
+- Repeat this process enough, and measurement reveals the answer with high probability
+
+✓ The trick is to balance precision — too few or too many iterations ruins the result.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. Why Is This Important?
+
+In many real-world problems:
+- You don’t have sorted data  
+- You don’t have structure to exploit  
+- You just need to **search** for the answer
+
+Grover gives the best known quantum speedup for these "brute-force" style problems.
+
+> "When structure is absent, quantum still gives you an edge."
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+5. Applications
+
+✓ **Cryptography**: Can reduce the strength of symmetric keys (e.g., 256-bit key → 128-bit security)  
+✓ **Database search**: Theoretical foundation for faster unsorted lookups  
+✓ **Puzzle-solving**: Inversion of functions, constraint satisfaction  
+✓ **Quantum benchmarking**: One of the first major quantum algorithms with practical implications
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+6. Summary: Search Smarter, Not Harder
+
+- Grover’s algorithm searches in O(√N) instead of O(N)  
+- Uses **phase flips and amplitude amplification**  
+- Balances between too little and too much interference  
+- A quantum lens on a classic problem — simple, elegant, and powerful
+
+> “Quantum algorithms don’t always break the rules — sometimes they just bend them beautifully.”
+
+"Grover’s is not just an algorithm — it’s a demonstration of how *quantum thinking* changes the game."
+""")
