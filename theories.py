@@ -1423,3 +1423,88 @@ Grover gives the best known quantum speedup for these "brute-force" style proble
 
 "Grover’s is not just an algorithm — it’s a demonstration of how *quantum thinking* changes the game."
 """)
+
+def heisenberg_uncertainty_principle(*, show_explanation=True):
+    """
+    Explains Heisenberg's Uncertainty Principle — a foundational concept in quantum mechanics that places a fundamental
+    limit on how precisely certain pairs of physical properties can be known simultaneously.
+
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the theoretical explanation.
+    """
+    if show_explanation:
+        print("""\
+Title: Heisenberg’s Uncertainty Principle — Limits of Precision in Quantum Reality
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. What Is the Uncertainty Principle?
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+In quantum mechanics, some properties are **complementary** — you can't know both with perfect precision.
+
+**Most famous pair**:  
+✓ **Position (x)**  
+✓ **Momentum (p)**
+
+Heisenberg's Uncertainty Principle says:
+
+        Δx · Δp ≥ ħ / 2
+
+> “The more precisely you know one, the less precisely you can know the other.”
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. What Does It Really Mean?
+
+It’s not a measurement error or a technological limitation.  
+It’s a **fundamental property of nature**.
+
+✓ Measuring a particle’s exact location disturbs its momentum  
+✓ Measuring exact momentum spreads out its possible positions  
+✓ Both are linked through the wave-like nature of particles
+
+> “A quantum particle is not a dot — it’s a blur that sharpens only at the cost of losing clarity elsewhere.”
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. Why Does It Happen?
+
+At the quantum level:
+- Particles act like **waves**
+- The **wavefunction** spreads over space  
+- Sharp position = narrow wave = broad momentum spectrum  
+- Sharp momentum = long wave = unclear position
+
+✓ It’s a direct result of **Fourier analysis** — sharper one domain, blurrier the other.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. Common Misconceptions
+
+✗ It’s not about human error  
+✗ It doesn’t mean “we just can’t measure better”  
+✓ It’s baked into quantum physics — a core principle
+
+Also applies to:
+- **Energy and time** → ΔE · Δt ≥ ħ / 2  
+- **Angle and angular momentum**
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+5. Real-World Implications
+
+✓ **Electron microscopes**: Resolution is limited by uncertainty  
+✓ **Quantum tunneling**: Energy-time uncertainty allows particles to “borrow” energy briefly  
+✓ **Zero-point energy**: Even at absolute zero, particles still “vibrate” due to uncertainty  
+✓ **Quantum computing**: Uncertainty underlies the probabilistic nature of qubits
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+6. Summary: Precision Has a Price
+
+- You can’t pin down both **where** and **how fast** a particle is  
+- The uncertainty is not accidental — it’s **quantum law**  
+- Tied to the wave nature of all particles  
+- It shapes how we build technologies at the smallest scales
+
+> “Nature doesn’t hide information from us — it simply doesn’t *have* it until we ask the right question.”
+
+"The Uncertainty Principle is not a bug in quantum theory — it's one of its most profound truths."
+""")
