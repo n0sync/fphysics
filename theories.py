@@ -1589,3 +1589,83 @@ Both mean: as you take more samples, the average will almost certainly settle ar
 
 "It tells us: the more you observe, the closer you get to the truth."
 """)
+
+def markov_chain(*, show_explanation=True):
+    """
+    Explains the concept of Markov Chains — a mathematical system that undergoes transitions from one state to another
+    based on certain probabilities. Focuses on core ideas, properties, and real-world applications.
+
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the theoretical explanation.
+    """
+    if show_explanation:
+        print("""\
+Title: Markov Chains — State Transitions and Long-Term Behavior
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. What Is a Markov Chain?
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+A **Markov Chain** is a mathematical model for systems that move between a finite set of states with fixed probabilities.
+
+The defining feature:
+> The **next state depends only on the current state**, not the history of previous states.
+
+This is known as the **Markov property** or **memorylessness**.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. Structure of a Markov Chain
+
+✓ A **set of states** (e.g., Sunny, Cloudy, Rainy)  
+✓ A **transition matrix** defining probabilities of moving between states  
+✓ An **initial state distribution** (optional for simulations)
+
+Example transition matrix:
+
+         Sunny   Cloudy   Rainy
+Sunny     0.6      0.3     0.1
+Cloudy    0.2      0.5     0.3
+Rainy     0.1      0.4     0.5
+
+Each row represents the probabilities of transitioning **from** a given state.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. Types of Markov Chains
+
+- **Discrete-time Markov Chain**: State changes at fixed time steps  
+- **Continuous-time Markov Chain**: Transitions occur continuously over time  
+- **Finite vs Infinite Chains**: Based on whether the number of states is limited or not
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. Steady State and Long-Term Behavior
+
+Many Markov Chains converge to a **steady-state distribution**:  
+→ A probability vector that doesn’t change after further transitions.
+
+This steady state shows the **long-run proportion of time** the system spends in each state.
+
+Conditions for a steady state:
+✓ The chain is **irreducible** (all states communicate)  
+✓ The chain is **aperiodic** (not trapped in a cycle)
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+5. Real-World Applications
+
+✓ **Weather prediction**  
+✓ **Board games** (e.g., Monopoly, Snake and Ladders)  
+✓ **Google PageRank** — ranking web pages as a Markov process  
+✓ **Queueing systems** — like customers arriving at a service desk  
+✓ **Speech recognition**, **natural language processing**, and **genetic sequencing**
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+6. Summary: Random Transitions, Predictable Patterns
+
+- Markov Chains model state transitions with **fixed probabilities**  
+- They obey the **memoryless property** — the next state depends only on the current one  
+- Many chains settle into a **predictable steady-state distribution**  
+- A powerful tool in understanding **stochastic (random) systems**
+
+> “Markov Chains describe systems that evolve randomly — but predictably — over time.”
+""")
