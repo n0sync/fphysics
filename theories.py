@@ -1769,3 +1769,72 @@ Used as a benchmark for early quantum computers
 > “Grover’s Algorithm shows that even for simple tasks, quantum thinking offers powerful shortcuts.”
 """)
 
+def supernova(*, show_explanation=True):
+    """
+    Step-by-step explanation of how a massive star evolves into a supernova,
+    focusing on the nuclear fusion stages and the core collapse mechanism.
+    
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the theoretical explanation.
+    """
+    if show_explanation:
+        print("""\
+Title: Supernova — From Stellar Life to Explosive Death
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. Hydrogen Fusion Phase
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+- A massive star begins life fusing hydrogen into helium in its core.
+- This fusion produces outward radiation pressure that balances gravitational collapse.
+- As long as hydrogen is available, the star remains stable.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. Helium and Heavier Element Fusion
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+- When hydrogen runs out in the core, fusion stops temporarily, and gravity causes the core to contract and heat up.
+- This triggers helium fusion into carbon.
+- Over time, heavier elements are fused in layers: carbon → oxygen → neon → magnesium → silicon → iron.
+- Each new fusion stage occurs faster than the last.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. Iron Core Formation
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+- Iron accumulates in the core but cannot be fused into heavier elements without consuming energy.
+- No energy = no radiation pressure → gravity dominates.
+- The star develops an "onion-shell" structure with iron at the center.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. Reaching the Chandrasekhar Limit
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+- Once the iron core exceeds ~1.4 times the mass of the Sun (the Chandrasekhar limit), electron degeneracy pressure fails.
+- Gravity causes the core to collapse catastrophically within seconds.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+5. Core Collapse and Neutron Formation
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+- Electrons and protons combine to form neutrons and release a burst of neutrinos.
+- Neutron degeneracy pressure halts further collapse, forming a dense neutron core.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+6. Shockwave and Supernova Explosion
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+- The outer layers rebound off the stiff neutron core, triggering a shockwave.
+- Neutrinos transfer energy to the surrounding matter, reviving the shockwave.
+- The star explodes as a supernova, ejecting elements into space.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+7. Final Remnant: Neutron Star or Black Hole
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+- If the remaining core is < 3 solar masses → it becomes a neutron star.
+- If the core is > 3 solar masses → it collapses into a black hole.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+8. Cosmic Consequences
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+- Supernovae create and distribute heavy elements like gold, uranium, and iodine.
+- These enrich the interstellar medium and seed future stars, planets, and life.
+
+> "Supernovae are both an end and a beginning — the explosive death of a star, and the creation of the universe's essential ingredients."
+""")
