@@ -1910,3 +1910,106 @@ Title: Einstein Ring & Einstein Cross — Gravitational Lensing Phenomena
 
 > “The Einstein Ring and Cross show us that gravity doesn't just hold stars — it bends light itself.”
 """)
+
+def redshift_cosmic_expansion(*, show_explanation=True):
+    """
+    Explains redshift (Doppler, gravitational, and cosmological) and how redshift observations support the 
+    expanding universe model, with examples and experimental evidence.
+
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the full explanation.
+    """
+    if show_explanation:
+        print("""\
+Title: Redshift and the Expanding Universe
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. What Is Redshift?
+
+Redshift occurs when the wavelength of light is **stretched**, making the light appear more red to an observer.
+
+It is measured by the redshift parameter:
+    z = (λ_observed - λ_emitted) / λ_emitted
+
+Where:
+- λ_observed = wavelength as measured on Earth
+- λ_emitted = original wavelength from the source
+
+A positive z means a redshift (stretching), while a negative z implies a blueshift (compression).
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. Types of Redshift
+
+➤ **Doppler Redshift**
+- Happens when a source moves **away** from the observer.
+- Common in nearby galaxies where motion is still largely classical.
+- Example: Spectral lines of the Andromeda galaxy are **blue-shifted** — it’s moving toward us.
+- Redshifted galaxies like **NGC 7319** indicate recession.
+
+➤ **Gravitational Redshift**
+- Light loses energy escaping a strong gravitational field → longer wavelength.
+- Verified experimentally by the **Pound–Rebka experiment** (1959) at Harvard using gamma rays and a tower to detect tiny redshift due to Earth’s gravity.
+- Important in studying **black holes**, where light emitted near the event horizon is extremely redshifted.
+
+➤ **Cosmological Redshift**
+- Arises from the **expansion of space itself**, not from motion through space.
+- Photons traveling across an expanding universe get **stretched**.
+- The **greater the distance**, the larger the redshift.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. Hubble’s Law: The Discovery of Expansion
+
+In 1929, **Edwin Hubble** discovered that:
+    → The farther away a galaxy is, the greater its redshift.
+
+He formulated:
+    v = H₀ × d
+
+Where:
+- v = recession velocity
+- d = distance to the galaxy
+- H₀ = Hubble constant (~70 km/s/Mpc)
+
+➤ **Experiment:** Hubble used redshifted spectra of galaxies and **Cepheid variable stars** to measure distances and speeds.
+→ This provided **direct evidence** that the universe is expanding.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. Real Observations and Examples
+
+✓ **Cosmic Microwave Background (CMB)**:
+   - Light from 13.8 billion years ago has been redshifted to **microwave wavelengths**.
+   - Detected by COBE, WMAP, and Planck missions.
+
+✓ **Quasar Redshifts**:
+   - Quasars have redshifts (z > 6), implying light that traveled over 12 billion years.
+   - They show how fast early galaxies were receding, supporting accelerated expansion.
+
+✓ **James Webb Space Telescope (JWST)**:
+   - Observes galaxies with redshifts over 10, probing the **early universe**.
+   - Confirms structure formation and cosmic evolution from redshift maps.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+5. Why Redshift Matters: Cosmic Implications
+
+Redshift tells us:
+- The universe is **not static** — it is stretching over time.
+- The **Big Bang** occurred ~13.8 billion years ago.
+- Distant galaxies are **not moving through space** — space **itself is expanding**.
+
+The redshift data supports models like:
+✓ **ΛCDM** (Lambda Cold Dark Matter Model)  
+✓ **Inflation theory**  
+✓ **Dark energy** — based on redshift-distance relation from **Type Ia supernovae** (Nobel Prize 2011)
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+6. Conclusion: The Universe on Stretch
+
+Redshift is more than a spectral shift:
+- It’s a **cosmic ruler** that measures time, distance, and expansion.
+- It helped transform our view from a static cosmos to a **dynamic, evolving universe**.
+- Redshift reveals that the farther we look, the further back in time we see — and the **faster space is expanding**.
+
+> “The redshifted whispers of ancient starlight carry the story of a universe in motion — expanding, evolving, and revealing its secrets one wavelength at a time.”
+""")
