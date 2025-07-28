@@ -1838,3 +1838,75 @@ Title: Supernova — From Stellar Life to Explosive Death
 
 > "Supernovae are both an end and a beginning — the explosive death of a star, and the creation of the universe's essential ingredients."
 """)
+
+def einstein_ring(*, show_explanation=True):
+    """
+    Explains the concept of Einstein Rings and Einstein Cross — gravitational lensing phenomena
+    predicted by General Relativity, where light from a distant object is bent by a massive
+    foreground object.
+
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the theoretical explanation.
+    """
+    if show_explanation:
+        print("""\
+Title: Einstein Ring & Einstein Cross — Gravitational Lensing Phenomena
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. Gravitational Lensing: The Foundation
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+- Based on Einstein's General Theory of Relativity.
+- Massive objects like galaxies or black holes bend the path of light passing nearby.
+- This bending is due to spacetime curvature caused by mass — light follows the "curved path".
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. Einstein Ring: A Perfect Symmetry
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+- Occurs when a distant light source, a massive lensing object, and the observer are **perfectly aligned**.
+- Light is bent equally from all directions, forming a **perfect circle of light** — the Einstein Ring.
+- The radius of this ring (Einstein Radius) depends on mass and distances between the three bodies.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. Einstein Cross: A Rare Fourfold Image
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+- When the alignment is **close but not perfect**, the ring breaks into **multiple lensed images**.
+- A notable result is the **Einstein Cross** — where a single quasar appears as **four distinct images** 
+  arranged in a cross pattern around a foreground galaxy.
+  
+- The galaxy's gravitational field splits the quasar's light path into four visible points of arrival.
+- One of the most famous examples is **Q2237+0305**, where a quasar 8 billion light-years away is lensed 
+  by a foreground galaxy just 400 million light-years away.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. Einstein Radius: The Angle of Bending
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+- The angular size of the ring is the **Einstein Radius**, denoted by θ_E:
+
+      θ_E = √[ (4GM / c²) × (D_ls / D_l D_s) ]
+
+  where:
+    G  = gravitational constant  
+    M  = mass of the lens  
+    c  = speed of light  
+    D_s = distance to source, D_l = distance to lens, D_ls = distance between lens and source
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+5. Applications and Significance
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+- **Dark matter mapping**: Gravitational lensing helps detect mass that emits no light.
+- **Weighing galaxies**: Lensing estimates mass more accurately than luminosity-based methods.
+- **Magnifying distant galaxies**: Acts like a natural telescope into the early universe.
+- **Testing general relativity**: Real-world confirmations of Einstein’s predictions.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+6. Summary: Gravity as a Cosmic Lens
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+- **Einstein Rings** are elegant circles of bent light caused by perfect alignment.
+- **Einstein Crosses** are fourfold images of the same object due to near-perfect alignments.
+- Both are vivid examples of how **gravity curves space and manipulates the path of light**.
+- These lensing effects help us peer deeper into space and test the very structure of reality.
+
+> “The Einstein Ring and Cross show us that gravity doesn't just hold stars — it bends light itself.”
+""")
