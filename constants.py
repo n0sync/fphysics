@@ -215,6 +215,32 @@ WEINBERG_ANGLE = 0.48290
 QCD_SCALE = 3.56e-13
 STRONG_COUPLING_CONSTANT = 0.1181
 
+# Biophysics Constants
+BODY_TEMPERATURE = 310.15
+ROOM_TEMPERATURE = 298.15
+THERMAL_ENERGY_RT = BOLTZMANN_CONSTANT * ROOM_TEMPERATURE
+THERMAL_ENERGY_BT = BOLTZMANN_CONSTANT * BODY_TEMPERATURE
+WATER_VISCOSITY = 0.001
+MEMBRANE_THICKNESS = 5e-9
+CELL_MEMBRANE_CAPACITANCE = 1e-2
+RESTING_POTENTIAL = -70e-3
+ACTION_POTENTIAL_THRESHOLD = -55e-3
+DNA_PERSISTENCE_LENGTH = 150e-9
+PROTEIN_DENSITY = 1350
+LIPID_DENSITY = 900
+WATER_DENSITY = 1000
+DIFFUSION_COEFFICIENT_WATER = 2.3e-9
+DIFFUSION_COEFFICIENT_PROTEIN = 1e-11
+DIFFUSION_COEFFICIENT_ION = 1e-9
+YOUNG_MODULUS_CELL = 1e3
+YOUNG_MODULUS_BONE = 20e9
+YOUNG_MODULUS_MUSCLE = 0.1e6
+LIPID_BILAYER_THICKNESS = 4e-9
+ION_CHANNEL_CONDUCTANCE = 20e-12
+SYNAPTIC_DELAY = 0.5e-3
+NERVE_CONDUCTION_VELOCITY = 120
+MYELIN_THICKNESS = 1e-6
+
 # Exported Constants
 __all__ = [
     # SI Base Constants
@@ -306,91 +332,13 @@ __all__ = [
     
     # Standard Model
     'FERMI_COUPLING_CONSTANT', 'WEINBERG_ANGLE', 'QCD_SCALE', 'STRONG_COUPLING_CONSTANT',
+    
+    # Biophysics Constants
+    'BODY_TEMPERATURE', 'ROOM_TEMPERATURE', 'THERMAL_ENERGY_RT', 'THERMAL_ENERGY_BT',
+    'WATER_VISCOSITY', 'MEMBRANE_THICKNESS', 'CELL_MEMBRANE_CAPACITANCE', 'RESTING_POTENTIAL',
+    'ACTION_POTENTIAL_THRESHOLD', 'DNA_PERSISTENCE_LENGTH', 'PROTEIN_DENSITY', 'LIPID_DENSITY',
+    'WATER_DENSITY', 'DIFFUSION_COEFFICIENT_WATER', 'DIFFUSION_COEFFICIENT_PROTEIN',
+    'DIFFUSION_COEFFICIENT_ION', 'YOUNG_MODULUS_CELL', 'YOUNG_MODULUS_BONE', 'YOUNG_MODULUS_MUSCLE',
+    'LIPID_BILAYER_THICKNESS', 'ION_CHANNEL_CONDUCTANCE', 'SYNAPTIC_DELAY', 'NERVE_CONDUCTION_VELOCITY',
+    'MYELIN_THICKNESS',
 ]
-
-# Utility Functions
-
-def convert_energy(value, from_unit, to_unit):
-    """Convert energy between different units (J, eV, cal, BTU, etc.)"""
-    conversions = {
-        'J': 1.0,
-        'eV': ELECTRON_VOLT,
-        'cal': CALORIE_TO_JOULE,
-        'BTU': BTU_TO_JOULE,
-        'Hartree': HARTREE_ENERGY,
-        'Rydberg': HARTREE_ENERGY / 2,
-    }
-    
-    if from_unit not in conversions or to_unit not in conversions:
-        raise ValueError(f"Unsupported unit. Available: {list(conversions.keys())}")
-    
-    joules = value * conversions[from_unit]
-    return joules / conversions[to_unit]
-
-def convert_mass(value, from_unit, to_unit):
-    """Convert mass between different units (kg, g, u, MeV/c², etc.)"""
-    conversions = {
-        'kg': 1.0,
-        'g': 1e-3,
-        'u': ATOMIC_MASS_UNIT,
-        'MeV/c²': ELECTRON_VOLT * 1e6 / SPEED_OF_LIGHT**2,
-        'electron_mass': ELECTRON_MASS,
-        'proton_mass': PROTON_MASS,
-    }
-    
-    if from_unit not in conversions or to_unit not in conversions:
-        raise ValueError(f"Unsupported unit. Available: {list(conversions.keys())}")
-    
-    kg = value * conversions[from_unit]
-    return kg / conversions[to_unit]
-
-def convert_length(value, from_unit, to_unit):
-    """Convert length between different units (m, cm, Å, fm, etc.)"""
-    conversions = {
-        'm': 1.0,
-        'cm': 1e-2,
-        'mm': 1e-3,
-        'μm': 1e-6,
-        'nm': 1e-9,
-        'Å': 1e-10,
-        'pm': 1e-12,
-        'fm': 1e-15,
-        'bohr': BOHR_RADIUS,
-        'planck': PLANCK_LENGTH,
-    }
-    
-    if from_unit not in conversions or to_unit not in conversions:
-        raise ValueError(f"Unsupported unit. Available: {list(conversions.keys())}")
-    
-    meters = value * conversions[from_unit]
-    return meters / conversions[to_unit]
-
-def natural_units_conversion(quantity, unit_type):
-    """Convert to natural units where ℏ = c = kB = 1"""
-    if unit_type == 'energy':
-        return quantity / ELECTRON_VOLT
-    elif unit_type == 'mass':
-        return quantity * SPEED_OF_LIGHT**2 / ELECTRON_VOLT
-    elif unit_type == 'length':
-        return quantity / (REDUCED_PLANCK * SPEED_OF_LIGHT / ELECTRON_VOLT)
-    elif unit_type == 'time':
-        return quantity / (REDUCED_PLANCK / ELECTRON_VOLT)
-    else:
-        raise ValueError("Supported types: 'energy', 'mass', 'length', 'time'")
-
-if __name__ == "__main__":
-    print("Physics Constants Library")
-    print("=" * 50)
-    print(f"Speed of light: {SPEED_OF_LIGHT:.0f} m/s")
-    print(f"Planck constant: {PLANCK_CONSTANT:.6e} J·s")
-    print(f"Electron mass: {ELECTRON_MASS:.6e} kg = {ELECTRON_MASS_MEV:.6f} MeV/c²")
-    print(f"Proton mass: {PROTON_MASS:.6e} kg = {PROTON_MASS_MEV:.6f} MeV/c²")
-    print(f"Fine structure constant: {FINE_STRUCTURE_CONSTANT:.10f}")
-    print(f"Bohr radius: {BOHR_RADIUS:.6e} m = {convert_length(BOHR_RADIUS, 'm', 'Å'):.4f} Å")
-    
-    print("\nConversion Examples:")
-    print(f"1 eV = {convert_energy(1, 'eV', 'J'):.6e} J")
-    print(f"1 u = {convert_mass(1, 'u', 'kg'):.6e} kg")
-    print(f"1 Å = {convert_length(1, 'Å', 'm'):.2e} m")
-    
-    print(f"\nTotal constants exported: {len(__all__)}")
