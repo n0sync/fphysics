@@ -2076,3 +2076,79 @@ disorder — but systems like Earth can thrive by riding energy flows.
 
 > “Entropy isn’t the end — it’s the scorekeeper. Life is possible only because we import low‑entropy energy and export higher entropy waste.”  
 """)
+
+
+def dark_matter(*, show_explanation=True):
+    """
+    Explains the concept of dark matter — why it’s needed, how it's observed (rotation curves, gravitational lensing, CMB),
+    different theoretical candidates, and its role in cosmic structure and expansion.
+    """
+    if show_explanation:
+        print("""\
+Title: Dark Matter — The Invisible Glue of the Universe
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. The Mystery That Started It All
+
+In the 1930s, astronomers like Fritz Zwicky and Jan Oort noticed that visible matter couldn’t account for the gravitational behavior of galaxy clusters — galaxies moved far too fast to be held by observed mass alone. This hinted at a vast reservoir of unseen mass, later called **dark matter**.:contentReference[oaicite:1]{index=1}
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. Galaxy Rotation Curves: The Smoking Gun
+
+In spiral galaxies, stars orbit at nearly constant speeds even at large distances from the center—contradicting expectations based on luminous mass. Vera Rubin and others confirmed that rotation curves remain flat, implying that galaxies are embedded in massive, invisible dark halos extending far beyond the visible disk.:contentReference[oaicite:2]{index=2}
+
+This requires galaxies to contain **five to ten times more mass** than what's visible.:contentReference[oaicite:3]{index=3}
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. Clusters, Gravitational Lensing, and Cosmic Web
+
+Observations of galaxy clusters—via hot X‑ray–emitting gas and gravitational lensing—show even more mass than stars and gas account for. Mapping of dark matter halos using cluster lensing reveals dark matter structures extending hundreds of kiloparsecs.:contentReference[oaicite:4]{index=4}
+
+Weak lensing surveys and the cosmic web mapping further reinforce that large-scale structure is dominated by non-luminous mass.:contentReference[oaicite:5]{index=5}
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. The Cosmic Microwave Background (CMB)
+
+Fluctuations in the CMB measured by WMAP, Planck, and other missions show a pattern of acoustic peaks. Their relative heights demand a component of **non-baryonic matter** to explain both compression and expansion effects. The data strongly indicate that about **26% of the universe's total energy density** is dark matter.:contentReference[oaicite:6]{index=6}
+
+Without dark matter, the cosmic acoustic signatures would not match observations.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+5. Cold, Warm, and Hot Dark Matter
+
+Dark matter particles are categorized by their velocity distribution:
+
+- **Cold Dark Matter (CDM)**: Slow-moving and capable of clustering at galactic scales—favored by structure formation models.
+- **Warm or Hot Dark Matter (WDM / HDM)**: Lighter, faster particles. Hot dark matter could erase small-scale structure, conflicting with observations.:contentReference[oaicite:7]{index=7}
+
+Observational evidence strongly supports CDM as the dominant form.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+6. Cosmic Structure and ΛCDM
+
+In the standard **ΛCDM model**, dark matter forms gravitational scaffolding:  
+galaxies, clusters, and cosmic filaments grow within dark matter halos. Simulations and observations align tightly with this picture.:contentReference[oaicite:8]{index=8}
+
+Accelerated expansion (dark energy) makes up the remaining ~70%, while ordinary (baryonic) matter constitutes ~5%.:contentReference[oaicite:9]{index=9}
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+7. Why It’s Important
+
+Dark matter isn’t directly observable—it doesn’t emit, absorb, or scatter light—but its gravitational influence is essential to explain:
+
+- The stability and rotation of galaxies
+- Structure formation across cosmic time
+- Observed lensing signals of galaxies and clusters
+- The detailed anisotropies in the CMB
+
+Without it, our understanding of the universe breaks.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+8. Summary
+
+Dark matter is the invisible majority of matter in the universe:  
+It binds galaxies, shapes cosmic structure, and defines how matter clusters over time. Comprising roughly **five times more mass than visible matter**, dark matter is central to cosmology and fundamental physics.
+
+> “We don’t see dark matter—but we feel its gravitational presence everywhere in the cosmos.”
+
+""")
