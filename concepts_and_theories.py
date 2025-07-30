@@ -2013,3 +2013,66 @@ Redshift is more than a spectral shift:
 
 > “The redshifted whispers of ancient starlight carry the story of a universe in motion — expanding, evolving, and revealing its secrets one wavelength at a time.”
 """)
+
+def entropy(*, show_explanation=True):
+    """
+    Explains thermodynamic entropy, Earth’s entropy exchange with the Sun, Carnot engines.
+    """
+    if show_explanation:
+        print("""\
+Title: Entropy and the Fate of the Universe — Physics and Misunderstanding
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. Defining Entropy and the Second Law
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Entropy quantifies how energy disperses and how many microscopic configurations
+(Microstates) correspond to a macroscopic state. In thermodynamics, ΔS = Q/T,
+while statistical mechanics gives S = k log W.
+
+The Second Law dictates that in an isolated system, entropy tends to increase, driving
+irreversible processes like heat flow, mixing, and decay.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. Misunderstandings Clarified — Insights from Veritasium
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+- Entropy relies on how we define macrostates versus microstates.
+- Entropy gives rise to the **arrow of time** — distinguishing past from future.
+- Discussion of **Maxwell’s demon**, which challenges the Second Law, and how information theory
+  and Landauer’s Principle resolve that paradox by linking information erasure to entropy increase.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. Earth‑Sun Energy Flow and Life
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Earth acts like an open heat engine: the Sun supplies **low‑entropy visible photons**;
+Earth reradiates **high‑entropy infrared photons**. This entropy export enables local
+order — life, ecosystems, and complexity — while total entropy (Sun + Earth + space) increases
+consistent with the Second Law. Schrödinger called this “negative entropy” powering life :contentReference.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. Carnot Engines and Entropy Accounting
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+A Carnot engine represents the theoretical maximum efficiency between a hot and cold reservoir:
+η = 1 − (Tc/Th). No engine can exceed the Carnot limit — and in an ideal cycle, entropy taken
+from the hot source equals entropy dumped to the cold sink. This illustrates how work
+production inevitably involves entropy redistribution.
+
+The Sun–Earth example mirrors this: Earth extracts usable energy from Sun, does life's work,
+then dumps heat and entropy to space.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+5. Heat Death and the Arrow of Time
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Cosmologically, entropy increase implies eventual **heat death** — a state of maximum entropy
+where no free energy remains to sustain processes. Temperature differences vanish,
+and time’s arrow becomes ambiguous — though time itself persists.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+6. Summary: Why It Matters
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Entropy defines irreversibility, the arrow of time, and life's possibility.  
+Sunlight (= low entropy) powers Earth’s complexity; heat engines formalize limits; Maxwell’s demon
+story connects thermodynamics and information. Ultimately, the universe trends toward
+disorder — but systems like Earth can thrive by riding energy flows.
+
+> “Entropy isn’t the end — it’s the scorekeeper. Life is possible only because we import low‑entropy energy and export higher entropy waste.”  
+""")
