@@ -2152,3 +2152,71 @@ It binds galaxies, shapes cosmic structure, and defines how matter clusters over
 > “We don’t see dark matter—but we feel its gravitational presence everywhere in the cosmos.”
 
 """)
+
+def basel_problem(show_explanation=True):
+    """
+    Explains the Basel problem and how Euler solved it by summing the reciprocal of squares.
+    """
+    if show_explanation:
+        print("""\
+Title: The Basel Problem – The Sum of Reciprocal Squares
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. The Problem
+
+The Basel problem asks for the exact sum of the infinite series:
+
+    1 + 1/4 + 1/9 + 1/16 + 1/25 + ... = ∑(1/n²) for n=1 to ∞
+
+This is the sum of the reciprocals of the perfect squares. Mathematicians tried for decades to find the precise value of this sum — they knew it converged but didn’t know *to what*.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. Historical Background
+
+The problem was first posed by Pietro Mengoli in 1644 and remained unsolved for nearly a century. It earned its name from the hometown of the Bernoulli family (Basel, Switzerland), several of whom tried and failed to solve it. Even Jakob Bernoulli couldn’t crack it.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. Euler’s Breakthrough
+
+In 1734, the 28-year-old **Leonhard Euler** shocked the mathematical world by solving it. He found:
+
+    ∑(1/n²) = π² / 6
+
+This was a stunning result — it linked an **infinite sum of rational numbers** to **π**, which emerges from geometry and circles. No one expected such a connection.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. How Did He Do It?
+
+Euler cleverly considered the expansion of the sine function:
+
+    sin(x)/x = (1 - x²/π²)(1 - x²/4π²)(1 - x²/9π²) ...
+
+This is known as the infinite product representation of sine. He compared this to the standard power series expansion:
+
+    sin(x)/x = 1 - x²/6 + x⁴/120 - ...
+
+By matching the coefficients of x² in both expansions, he was able to deduce the sum of 1/n² must be π²/6.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+5. Modern Significance
+
+Euler’s result launched a whole new area of mathematics involving the Riemann zeta function:
+
+    ζ(s) = ∑(1/nˢ) for s > 1
+
+The Basel problem is just the case when s = 2:
+
+    ζ(2) = π²/6
+
+It turns out that ζ(4) = π⁴/90, ζ(6) = π⁶/945, and so on — the even zeta values are deeply tied to powers of π.
+
+The odd values like ζ(3), however, are still mysterious and not known to be rational or irrational in general.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+6. Conclusion
+
+The Basel problem is a beautiful illustration of the unexpected harmony in mathematics — linking geometry, infinite series, and complex analysis. Euler’s bold insight remains one of the most elegant results in the history of math.
+
+> “It is amazing that the sum of simple fractions adds up to a number involving π — the very symbol of circles.” – Inspired by Euler's genius
+""")
+
