@@ -2220,3 +2220,66 @@ The Basel problem is a beautiful illustration of the unexpected harmony in mathe
 > “It is amazing that the sum of simple fractions adds up to a number involving π — the very symbol of circles.” – Inspired by Euler's genius
 """)
 
+def riemann_hypothesis(show_explanation=True):
+    """
+    Explains the Riemann Hypothesis — one of the most important unsolved problems in mathematics.
+    """
+    if show_explanation:
+        print("""\
+Title: The Riemann Hypothesis – Hidden Patterns in the Primes
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. What Is the Riemann Hypothesis?
+
+At the heart of the Riemann Hypothesis lies a question about the **distribution of prime numbers** — those indivisible building blocks of arithmetic (like 2, 3, 5, 7, 11, ...).
+
+The Riemann Hypothesis concerns a complex function called the **Riemann zeta function**, defined for complex numbers s (with real and imaginary parts) as:
+
+    ζ(s) = 1 + 1/2ˢ + 1/3ˢ + 1/4ˢ + ...
+
+This function converges when the real part of s is greater than 1, but it can be analytically continued to much of the complex plane.
+
+The famous hypothesis is about the **zeros** of this function — the values of s where ζ(s) = 0.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. Statement of the Hypothesis
+
+All **nontrivial zeros** of the zeta function lie on the **critical line** in the complex plane:
+
+> Re(s) = 1/2
+
+This means that if ζ(s) = 0 and s is not a negative even integer (the so-called "trivial zeros"), then the real part of s must be exactly 1/2.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. Why It Matters
+
+The Riemann Hypothesis is deeply connected to the **distribution of prime numbers**. Proving it true would sharpen our understanding of how primes are spread out among the natural numbers.
+
+For example:
+- It would give very tight bounds on the gaps between primes.
+- It would confirm the accuracy of the **Prime Number Theorem** with minimal error.
+- It connects with random matrix theory, quantum mechanics, and chaos theory.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. Attempts and Evidence
+
+- Over **trillions** of nontrivial zeros have been computed, and **all** found lie on the critical line.
+- Yet, despite this overwhelming numerical evidence, no general proof exists.
+- Proposed by **Bernhard Riemann** in 1859, it remains unproven to this day.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+5. The Million-Dollar Problem
+
+The **Clay Mathematics Institute** included the Riemann Hypothesis among its **7 Millennium Prize Problems** — offering **$1 million** for a proof or disproof.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+6. In Summary
+
+- The Riemann Hypothesis asserts that all nontrivial zeros of ζ(s) lie on Re(s) = 1/2
+- It is central to understanding the **deep structure of the primes**
+- Despite enormous effort, the hypothesis remains unsolved
+- Its truth would validate many results across number theory and beyond
+
+> “The primes seem random — but hidden within their chaos may lie one of the most beautiful symmetries in mathematics.”
+""")
+
