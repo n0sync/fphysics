@@ -2469,3 +2469,55 @@ Understanding its behavior is like holding the key to the secrets of prime numbe
 """)
 
 
+def dirichlets_theorem():
+    """
+    Explains Dirichlet's Theorem on Arithmetic Progressions — a foundational result in number theory
+    showing that primes are evenly distributed among suitable arithmetic sequences.
+    """
+    print("""\
+Title: Dirichlet’s Theorem — Primes in Arithmetic Progressions
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Dirichlet’s Theorem states that for any two **positive coprime integers** a and d (i.e., gcd(a, d) = 1),  
+the arithmetic sequence:
+
+        a, a + d, a + 2d, a + 3d, ...
+
+contains **infinitely many prime numbers**.
+
+For example:
+✓ The sequence 5, 10, 15, 20, 25, ... (with a = 5, d = 5) has only one prime: 5  
+✗ But the sequence 5, 10, 15, 20, ... is not valid because gcd(5, 5) ≠ 1.
+
+Now consider:
+✓ 3, 7, 11, 15, 19, 23, ... (a = 3, d = 4), with gcd(3, 4) = 1  
+This contains infinitely many primes: 3, 7, 11, 19, 23, 31, ...
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Key Condition: Coprimality
+
+The requirement **gcd(a, d) = 1** is essential.  
+If a and d share a common factor, then every number in the sequence is divisible by that factor  
+— making it impossible to have infinitely many primes.
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Importance and Impact
+
+Dirichlet proved this theorem using **Dirichlet L-functions** and **characters modulo n**,  
+which laid the groundwork for **analytic number theory**.
+
+✓ Generalizes the idea that primes don’t just “cluster randomly” — they **distribute evenly** across valid progressions  
+✓ Helps understand the **density of primes** in specific modular classes  
+✓ Key to advanced results like **Chebotarev’s theorem** and **modular forms**
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Conclusion
+
+Dirichlet's Theorem is a gateway into the structured world of prime numbers and modular arithmetic.  
+It shows that even within the rigid structure of arithmetic progressions, primes are **guaranteed** to appear infinitely often — as long as the starting conditions are right.
+
+> “Primes may be elusive, but Dirichlet showed they are not random — they follow rules, even in patterns.”
+""")
+
+
+
