@@ -2402,3 +2402,70 @@ Infinity is not a single idea, but a landscape of different sizes. From the infi
 > “Some infinities are bigger than others.” — Cantor's legacy in set theory
 """)
 
+
+def riemann_zeta_function():
+    """
+    Explains the Riemann Zeta Function — a complex function deeply connected to the distribution
+    of prime numbers. Includes its definition, key properties, and mathematical significance.
+    """
+    print("""\
+Title: The Riemann Zeta Function — Gateway to Prime Numbers
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+The **Riemann Zeta Function** is a function of a complex variable, defined initially for
+real numbers greater than 1 as:
+
+        ζ(s) = 1 + 1/2^s + 1/3^s + 1/4^s + ...
+
+This infinite series converges when the real part of **s** is greater than 1.  
+It can be analytically continued to other values of **s**, except **s = 1**, where it diverges.
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Euler’s Connection to Prime Numbers
+
+Leonhard Euler discovered that the zeta function encodes prime numbers through the identity:
+
+        ζ(s) = ∏ (1 / (1 - p^(-s)))     (product over all primes p)
+
+This shows a profound link between the zeta function and the **distribution of primes**.
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Extension to Complex Numbers
+
+Bernhard Riemann extended ζ(s) to complex values and studied its properties in the 19th century.  
+He discovered that the function has **trivial zeros** at negative even integers:
+
+        ζ(-2) = ζ(-4) = ζ(-6) = ... = 0
+
+The real mystery lies in the **non-trivial zeros** — the values of **s** for which ζ(s) = 0  
+in the critical strip where 0 < Re(s) < 1.
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+The Riemann Hypothesis
+
+The famous unsolved conjecture proposes:
+
+> "All non-trivial zeros of the zeta function lie on the line Re(s) = 1/2."
+
+If true, this would imply **very precise control over the distribution of prime numbers**.  
+It is one of the **Millennium Prize Problems** with a $1 million reward for proof.
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Applications
+
+✓ Prime number theorem  
+✓ Cryptography and randomness  
+✓ Quantum chaos  
+✓ Analytic number theory  
+✓ Fractal dimensions and statistical mechanics
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Conclusion
+
+The Riemann Zeta Function sits at the intersection of analysis, number theory, and complex systems.  
+Understanding its behavior is like holding the key to the secrets of prime numbers — the atoms of arithmetic.
+
+> “The zeta function is not just a function — it's a deep window into the fabric of mathematics.”
+""")
+
+
