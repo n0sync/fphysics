@@ -2520,4 +2520,43 @@ It shows that even within the rigid structure of arithmetic progressions, primes
 """)
 
 
+def brownian_motion():
+    """
+    Brownian Motion
+
+    Brownian motion refers to the random, erratic movement of microscopic particles suspended in a fluid (liquid or gas), 
+    resulting from collisions with the fast-moving molecules of the surrounding medium.
+
+    This phenomenon was first observed by botanist Robert Brown in 1827 while studying pollen grains in water. He noticed 
+    that the grains moved unpredictably, even without any external influence. It wasn't until Albert Einstein's 1905 paper 
+    that Brownian motion was quantitatively explained as evidence of molecular activity, providing strong support for the 
+    atomic theory of matter.
+
+    Mathematically, Brownian motion is modeled as a stochastic process—a continuous-time random walk. In one dimension, 
+    the position of a particle undergoing Brownian motion over time t can be described as:
+
+        x(t) = x(0) + √(2Dt) * N(0,1)
+
+    Where:
+    - x(0) is the initial position
+    - D is the diffusion coefficient
+    - t is time
+    - N(0,1) is a standard normal random variable
+
+    Applications:
+    - Physics: Understanding diffusion and thermal motion
+    - Finance: Used in modeling stock price fluctuations (Geometric Brownian Motion)
+    - Biology: Describes intracellular transport and molecular movement
+    - Mathematics: Basis for stochastic calculus and the Wiener process
+
+    Experimental Example:
+    Jean Perrin’s experiments in the early 20th century tracked individual particles and confirmed Einstein’s predictions, 
+    helping to determine Avogadro’s number and solidifying the molecular view of matter.
+
+    Brownian motion bridges the microscopic world of atoms with observable macroscopic behavior, and it remains fundamental 
+    to both theoretical and applied sciences.
+    """
+    pass
+
+
 
