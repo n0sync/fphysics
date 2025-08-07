@@ -2558,5 +2558,45 @@ def brownian_motion():
     """
     pass
 
+def ehrenfest_theorem():
+    """
+    Ehrenfest Theorem
+
+    The Ehrenfest Theorem bridges classical mechanics and quantum mechanics by showing how the quantum expectation values 
+    of observables like position and momentum follow laws similar to classical equations of motion — under certain conditions.
+
+    Formally, the theorem states that the time derivative of the expectation value of an operator (observable) A in a quantum 
+    system is given by:
+
+        d⟨A⟩/dt = (1/iħ) ⟨[A, H]⟩ + ⟨∂A/∂t⟩
+
+    Where:
+    - ⟨A⟩ is the expectation value of operator A
+    - H is the Hamiltonian of the system
+    - [A, H] is the commutator of A and H
+    - ∂A/∂t is the explicit time dependence of A (if any)
+    - ħ is the reduced Planck constant
+
+    Example for Position and Momentum:
+
+    If we apply this to the position operator x and the momentum operator p:
+
+        d⟨x⟩/dt = ⟨p⟩ / m
+
+        d⟨p⟩/dt = -⟨∂V/∂x⟩
+
+    These are analogs of Newton's second law in classical mechanics, showing that the average behavior of quantum systems 
+    mimics classical trajectories, particularly when quantum uncertainties are small.
+
+    Implications:
+    - Shows the **correspondence principle** in action: quantum mechanics recovers classical results in the appropriate limit.
+    - Helps explain why classical mechanics works well for macroscopic objects, even though everything is fundamentally quantum.
+    - Clarifies that individual quantum events are non-deterministic, but the average of many such events behaves predictably.
+
+    In essence, the Ehrenfest theorem illustrates how classical motion emerges from quantum laws, linking the probabilistic 
+    world of quantum mechanics with the deterministic world of classical physics.
+    """
+    pass
+
 
 
