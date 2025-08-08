@@ -2663,4 +2663,68 @@ def buffons_needle():
     pass
 
 
+def comptons_diffraction():
+    """
+    Compton's Diffraction — Photon Wavelength Shift Due to Scattering
+
+    Compton's Diffraction (more precisely, Compton Scattering) is a quantum mechanical phenomenon 
+    discovered by Arthur H. Compton in 1923. It describes how X-rays or gamma rays change their 
+    wavelength when they collide with a free or loosely bound electron.
+
+    -------------------------------------
+    The Setup:
+    -------------------------------------
+    - A photon of initial wavelength λ hits a stationary electron.
+    - The photon scatters off at an angle θ relative to its original direction.
+    - The electron recoils due to momentum transfer.
+    - The scattered photon has a longer wavelength (lower energy).
+
+    -------------------------------------
+    The Formula:
+    -------------------------------------
+    The change in wavelength Δλ is given by the Compton equation:
+
+        Δλ = (h / (m_e * c)) * (1 - cos(θ))
+
+    Where:
+    - h   = Planck's constant
+    - m_e = rest mass of electron
+    - c   = speed of light
+    - θ   = scattering angle of the photon
+
+    The term (h / (m_e * c)) is called the **Compton Wavelength** of the electron:
+
+        λ_C = 2.426 × 10⁻¹² m
+
+    -------------------------------------
+    Why It Matters:
+    -------------------------------------
+    - Demonstrates that light behaves as particles (photons) with momentum.
+    - Confirms the conservation of **energy** and **momentum** in quantum processes.
+    - Showed that classical wave theory of light could not explain this effect — 
+      requiring quantum mechanics.
+
+    -------------------------------------
+    Example Calculation:
+    -------------------------------------
+    Suppose:
+    - Incident photon wavelength λ = 0.071 nm (X-ray)
+    - Scattering angle θ = 90°
+
+    Then:
+        Δλ = (2.426 × 10⁻¹² m) * (1 - cos(90°))
+            = 2.426 × 10⁻¹² m
+    New wavelength λ' = λ + Δλ = 0.071 nm + 0.002426 nm ≈ 0.07343 nm
+
+    -------------------------------------
+    Key Insights:
+    -------------------------------------
+    - Larger scattering angles → greater wavelength shift.
+    - At θ = 0° (no scattering), Δλ = 0 (no change in wavelength).
+    - A cornerstone experiment proving **particle-like behavior of light**.
+    - Bridges concepts from relativity, quantum mechanics, and electromagnetic theory.
+    """
+    pass
+
+
 
