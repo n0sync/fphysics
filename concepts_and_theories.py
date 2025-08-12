@@ -2835,6 +2835,68 @@ unprovability inside the system.
 Conclusion: Every powerful enough system of rules will have truths it cannot capture.
 """)
 
+def Hilbert_Program(*, show_explanation=True):
+    """
+    Explain David Hilbert's three foundational goals for mathematics and how they were ultimately
+    shown to be unattainable.
+
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the full historical and conceptual explanation.
+    """
+
+    if show_explanation:
+        print("""\
+Title: Hilbert's Program and Its Collapse
+
+David Hilbert (1862–1943) envisioned placing all of mathematics on a perfectly solid foundation.
+His program, outlined in the early 20th century, had three central goals:
+
+1. Consistency:
+   The axioms must not produce contradictions. No statement should be both provable and disprovable.
+
+2. Completeness:
+   Every true statement expressible in the system's language should be provable from its axioms.
+
+3. Decidability (Entscheidungsproblem):
+   There should exist a finite mechanical procedure (algorithm) to decide the truth or falsehood
+   of any statement in the system.
+
+---------------------------------------------------
+How It Was Challenged and Eventually Debunked
+---------------------------------------------------
+
+1. Gödel's First Incompleteness Theorem (1931):
+   - Kurt Gödel proved that in any consistent formal system capable of expressing basic arithmetic,
+     there exist true statements that cannot be proven within the system.
+   - This shattered the goal of **completeness**: no matter how many axioms you add, there will
+     always be unprovable truths.
+
+2. Gödel's Second Incompleteness Theorem (1931):
+   - He further showed that such a system cannot prove its own consistency (unless it is inconsistent).
+   - This undermined Hilbert’s dream of proving **consistency** purely from within the system.
+
+3. The Entscheidungsproblem and Computability (1936):
+   - Alonzo Church and Alan Turing independently proved there is no general algorithm
+     to decide the truth of every mathematical statement.
+   - This resolved Hilbert’s **decidability** goal in the negative, showing that mathematics
+     is not fully mechanizable.
+
+4. Aftermath:
+   - Hilbert’s optimism (“Wir müssen wissen, wir werden wissen” — “We must know, we will know”)
+     inspired decades of research, but the dream of a perfect, complete, and decidable
+     foundation for mathematics was proven impossible.
+   - Modern mathematics instead embraces axiomatic systems knowing they are incomplete,
+     using separate consistency proofs relative to stronger systems, and accepting the limits
+     of algorithmic decision-making.
+
+Summary:
+    - Goal 1 (Consistency): Cannot be proven internally if the system is strong enough.
+    - Goal 2 (Completeness): Impossible — there will always be undecidable truths.
+    - Goal 3 (Decidability): Impossible — no universal decision algorithm exists.
+""")
+
 
 
 
