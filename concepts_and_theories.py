@@ -2772,6 +2772,69 @@ where ψ* is the complex conjugate of ψ.
 
     return prob_density
 
+def godel_incompleteness_theorem(*, show_explanation=True, demo=False):
+    """
+    Display an overview of Gödel's Incompleteness Theorems and optionally give an illustrative analogy.
+
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the detailed historical and conceptual explanation.
+    demo : bool, default False
+        If True, show a metaphorical example illustrating the core idea.
+
+    Returns
+    -------
+    None
+        This function prints the explanation and optional analogy but returns nothing.
+    """
+    if show_explanation:
+        print("""\
+Title: Gödel's Incompleteness Theorems – Limits of Formal Mathematical Systems
+
+In 1931, Austrian logician **Kurt Gödel** published two groundbreaking theorems 
+that forever changed mathematics, logic, and philosophy.
+
+The First Incompleteness Theorem:
+    In any *consistent* formal system (rich enough to include arithmetic), 
+    there are true statements that **cannot** be proven within the system.
+
+    ➜ Meaning: No matter how powerful your axioms are, there will always be truths
+      they cannot reach.
+
+The Second Incompleteness Theorem:
+    Such a system cannot prove its **own consistency** from within.
+
+    ➜ Meaning: If you want to prove the system's consistency, you need to step 
+      outside the system — but then that new system faces the same problem.
+
+Philosophical Consequences:
+    • Mathematics is not a closed, complete universe — it has unavoidable "blind spots".
+    • Hilbert's dream of a fully complete, self-contained math (the 'Hilbert Program') failed.
+    • Truth and provability are not the same thing.
+
+Gödel achieved this by encoding statements about logic *within* logic itself —
+creating a statement that, in effect, says: "This statement is not provable."
+If it were provable, it would be false — a paradox — so it must be true, yet unprovable.
+""")
+
+    if demo:
+        print("""\
+Analogy: The Librarian's Impossible Catalogue
+
+Imagine a huge library with a perfect catalogue listing *every book it contains*.
+One day, someone writes a book titled:
+    "This book is not listed in the library's catalogue."
+
+Case 1: The catalogue lists it → contradiction (it says it's not listed, but it is).
+Case 2: The catalogue does not list it → contradiction (then it *should* be listed).
+
+This mirrors Gödel's construction: a statement that truthfully asserts its own
+unprovability inside the system.
+
+Conclusion: Every powerful enough system of rules will have truths it cannot capture.
+""")
+
 
 
 
