@@ -1671,105 +1671,6 @@ Conditions for a steady state:
 > “Markov Chains describe systems that evolve randomly — but predictably — over time.”
 """)
 
-def grovers_algorithm(*, show_explanation=True):
-    """
-    Explains Grover's Algorithm — a quantum algorithm that provides a quadratic speedup for unstructured search problems.
-    Focuses on conceptual understanding, steps of the algorithm, and real-world implications.
-
-    Parameters
-    ----------
-    show_explanation : bool, default True
-        Whether to print the theoretical explanation.
-    """
-    if show_explanation:
-        print("""\
-Title: Grover’s Algorithm — Quantum Speedup for Unstructured Search
-
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-1. What Problem Does Grover's Algorithm Solve?
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-
-Grover’s Algorithm is designed for **unstructured search problems**, where the goal is to find a specific item in an unsorted database.
-
-Classical approach:
-- Requires checking items one by one → O(N) time
-
-Grover’s quantum approach:
-- Finds the solution in approximately **O(√N)** steps
-
-> A **quadratic speedup**, which is significant for large datasets.
-
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-2. The Setup
-
-Suppose we have a function **f(x)** that returns:
-- 1 if **x** is the solution  
-- 0 otherwise
-
-✓ The function acts as a **black box**, or oracle  
-✓ There are **N** possible inputs, and only one (or a few) satisfy f(x) = 1
-
-The challenge: find **x** such that f(x) = 1.
-
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-3. Core Idea and Steps
-
-Grover’s Algorithm works in three main stages:
-
-✓ **Initialization**:  
-Prepare a uniform superposition of all possible states (equal probability for all x)
-
-✓ **Oracle** (Phase Inversion):  
-Flip the sign (phase) of the amplitude of the correct solution(s) — the “marked” state
-
-✓ **Amplitude Amplification** (Diffusion Operator):  
-Invert all amplitudes about the average to boost the marked state's amplitude
-
-✓ **Iteration**:  
-Repeat the Oracle + Amplification steps ≈ √N times
-
-✓ **Measurement**:  
-Collapse the state — with high probability, the result is the correct answer
-
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-4. Why Does It Work?
-
-✓ Quantum states allow **interference** — amplitudes add and cancel  
-✓ Grover’s algorithm **constructively interferes** with the correct answer’s amplitude  
-✓ Repeating the steps amplifies the marked state’s probability
-
-> By smartly rotating the state vector, the algorithm points closer and closer to the solution.
-
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-5. Limitations and Requirements
-
-- Only useful for **unstructured** problems — no shortcuts from data patterns  
-- Requires a quantum oracle (often non-trivial to construct)  
-- Works best when there's **exactly one** or **few** correct answers  
-- Over-iterating reduces the success probability
-
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-6. Real-World Applications
-
-✓ **Cryptography**:  
-Grover’s algorithm weakens symmetric encryption — e.g., 128-bit security becomes ~64-bit quantum equivalent
-
-✓ **Database search** (conceptual)  
-✓ **Constraint satisfaction problems**  
-✓ **Quantum benchmarking**:  
-Used as a benchmark for early quantum computers
-
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-7. Summary: Faster Search Through Quantum Interference
-
-- Classical search is linear (O(N)); Grover’s is quadratic (O(√N))  
-- Uses **superposition, oracle marking, and amplitude amplification**  
-- Best known algorithm for **brute-force quantum search**  
-- Demonstrates quantum mechanics as a tool for computational speedup
-
-> “Grover’s Algorithm shows that even for simple tasks, quantum thinking offers powerful shortcuts.”
-""")
-
 def supernova(*, show_explanation=True):
     """
     Step-by-step explanation of how a massive star evolves into a supernova,
@@ -2938,6 +2839,7 @@ Philosophical significance:
     • This problem touches on self-locating belief, Bayesian updating, and anthropic reasoning.
     • It has parallels to thought experiments in cosmology, AI, and philosophy of mind.
 """)
+
 
 
 
