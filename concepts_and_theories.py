@@ -2897,6 +2897,48 @@ Summary:
     - Goal 3 (Decidability): Impossible — no universal decision algorithm exists.
 """)
 
+def sleeping_beauty_problem(*, show_explanation=True):
+    """
+    Explain the Sleeping Beauty probability problem.
+
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the explanation of the problem and its interpretations.
+
+    Returns
+    -------
+    None
+    """
+    if show_explanation:
+        print("""\
+Title: The Sleeping Beauty Problem
+
+Setup:
+    • On Sunday, Sleeping Beauty is put to sleep.
+    • A fair coin is flipped:
+        - If HEADS: She is awakened on Monday only.
+        - If TAILS: She is awakened on Monday AND Tuesday, with memory of the Monday awakening erased.
+    • On each awakening, she does not know which day it is or the result of the coin flip.
+
+The Question:
+    Upon awakening, what is the probability that the coin landed HEADS?
+
+Two main answers exist:
+    • The 'Thirder' position:
+        - There are 3 equally likely awakenings: (H, Mon), (T, Mon), (T, Tue).
+        - Only 1 of these corresponds to HEADS.
+        - Probability(HEADS) = 1/3.
+
+    • The 'Halfer' position:
+        - The coin is fair, so without new evidence, Probability(HEADS) = 1/2.
+        - They argue the extra awakenings for TAILS do not change the prior.
+
+Philosophical significance:
+    • This problem touches on self-locating belief, Bayesian updating, and anthropic reasoning.
+    • It has parallels to thought experiments in cosmology, AI, and philosophy of mind.
+""")
+
 
 
 
