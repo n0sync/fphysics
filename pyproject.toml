@@ -3,11 +3,9 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "python-pysics"
+name = "fphysics"
 version = "0.1.0"
-authors = [
-    {name = "n0sync", email = "n0sync.76@gmail.com"}
-]
+authors = [{name = "n0sync", email = "n0sync.76@gmail.com"}]
 description = "A comprehensive physics library providing constants, equations, and formulas"
 readme = "README.md"
 license = {text = "MIT"}
@@ -26,20 +24,7 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Operating System :: OS Independent",
 ]
-keywords = [
-    "physics",
-    "science",
-    "constants",
-    "equations",
-    "mechanics",
-    "quantum",
-    "formulas",
-    "astrophysics",
-    "thermodynamics",
-    "optics",
-    "waves",
-    "electromagnetism"
-]
+keywords = ["physics", "science", "constants", "equations", "mechanics", "quantum"]
 dependencies = [
     "numpy>=1.19.0",
     "scipy>=1.7.0",
@@ -56,13 +41,13 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/n0sync/pysics"
-Repository = "https://github.com/n0sync/pysics"
-Issues = "https://github.com/n0sync/pysics/issues"
+Homepage = "https://github.com/n0sync/fphysics"
+Repository = "https://github.com/n0sync/fphysics"
+Issues = "https://github.com/n0sync/fphysics/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["pysics*"]
+include = ["fphysics*"]
 exclude = ["tests*"]
 
 [tool.black]
