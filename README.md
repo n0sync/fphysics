@@ -1,33 +1,26 @@
-# pysics — A Comprehensive Physics Library in Python
+# fphysics — A Comprehensive Physics Library in Python
 
-**pysics** is a pure Python library designed to provide an extensive collection of physical constants, equations, and formulae. It serves as a valuable toolkit for students, researchers, educators, and developers, offering support for a wide range of physics domains — from classical mechanics to quantum theory.
+**fphysics** is a pure Python library that offers an extensive collection of physical constants, equations, and formulas.  
+It’s built as a one-stop toolkit for students, researchers, educators, and developers — covering everything from classical mechanics to cutting-edge quantum theory.
 
-## Key Features
+## 🔑 Key Features
 
 - **Extensive Constants Database**  
-  Includes all major physical constants — SI base units, quantum constants, astronomical values, and more.
+  Includes essential physical constants — SI base units, quantum constants, astronomical parameters, and more.
 
-- **Modular Formula Collections**  
-  Organized modules covering mechanics, thermodynamics, electromagnetism, atomic physics, nuclear physics, and beyond.
+- **Modular & Well-Organized Formula Collections**  
+  Separate modules for mechanics, thermodynamics, electromagnetism, atomic physics, nuclear physics, relativity, statistical mechanics, and beyond.
 
-- **Unit Conversion Utilities**  
-  Easily convert between unit systems such as SI, CGS, and natural units.
+- **Unit Conversion Made Easy**  
+  Convert seamlessly between SI, CGS, and natural units.
 
-- **Built for Education and Research**  
-  Designed to integrate seamlessly into scientific calculators, simulations, teaching tools, or research codebases.
+- **Built for Learning & Research**  
+  Perfect for integration into scientific calculators, simulations, teaching aids, or advanced research codebases.
 
-## Installation
+## 📦 Installation
 
-Coming soon on PyPI. Once released, install it with:
+Once available on PyPI, install with:
 
 ```bash
-pip install pysics
+pip install fphysics
 ```
-Contributing
-We welcome contributions of all kinds — whether it's adding new formulas, improving existing modules, or translating content. If you’re interested in contributing:
-
-Fork the repository
-
-Submit a pull request
-
-Open issues for suggestions or bug reports
