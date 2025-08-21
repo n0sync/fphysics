@@ -2962,6 +2962,89 @@ understanding continuous computation.
 
     return None
 
+def conways_game_of_life(
+        *, 
+        show_explanation: bool = True,
+        simulate: bool = False, 
+        grid=None, 
+        steps: int = 1
+    ):
+    """
+    Print an overview of Conway's Game of Life and optionally simulate
+    a few steps of its evolution on a 2D grid.
+
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the conceptual/historical overview.
+    simulate : bool, default False
+        If True, evolve the given grid for the specified number of steps.
+    grid : list[list[int]] | None
+        2D grid of 0s (dead cells) and 1s (alive cells).
+    steps : int, default 1
+        Number of simulation steps to run.
+
+    Returns
+    -------
+    new_grid : list[list[int]] | None
+        The updated grid after evolution if simulation is run, else None.
+    """
+
+    if show_explanation:
+        print("""\
+Title: Conway's Game of Life
+
+The Game of Life, devised by John Horton Conway in 1970, is a cellular automaton that 
+demonstrates how complex patterns can emerge from simple rules.
+
+Rules (applied simultaneously to every cell):
+• Any live cell with fewer than 2 live neighbors dies (underpopulation).
+• Any live cell with 2 or 3 live neighbors survives.
+• Any live cell with more than 3 live neighbors dies (overpopulation).
+• Any dead cell with exactly 3 live neighbors becomes a live cell (reproduction).
+
+Key Ideas:
+• Initial configuration = "seed".
+• Evolution occurs in discrete steps ("generations").
+• Despite its simplicity, the Game of Life can simulate universal computation.
+• Known patterns: still lifes (stable), oscillators (repeat), spaceships (move).
+
+The Game of Life is a striking example of how complexity and lifelike behavior can 
+emerge from simple deterministic rules.
+""")
+
+    if simulate:
+        if grid is None:
+            raise ValueError("Provide a starting `grid` for simulation.")
+
+        rows, cols = len(grid), len(grid[0])
+
+        def count_neighbors(r, c):
+            return sum(
+                grid[i][j]
+                for i in range(r-1, r+2)
+                for j in range(c-1, c+2)
+                if (0 <= i < rows and 0 <= j < cols and not (i == r and j == c))
+            )
+
+        new_grid = [row[:] for row in grid]
+        for _ in range(steps):
+            next_grid = [[0] * cols for _ in range(rows)]
+            for r in range(rows):
+                for c in range(cols):
+                    neighbors = count_neighbors(r, c)
+                    if grid[r][c] == 1 and neighbors in (2, 3):
+                        next_grid[r][c] = 1
+                    elif grid[r][c] == 0 and neighbors == 3:
+                        next_grid[r][c] = 1
+            grid = next_grid
+        print("Simulation result → evolved grid:")
+        for row in grid:
+            print(" ".join(str(x) for x in row))
+        return grid
+
+    return None
+
 
 
 
