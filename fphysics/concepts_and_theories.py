@@ -2900,6 +2900,68 @@ thermal output. Its study highlights the importance of reaction energetics, mate
 and rigorous safety controls in high-temperature processes.
 """)
 
+def analog_computers(
+        *, 
+        show_explanation: bool = True,
+        simulate: bool = False, 
+        input_signal=None, 
+        transfer_function=None
+    ):
+    """
+    Print an overview of analog computers and optionally simulate
+    a simple signal transformation through a transfer function.
+
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the historical/theoretical summary.
+    simulate : bool, default False
+        If True, apply `transfer_function` to the given `input_signal`.
+    input_signal : list[float] | None
+        Numerical values representing a continuous-time signal.
+    transfer_function : callable | None
+        A mathematical operation (e.g., integration, differentiation, scaling).
+
+    Returns
+    -------
+    output_signal : list[float] | None
+        Transformed signal if simulation is run, else None.
+    """
+
+    if show_explanation:
+        print("""\
+Title: Analog Computers
+
+Analog computers are computing devices that process information in a continuous form,
+using physical quantities (such as voltages, currents, mechanical motions, or fluid
+flows) to model and solve problems.
+
+Key Features:
+• Continuous representation: data is encoded in continuous variables (not discrete bits).
+• Real-time computation: differential equations can be solved as the system evolves.
+• Building blocks: operational amplifiers, integrators, differentiators, multipliers,
+  summers, and nonlinear elements.
+• Applications: simulation of physical systems (mechanical vibrations, flight dynamics,
+  electrical circuits) and control systems.
+• Advantages: very fast for solving certain differential equations; provides intuition
+  about system behavior.
+• Limitations: precision is restricted by noise, drift, and component tolerances;
+  digital computers eventually replaced them in most fields.
+
+Analog computing saw peak use between the 1940s–1970s, particularly in engineering,
+before being overtaken by digital computing, but remains conceptually important in
+understanding continuous computation.
+""")
+
+    if simulate:
+        if input_signal is None or transfer_function is None:
+            raise ValueError("Provide both `input_signal` and `transfer_function` for simulation.")
+        output_signal = [transfer_function(x) for x in input_signal]
+        print(f"Simulation result → transformed signal: {output_signal}")
+        return output_signal
+
+    return None
+
 
 
 
