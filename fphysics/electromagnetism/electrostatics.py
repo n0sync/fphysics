@@ -1,6 +1,9 @@
 import numpy as np
 from constants import *
 
+def quantized_charge(n):
+    return n * ELEMENTARY_CHARGE
+    
 # Coulomb's Law
 def coulomb_force(q1, q2, r):
     return COULOMB_CONSTANT * q1 * q2 / (r**2)
@@ -195,3 +198,4 @@ def laplace_spherical(A, B, r, l):
 
 def laplace_cylindrical(A, B, rho, m):
     return A * rho**m + B * rho**(-m)
+
