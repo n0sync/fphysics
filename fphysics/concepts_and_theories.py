@@ -3045,6 +3045,64 @@ emerge from simple deterministic rules.
 
     return None
 
+def Kronecker_delta(
+        i: int,
+        j: int,
+        show_explanation: bool = True
+    ) -> int:
+    """
+    Compute the Kronecker delta δ_ij.
+
+    Definition
+    ----------
+    δ_ij = 1 if i == j
+         = 0 if i != j
+
+    It acts like the discrete version of the Dirac delta:
+    - In linear algebra, it represents the identity matrix entries.
+    - In summations, it "picks out" terms where indices match.
+    - In computer science, it's useful as an equality check written in math notation.
+
+    Parameters
+    ----------
+    i : int
+        First index
+    j : int
+        Second index
+    show_explanation : bool
+        If True, print an explanation.
+
+    Returns
+    -------
+    delta : int
+        1 if i == j else 0
+    """
+
+    if show_explanation:
+        print("""\
+Title: Kronecker Delta δ_ij
+
+The Kronecker delta is a simple function of two integers i and j:
+
+    δ_ij = { 1  if i = j
+             0  if i ≠ j }
+
+It is widely used in mathematics, physics, and computer science:
+
+1. **Identity Matrix**:
+   δ_ij is exactly the (i, j) entry of the identity matrix.
+
+2. **Summation Selector**:
+   In sums, it 'selects' terms when indices match:
+       Σ a_j δ_ij = a_i
+
+3. **Computer Science Analogy**:
+   Equivalent to an equality check:
+       δ_ij = int(i == j)
+""")
+
+    return 1 if i == j else 0
+
 
 
 
