@@ -3103,6 +3103,66 @@ It is widely used in mathematics, physics, and computer science:
 
     return 1 if i == j else 0
 
+def Plancherel_theorem(
+        f: np.ndarray,
+        show_explanation: bool = True
+    ) -> tuple[float, float]:
+    """
+    Demonstrate Plancherel's theorem using the Discrete Fourier Transform (DFT).
+
+    Plancherel's theorem (continuous form):
+        ∫ |f(x)|^2 dx = ∫ |F(k)|^2 dk
+    where F(k) is the Fourier transform of f(x).
+
+    In the discrete case (via FFT), it states that the energy (L2 norm) of a
+    sequence is preserved under the Fourier transform (up to a normalization).
+
+    Parameters
+    ----------
+    f : np.ndarray
+        Discrete signal (1D array).
+    show_explanation : bool
+        If True, print an overview of the theorem.
+
+    Returns
+    -------
+    time_energy : float
+        Energy of the signal in the time domain.
+    freq_energy : float
+        Energy of the signal in the frequency domain.
+    """
+
+    if show_explanation:
+        print("""\
+Title: Plancherel's Theorem
+
+Plancherel's theorem is a fundamental result in Fourier analysis:
+
+    The total energy of a signal is preserved
+    between the time domain and the frequency domain.
+
+In math form:
+    ∫ |f(x)|^2 dx = ∫ |F(k)|^2 dk
+
+Where:
+• f(x)  = function in time/space domain
+• F(k)  = Fourier transform of f(x)
+• |.|^2 = squared magnitude (energy density)
+
+Interpretation:
+- Energy in a signal is invariant under Fourier transform.
+- This makes Fourier analysis a powerful tool in physics,
+  signal processing, and quantum mechanics.
+""")
+
+    # Compute time-domain energy
+    time_energy = np.sum(np.abs(f)**2)
+
+    # Compute frequency-domain energy (via FFT)
+    F = np.fft.fft(f)
+    freq_energy = np.sum(np.abs(F)**2) / len(f)  # normalization for discrete case
+
+    return time_energy, freq_energy
 
 
 
