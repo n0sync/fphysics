@@ -1,6 +1,8 @@
 # A collection of fascinating math theories that I find intriguing and worth exploring.
 # Mentions: Most of these concepts were inspired by videos from Veritasium, 3Blue1Brown.
 
+import cmath
+
 
 
 def taylor_series(*, show_explanation=True):
@@ -387,3 +389,118 @@ The name "Hermite" honors Charles Hermite's work on **both** concepts!
  the discrete and the continuous, the algebraic and the analytic."
                                                     ~Mathematical Legacy
 """)
+
+def Depressed_Cubic(p=None, q=None, *, show_explanation=True):
+    """
+    Print the depressed cubic theory and, if p and q are provided, return a real (or complex) root
+    of the depressed cubic x³ + px + q = 0.
+    
+    Parameters
+    ----------
+    p, q : float | int
+        Coefficients in the equation x³ + px + q = 0.
+    show_explanation : bool, default True
+        Whether to print the theoretical explanation and formula.
+        
+    Returns
+    -------
+    root : complex | None
+        One root of the cubic (None if p or q were not supplied).
+    """
+    if show_explanation:
+        print("""\
+Title: The Depressed Cubic — Unlocking the Secrets of Cubic Equations
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. What Is a Depressed Cubic?
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+A **depressed cubic** is a cubic equation with the quadratic term removed:
+    x³ + px + q = 0
+
+The term "depressed" means **"pressed down"** — the x² coefficient has been eliminated.
+
+**Why This Form Matters:**
+- **Simplifies** the general cubic ax³ + bx² + cx + d = 0
+- **Reveals** the essential structure hidden in cubic equations  
+- **Enables** systematic solution methods like Cardano's formula
+- **Connects** algebra to beautiful geometric transformations
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. From General to Depressed: The Transformation
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+**Starting Point:** General cubic equation
+    ax³ + bx² + cx + d = 0
+
+**Step 1:** Normalize (divide by a)
+    x³ + (b/a)x² + (c/a)x + (d/a) = 0
+
+**Step 2:** Substitute x = t - b/(3a) to eliminate the x² term
+**Result:** The depressed cubic
+    t³ + pt + q = 0
+
+**Mathematical Magic:** This substitution **always works** for any cubic!
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. Cardano's Formula: The Cubic Solution
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+For the depressed cubic x³ + px + q = 0:
+
+In the 16th century, building on Tartaglia's work, Cardano published the
+closed‑form solution in his *Ars Magna*:
+
+        x = ∛(-q/2 + Δ) + ∛(-q/2 - Δ),
+    where Δ = √((q/2)² + (p/3)³).
+
+**The Discriminant:**
+    Δ² = (q/2)² + (p/3)³
+
+**Three Cases Based on the Discriminant:**
+- **Δ² > 0:** One real root, two complex conjugate roots
+- **Δ² = 0:** Multiple real roots (at least two equal)  
+- **Δ² < 0:** Three distinct real roots (**Casus irreducibilis**)
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. The Casus Irreducibilis: When Reality Gets Complex
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+**The Paradox:**
+When Δ² < 0, we have **three real roots**, but Cardano's formula involves:
+> **Complex numbers** to express **real solutions**!
+
+**Historical Impact:** This paradox drove the development of **complex number theory**!
+
+The other two roots can be found by multiplying the cube‑roots by the 
+complex cube roots of unity ω = e^(2πi/3).
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+5. Applications and Mathematical Beauty
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+**Applications:**
+✓ **Optimization**: Critical points of cubic functions
+✓ **Physics**: Equations of state, phase transitions  
+✓ **Engineering**: Stress analysis, fluid dynamics
+✓ **Computer Graphics**: Bézier curves and spline interpolation
+
+**Mathematical Elegance:**
+The depressed cubic reveals that **complexity often hides simplicity** — 
+by removing one term, we unlock the entire structure of cubic equations.
+
+> "Sometimes, mathematical depression is exactly what we need  
+>  to see clearly through the algebraic complexity."
+
+"In algebra, as in life, sometimes we must remove the unnecessary  
+ to discover the essential."
+                                                    ~Algebraic Wisdom
+""")
+    
+    # If no coefficients were given, just exit after printing.
+    if p is None or q is None:
+        return None
+    
+    # Cardano's formula
+    Δ = cmath.sqrt((q / 2) ** 2 + (p / 3) ** 3)
+    u = (-q / 2 + Δ) ** (1 / 3)
+    v = (-q / 2 - Δ) ** (1 / 3)
+    root = u + v
+    
+    # Show the numerical result
+    print(f"Root for p = {p}, q = {q} :  {root}")
+    return root
