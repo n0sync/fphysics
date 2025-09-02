@@ -9,58 +9,6 @@ import time
 import numpy as np
 from scipy.stats import norm
 
-def Depressed_Cubic(p=None, q=None, *, show_explanation=True):
-    """
-    Print Tartaglia's method and, if p and q are provided, return a real (or complex) root
-    of the depressed cubic x³ + p x = q.
-
-    Parameters
-    ----------
-    p, q : float | int
-        Coefficients in the equation x³ + p x = q.
-    show_explanation : bool, default True
-        Whether to print the historical explanation and formula.
-
-    Returns
-    -------
-    root : complex | None
-        One root of the cubic (None if p or q were not supplied).
-    """
-
-    if show_explanation:
-        print("""\
-Title: Solving the Depressed Cubic – Tartaglia's Breakthrough
-
-In the 16th century Niccolò Tartaglia discovered a general solution to the
-depressed cubic
-
-    x³ + p x = q.
-
-His substitution x = u + v leads to the relations
-    u v = −p/3   and   u³ + v³ = q,
-from which one obtains the closed‑form root published later in Cardano's *Ars Magna*:
-
-        x = ∛(q/2 + Δ) + ∛(q/2 − Δ),
-    where Δ = √((q/2)² + (p/3)³).
-
-The other two roots follow by multiplying the cube‑roots by the complex cube
-roots of unity.
-""")
-
-    # If no coefficients were given, just exit after printing.
-    if p is None or q is None:
-        return None
-
-    # Cardano–Tartaglia formula
-    Δ = cmath.sqrt((q / 2) ** 2 + (p / 3) ** 3)
-    u = (q / 2 + Δ) ** (1 / 3)
-    v = (q / 2 - Δ) ** (1 / 3)
-    root = u + v
-
-    # Show the numerical result
-    print(f"Root for p = {p}, q = {q} :  {root}")
-    return root
-
 def Copenhagen_quantum_theory(
         *, 
         show_explanation: bool = True,
@@ -3163,6 +3111,7 @@ Interpretation:
     freq_energy = np.sum(np.abs(F)**2) / len(f)  # normalization for discrete case
 
     return time_energy, freq_energy
+
 
 
 
