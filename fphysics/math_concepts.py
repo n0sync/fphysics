@@ -113,3 +113,128 @@ Understanding convergence is crucial for reliable approximation.
  it is the foundation of how we compute in the modern world."
                                                     ~Mathematical Heritage
 """)
+
+
+def pi_collision_problem(*, show_explanation=True):
+    """
+    Explains the Pi Collision Problem, how colliding blocks can compute digits of π,
+    why this works through conservation laws and geometry, and the beautiful mathematics behind it.
+    
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the theoretical explanation.
+    """
+    if show_explanation:
+        print("""\
+Title: The Pi Collision Problem — Computing π Through Bouncing Blocks
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. What Is the Pi Collision Problem?
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Imagine this bizarre scenario:
+> Two blocks slide on a frictionless surface. One block (mass m) approaches another 
+> block (mass M) that's initially at rest near a wall. All collisions are perfectly elastic.
+
+The **Pi Collision Problem** reveals this stunning fact:
+> The **total number of collisions** gives you the digits of π!
+
+When M = 100^(n-1) × m, you get exactly **n digits of π** in the collision count.
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. The Setup: A Physics Thought Experiment
+**Components:**
+- Small block (mass m) moving right with initial velocity v₀
+- Large block (mass M = 100^(n-1) × m) initially at rest  
+- Immovable wall on the right
+- All collisions are perfectly elastic (no energy loss)
+
+**The Process:**
+1. Small block hits large block → both start moving right
+2. Large block hits wall → bounces back left  
+3. Blocks collide again... and again... and again...
+4. Eventually, small block bounces left faster than large block
+5. **Count the total collisions!**
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. The Miraculous Results
+For different mass ratios:
+- M = m (ratio 1:1) → **3 collisions** → π ≈ 3.14...
+- M = 100m (ratio 100:1) → **31 collisions** → π ≈ 3.14...
+- M = 10,000m (ratio 10⁴:1) → **314 collisions** → π ≈ 3.14...
+- M = 1,000,000m (ratio 10⁶:1) → **3141 collisions** → π ≈ 3.14...
+
+**Pattern:** Mass ratio of 100^(n-1) gives **first n digits of π**!
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. Why Does This Work? The Deep Mathematics
+This isn't magic — it's beautiful geometry disguised as physics:
+
+**Conservation Laws:**
+- Energy: ½mv₁² + ½Mv₂² = constant
+- Momentum: mv₁ + Mv₂ = constant
+
+**The Key Insight:**
+These conservation equations define an **ellipse** in velocity space (v₁, v₂).
+Each collision corresponds to a **reflection** across a specific line.
+
+**Geometric Connection:**
+The collision angles in velocity space are related to **arctan(√(m/M))**.
+When M >> m, this approaches **arctan(1/√(100^(n-1))) ≈ π/(2√(100^(n-1)))**
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+5. The Phase Space Perspective
+**Brilliant Insight:** Map the problem to 2D phase space!
+
+**Coordinates:** (√m × v₁, √M × v₂)
+- This makes the energy constraint a **perfect circle**!
+- Collisions become **reflections** across specific axes
+- The number of reflections = arc length / angle step
+
+**The Connection to π:**
+- Quarter circle arc length = πR/2
+- Angular step size ≈ π/(2√(M/m)) for large M/m
+- Number of steps = (πR/2) / (π/(2√(M/m))) = √(M/m)
+- When M/m = 100^(n-1), collisions ≈ 10^(n-1) × π
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+6. Mathematical Elegance: From Physics to Geometry
+**The Transformation:**
+Classical mechanics → Conservation laws → Ellipse geometry → Circular reflections → π
+
+**Why This Is Profound:**
+- Connects **Newtonian mechanics** with **pure geometry**
+- Shows π hiding in **dynamical systems**  
+- Demonstrates how **coordinate transforms** reveal hidden structure
+- Links **discrete collisions** to **continuous circular motion**
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+7. Computational Aspects
+**As a π Algorithm:**
+- Theoretically exact for infinite precision
+- Practically inefficient (need exponentially large mass ratios)
+- Mainly of theoretical and pedagogical interest
+
+**Complexity:** O(10^n) collisions to get n digits of π
+**Comparison:** Much slower than modern π algorithms, but infinitely more beautiful!
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+8. Educational Impact and Wonder
+This problem showcases:
+✓ **Conservation laws** in action  
+✓ **Coordinate transformations** revealing hidden structure  
+✓ **Dynamical systems** and phase space analysis  
+✓ Connection between **discrete and continuous** mathematics  
+✓ **Geometric interpretation** of physical processes  
+✓ Why π appears in **unexpected places**
+
+**The Pedagogical Beauty:**
+Students see advanced mathematical concepts through a simple, intuitive setup.
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+9. Summary: π Emerges from Collisions
+- **Physical setup**: Two blocks and a wall with elastic collisions
+- **Mathematical reality**: Circle geometry in disguise  
+- **Deep connection**: Classical mechanics ↔ Pure geometry ↔ Number theory
+- **Educational value**: Makes advanced concepts tangible and memorable
+
+> "Who would have thought that counting bouncing blocks  
+>  could reveal the geometry of circles?"
+
+> "Sometimes the most profound mathematics hides behind  
+>  the simplest physical setups."
+
+"The most beautiful thing we can experience is the mysterious."
+                                                    ~Albert Einstein
+""")
