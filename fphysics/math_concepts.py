@@ -584,3 +584,204 @@ Though tested up to very large numbers, both remain unproven in general.
         print(f"Weak Goldbach triplets for {n}: {results}")
 
     return results if results else None
+
+
+def black_scholes_merton(*, show_explanation=True, show_example=False, S=100, K=100, T=1, r=0.05, sigma=0.2):
+    """
+    Explain the Black-Scholes-Merton equation for option pricing, and optionally compute
+    the theoretical price of a European call option.
+
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the theoretical background.
+    show_example : bool, default False
+        If True, compute and display a sample call option price using given parameters.
+    S : float
+        Current price of the underlying asset.
+    K : float
+        Strike price of the option.
+    T : float
+        Time to expiration (in years).
+    r : float
+        Risk-free interest rate (annualized).
+    sigma : float
+        Volatility of the underlying asset (standard deviation of returns).
+
+    Returns
+    -------
+    call_price : float | None
+        Price of the European call option if show_example=True, else None.
+    """
+    if show_explanation:
+        print("""\
+Title: Black–Scholes–Merton Equation – Pricing the Value of Risk
+
+In the 1970s, Fischer Black, Myron Scholes, and Robert Merton introduced a groundbreaking
+model that transformed financial markets forever. Their equation gives a theoretical estimate
+for the price of a **European option** — a financial contract that grants the right, but not
+the obligation, to buy (or sell) an asset at a specified price and time.
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. The Core Idea
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+The value of an option should reflect:
+• The current price of the underlying asset (S),
+• The strike price (K),
+• Time remaining (T),
+• Volatility of the asset (σ),
+• And the risk-free interest rate (r).
+
+To avoid arbitrage (riskless profit), the price must follow a differential equation:
+
+    ∂V/∂t + (1/2)·σ²·S²·∂²V/∂S² + r·S·∂V/∂S − r·V = 0
+
+Where:
+- V = value of the option,
+- S = asset price,
+- t = time.
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. The Solution (for a European Call Option)
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+The closed-form solution for a European call is:
+
+    C = S·N(d₁) − K·e^(−rT)·N(d₂)
+
+Where:
+    d₁ = [ln(S/K) + (r + σ²/2)·T] / (σ·√T)
+    d₂ = d₁ − σ·√T
+    N(x) = Cumulative distribution function of the standard normal distribution
+
+This formula prices the call using the concept of **no-arbitrage** and the idea of constructing 
+a "replicating portfolio" — a mix of stock and cash that behaves exactly like the option.
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. Assumptions Behind the Model
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+• No transaction costs or taxes
+• Continuous trading
+• Constant volatility and interest rate
+• Log-normal price distribution
+• The asset pays no dividends
+
+Real markets aren't perfect — but the Black-Scholes-Merton model works surprisingly well as a baseline.
+
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. Impact and Insight
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+This equation turned finance into a precise science — earning Scholes and Merton the 1997 Nobel Prize 
+in Economics (Black had passed away).
+
+It shifted thinking from speculative pricing to **quantitative risk management** — and launched an 
+entire industry of derivatives and mathematical finance.
+
+Its deeper message:
+> Even in a world full of randomness, it's possible to construct formulas that tame uncertainty — 
+> if your assumptions are tight enough.
+
+""")
+
+    if show_example:
+        # Calculate d1 and d2
+        d1 = (math.log(S / K) + (r + sigma ** 2 / 2) * T) / (sigma * math.sqrt(T))
+        d2 = d1 - sigma * math.sqrt(T)
+        
+        # Calculate call option price using Black-Scholes formula
+        call_price = S * norm.cdf(d1) - K * math.exp(-r * T) * norm.cdf(d2)
+
+        print(f"\nSample Calculation — European Call Option Price:")
+        print(f"Underlying Price (S): {S}")
+        print(f"Strike Price (K):     {K}")
+        print(f"Time to Expiry (T):   {T} year(s)")
+        print(f"Risk-Free Rate (r):   {r}")
+        print(f"Volatility (σ):       {sigma}")
+        print(f"\nComputed Call Option Price: {call_price:.4f}")
+        return call_price
+
+    return None
+
+def p_adics(*, show_explanation=True, simulate=False, p=10, digits=10):
+    """
+    Explain the concept of p-adic numbers and optionally simulate a p-adic expansion.
+
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the theoretical and intuitive background.
+    simulate : bool, default False
+        If True, demonstrate p-adic expansion of a sample number.
+    p : int, default 10
+        Base prime (or 10 for decimal-like behavior); must be ≥ 2.
+    digits : int, default 10
+        Number of digits to show in the p-adic expansion (right-to-left).
+
+    Returns
+    -------
+    expansion : list[int] | None
+        The list of digits in the p-adic expansion, or None if simulate=False.
+    """
+    if show_explanation:
+        print(f"""\
+Title: p-adic Numbers — A Different Notion of Distance and Expansion
+
+p-adics are a surprising alternative to the real numbers. While real numbers are built
+around powers of 1/10 or 1/2, **p-adics are built from powers of a fixed base p, but going
+in the opposite direction**.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. What Makes p-adics Different?
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+• In real numbers:
+  1.9999... = 2.0000...
+
+• In p-adics:
+  9999...9 (with infinite 9s to the left) may *not* equal a finite integer.
+  Instead, infinite-left expansions are **normal** and meaningful!
+
+• The "distance" between numbers is defined using **divisibility** by p.
+  Two numbers are "close" if their difference is divisible by a high power of p.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. p-adic Expansion (for integers)
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+Any integer has a **p-adic expansion** like:
+
+    x = a₀ + a₁·p + a₂·p² + a₃·p³ + ...
+
+Where aᵢ ∈ (0, 1, ..., p−1)
+
+For example:
+• In base 10 (10-adics), the number −1 is represented as 9 + 9·10 + 9·10² + ...
+• In 2-adics, −1 becomes 1 + 2 + 4 + 8 + 16 + ... (an infinite sum)
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. Why It Matters
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+• p-adics are **complete number systems**, just like reals — but with totally different geometry.
+• They are crucial in **number theory**, **modular arithmetic**, and **algebraic geometry**.
+• They help solve congruences that are hard in the real world but easy in p-adics.
+""")
+
+    if not simulate:
+        return None
+
+    def p_adic_expansion(n, base, digits):
+        """Return the p-adic expansion of integer n in base `base`, up to `digits` terms."""
+        coeffs = []
+        for _ in range(digits):
+            r = n % base
+            coeffs.append(r)
+            n = (n - r) // base
+        return coeffs
+
+    # Simulate −1 by default to demonstrate infinite digit behavior
+    number = -1
+    expansion = p_adic_expansion(number, p, digits)
+    print(f"\n{p}-adic expansion of {number} (up to {digits} digits):")
+    print(" + ".join(f"{d}·{p}^{i}" for i, d in enumerate(expansion)))
+    return expansion
+
