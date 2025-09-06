@@ -785,3 +785,164 @@ For example:
     print(" + ".join(f"{d}·{p}^{i}" for i, d in enumerate(expansion)))
     return expansion
 
+def law_of_large_numbers(*, show_explanation=True):
+    """
+    Explains the Law of Large Numbers — a foundational principle in probability theory that describes how the average
+    of results from a random process converges to the expected value as the number of trials increases.
+
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the theoretical explanation.
+    """
+    if show_explanation:
+        print("""\
+Title: The Law of Large Numbers — Predictability in the Long Run
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. What Is the Law of Large Numbers?
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+It’s a fundamental concept in probability:
+
+> As the number of trials of a random experiment increases, the **sample average** gets closer to the **true average** (expected value).
+
+Mathematically:
+        lim (n→∞) (1/n) Σ Xᵢ = μ
+
+✓ Xᵢ: individual outcomes  
+✓ μ: the expected value  
+✓ n: number of trials
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. Intuition: Coin Tosses and Casinos
+
+Flip a fair coin:
+- Head = 1, Tail = 0  
+- Expected value = 0.5
+
+✓ 10 flips? Could be 7 heads → 0.7 average  
+✓ 10,000 flips? Much closer to 0.5  
+✓ 1,000,000 flips? Almost certainly around 0.5
+
+> “Randomness rules in the short run — but in the long run, patterns emerge.”
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. Why Does It Matter?
+
+✓ It bridges **probability** and **reality**  
+✓ Justifies **statistics** — estimating population parameters from samples  
+✓ Validates **insurance**, **gambling odds**, and **machine learning** models  
+✓ Shows why **rare events** still follow predictable long-term behavior
+
+> “The universe has noise, but also rhythm — the law of large numbers listens to the rhythm.”
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. Strong vs Weak Law
+
+✓ **Weak Law**: Convergence in probability  
+✓ **Strong Law**: Convergence almost surely (with probability 1)
+
+Both mean: as you take more samples, the average will almost certainly settle around the expected value.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+5. Real-World Applications
+
+✓ **Quality control**: Sample enough products to estimate overall defect rate  
+✓ **Polls**: More people surveyed = more accurate predictions  
+✓ **Finance**: Stock returns fluctuate, but long-term averages guide strategy  
+✓ **A/B testing**: Confirms whether version A or B performs better over many users
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+6. Summary: Randomness with Rules
+
+- Short-term results can be noisy and misleading  
+- Long-term averages reveal the **true nature** of the process  
+- A law that brings **order to chance**  
+- Essential for science, statistics, and sense-making in uncertainty
+
+> “In the chaos of randomness, the law of large numbers is a quiet promise of predictability.”
+
+"It tells us: the more you observe, the closer you get to the truth."
+""")
+
+
+def markov_chain(*, show_explanation=True):
+    """
+    Explains the concept of Markov Chains — a mathematical system that undergoes transitions from one state to another
+    based on certain probabilities. Focuses on core ideas, properties, and real-world applications.
+
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the theoretical explanation.
+    """
+    if show_explanation:
+        print("""\
+Title: Markov Chains — State Transitions and Long-Term Behavior
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. What Is a Markov Chain?
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+A **Markov Chain** is a mathematical model for systems that move between a finite set of states with fixed probabilities.
+
+The defining feature:
+> The **next state depends only on the current state**, not the history of previous states.
+
+This is known as the **Markov property** or **memorylessness**.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. Structure of a Markov Chain
+
+✓ A **set of states** (e.g., Sunny, Cloudy, Rainy)  
+✓ A **transition matrix** defining probabilities of moving between states  
+✓ An **initial state distribution** (optional for simulations)
+
+Example transition matrix:
+
+         Sunny   Cloudy   Rainy
+Sunny     0.6      0.3     0.1
+Cloudy    0.2      0.5     0.3
+Rainy     0.1      0.4     0.5
+
+Each row represents the probabilities of transitioning **from** a given state.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. Types of Markov Chains
+
+- **Discrete-time Markov Chain**: State changes at fixed time steps  
+- **Continuous-time Markov Chain**: Transitions occur continuously over time  
+- **Finite vs Infinite Chains**: Based on whether the number of states is limited or not
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. Steady State and Long-Term Behavior
+
+Many Markov Chains converge to a **steady-state distribution**:  
+→ A probability vector that doesn’t change after further transitions.
+
+This steady state shows the **long-run proportion of time** the system spends in each state.
+
+Conditions for a steady state:
+✓ The chain is **irreducible** (all states communicate)  
+✓ The chain is **aperiodic** (not trapped in a cycle)
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+5. Real-World Applications
+
+✓ **Weather prediction**  
+✓ **Board games** (e.g., Monopoly, Snake and Ladders)  
+✓ **Google PageRank** — ranking web pages as a Markov process  
+✓ **Queueing systems** — like customers arriving at a service desk  
+✓ **Speech recognition**, **natural language processing**, and **genetic sequencing**
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+6. Summary: Random Transitions, Predictable Patterns
+
+- Markov Chains model state transitions with **fixed probabilities**  
+- They obey the **memoryless property** — the next state depends only on the current one  
+- Many chains settle into a **predictable steady-state distribution**  
+- A powerful tool in understanding **stochastic (random) systems**
+
+> “Markov Chains describe systems that evolve randomly — but predictably — over time.”
+""")
