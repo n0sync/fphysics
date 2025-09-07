@@ -1750,123 +1750,6 @@ Infinity is not a single idea, but a landscape of different sizes. From the infi
 """)
 
 
-def riemann_zeta_function():
-    """
-    Explains the Riemann Zeta Function — a complex function deeply connected to the distribution
-    of prime numbers. Includes its definition, key properties, and mathematical significance.
-    """
-    print("""\
-Title: The Riemann Zeta Function — Gateway to Prime Numbers
-
-––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-The **Riemann Zeta Function** is a function of a complex variable, defined initially for
-real numbers greater than 1 as:
-
-        ζ(s) = 1 + 1/2^s + 1/3^s + 1/4^s + ...
-
-This infinite series converges when the real part of **s** is greater than 1.  
-It can be analytically continued to other values of **s**, except **s = 1**, where it diverges.
-
-––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-Euler’s Connection to Prime Numbers
-
-Leonhard Euler discovered that the zeta function encodes prime numbers through the identity:
-
-        ζ(s) = ∏ (1 / (1 - p^(-s)))     (product over all primes p)
-
-This shows a profound link between the zeta function and the **distribution of primes**.
-
-––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-Extension to Complex Numbers
-
-Bernhard Riemann extended ζ(s) to complex values and studied its properties in the 19th century.  
-He discovered that the function has **trivial zeros** at negative even integers:
-
-        ζ(-2) = ζ(-4) = ζ(-6) = ... = 0
-
-The real mystery lies in the **non-trivial zeros** — the values of **s** for which ζ(s) = 0  
-in the critical strip where 0 < Re(s) < 1.
-
-––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-The Riemann Hypothesis
-
-The famous unsolved conjecture proposes:
-
-> "All non-trivial zeros of the zeta function lie on the line Re(s) = 1/2."
-
-If true, this would imply **very precise control over the distribution of prime numbers**.  
-It is one of the **Millennium Prize Problems** with a $1 million reward for proof.
-
-––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-Applications
-
-✓ Prime number theorem  
-✓ Cryptography and randomness  
-✓ Quantum chaos  
-✓ Analytic number theory  
-✓ Fractal dimensions and statistical mechanics
-
-––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-Conclusion
-
-The Riemann Zeta Function sits at the intersection of analysis, number theory, and complex systems.  
-Understanding its behavior is like holding the key to the secrets of prime numbers — the atoms of arithmetic.
-
-> “The zeta function is not just a function — it's a deep window into the fabric of mathematics.”
-""")
-
-
-def dirichlets_theorem():
-    """
-    Explains Dirichlet's Theorem on Arithmetic Progressions — a foundational result in number theory
-    showing that primes are evenly distributed among suitable arithmetic sequences.
-    """
-    print("""\
-Title: Dirichlet’s Theorem — Primes in Arithmetic Progressions
-
-––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-Dirichlet’s Theorem states that for any two **positive coprime integers** a and d (i.e., gcd(a, d) = 1),  
-the arithmetic sequence:
-
-        a, a + d, a + 2d, a + 3d, ...
-
-contains **infinitely many prime numbers**.
-
-For example:
-✓ The sequence 5, 10, 15, 20, 25, ... (with a = 5, d = 5) has only one prime: 5  
-✗ But the sequence 5, 10, 15, 20, ... is not valid because gcd(5, 5) ≠ 1.
-
-Now consider:
-✓ 3, 7, 11, 15, 19, 23, ... (a = 3, d = 4), with gcd(3, 4) = 1  
-This contains infinitely many primes: 3, 7, 11, 19, 23, 31, ...
-
-––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-Key Condition: Coprimality
-
-The requirement **gcd(a, d) = 1** is essential.  
-If a and d share a common factor, then every number in the sequence is divisible by that factor  
-— making it impossible to have infinitely many primes.
-
-––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-Importance and Impact
-
-Dirichlet proved this theorem using **Dirichlet L-functions** and **characters modulo n**,  
-which laid the groundwork for **analytic number theory**.
-
-✓ Generalizes the idea that primes don’t just “cluster randomly” — they **distribute evenly** across valid progressions  
-✓ Helps understand the **density of primes** in specific modular classes  
-✓ Key to advanced results like **Chebotarev’s theorem** and **modular forms**
-
-––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-Conclusion
-
-Dirichlet's Theorem is a gateway into the structured world of prime numbers and modular arithmetic.  
-It shows that even within the rigid structure of arithmetic progressions, primes are **guaranteed** to appear infinitely often — as long as the starting conditions are right.
-
-> “Primes may be elusive, but Dirichlet showed they are not random — they follow rules, even in patterns.”
-""")
-
-
 def brownian_motion():
     """
     Brownian Motion
@@ -2608,6 +2491,7 @@ Interpretation:
     freq_energy = np.sum(np.abs(F)**2) / len(f)  # normalization for discrete case
 
     return time_energy, freq_energy
+
 
 
 
