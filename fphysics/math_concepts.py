@@ -514,7 +514,6 @@ by removing one term, we unlock the entire structure of cubic equations.
 def goldbach_conjecture(*, show_explanation=True, demo=False, n=None):
     """
     Print an overview of Goldbach's Conjectures and optionally demonstrate the conjecture for a given number.
-
     Parameters
     ----------
     show_explanation : bool, default True
@@ -523,66 +522,60 @@ def goldbach_conjecture(*, show_explanation=True, demo=False, n=None):
         If True, check the conjecture for the given number n.
     n : int | None
         An even number > 2 (for strong) or odd number > 5 (for weak), to verify the conjecture.
-
     Returns
     -------
     result : list[tuple[int, int]] or list[tuple[int, int, int]] | None
         A list of prime pairs or triplets satisfying the conjecture, or None if demo=False.
     """
-
     if show_explanation:
         print("""\
 Title: Goldbach's Conjectures – A Timeless Enigma in Number Theory
-
 Proposed in 1742 by Christian Goldbach in correspondence with Euler, the conjectures are:
-
 • **Strong Goldbach Conjecture**: Every even integer greater than 2 is the sum of two prime numbers.
     → Example: 28 = 11 + 17
-
 • **Weak Goldbach Conjecture**: Every odd integer greater than 5 is the sum of three primes.
     → Example: 29 = 7 + 11 + 11
-
 Euler considered the strong version a special case of the weak one.
 Though tested up to very large numbers, both remain unproven in general.
-
 • The weak conjecture was **proven in 2013** by Harald Helfgott.
 • The strong conjecture is still **open** — but no counterexample has ever been found.
 """)
-
     if not demo or n is None:
         return None
 
-    def is_prime(k):
-        if k < 2:
-            return False
-        for i in range(2, int(k ** 0.5) + 1):
-            if k % i == 0:
-                return False
-        return True
-
+    if n < 2:
+        primes = set()
+    else:
+        sieve = [True] * (n + 1)
+        sieve[0] = sieve[1] = False
+        for i in range(2, int(n ** 0.5) + 1):
+            if sieve[i]:
+                for j in range(i * i, n + 1, i):
+                    sieve[j] = False
+        primes = {i for i in range(2, n + 1) if sieve[i]}
     results = []
-
+    
     if n % 2 == 0:
         # Strong Goldbach demo (even number > 2)
         for a in range(2, n // 2 + 1):
             b = n - a
-            if is_prime(a) and is_prime(b):
+            if a in primes and b in primes:
                 results.append((a, b))
         print(f"Strong Goldbach pairs for {n}: {results}")
     else:
         # Weak Goldbach demo (odd number > 5)
-        for a in range(2, n - 4):
-            if not is_prime(a): 
-                continue
-            for b in range(a, n - a - 1):
-                if not is_prime(b):
+        prime_list = sorted(primes)
+        for a in prime_list:
+            if a >= n - 4:
+                break
+            for b in prime_list:
+                if b < a or a + b >= n - 1:
                     continue
                 c = n - a - b
-                if c >= b and is_prime(c):
+                if c >= b and c in primes:
                     results.append((a, b, c))
                         
         print(f"Weak Goldbach triplets for {n}: {results}")
-
     return results if results else None
 
 
@@ -704,7 +697,6 @@ Its deeper message:
 def p_adics(*, show_explanation=True, simulate=False, p=10, digits=10):
     """
     Explain the concept of p-adic numbers and optionally simulate a p-adic expansion.
-
     Parameters
     ----------
     show_explanation : bool, default True
@@ -715,7 +707,6 @@ def p_adics(*, show_explanation=True, simulate=False, p=10, digits=10):
         Base prime (or 10 for decimal-like behavior); must be ≥ 2.
     digits : int, default 10
         Number of digits to show in the p-adic expansion (right-to-left).
-
     Returns
     -------
     expansion : list[int] | None
@@ -724,63 +715,46 @@ def p_adics(*, show_explanation=True, simulate=False, p=10, digits=10):
     if show_explanation:
         print(f"""\
 Title: p-adic Numbers — A Different Notion of Distance and Expansion
-
 p-adics are a surprising alternative to the real numbers. While real numbers are built
 around powers of 1/10 or 1/2, **p-adics are built from powers of a fixed base p, but going
 in the opposite direction**.
-
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 1. What Makes p-adics Different?
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-
 • In real numbers:
   1.9999... = 2.0000...
-
 • In p-adics:
   9999...9 (with infinite 9s to the left) may *not* equal a finite integer.
   Instead, infinite-left expansions are **normal** and meaningful!
-
 • The "distance" between numbers is defined using **divisibility** by p.
   Two numbers are "close" if their difference is divisible by a high power of p.
-
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 2. p-adic Expansion (for integers)
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-
 Any integer has a **p-adic expansion** like:
-
     x = a₀ + a₁·p + a₂·p² + a₃·p³ + ...
-
 Where aᵢ ∈ (0, 1, ..., p−1)
-
 For example:
 • In base 10 (10-adics), the number −1 is represented as 9 + 9·10 + 9·10² + ...
 • In 2-adics, −1 becomes 1 + 2 + 4 + 8 + 16 + ... (an infinite sum)
-
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 3. Why It Matters
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-
 • p-adics are **complete number systems**, just like reals — but with totally different geometry.
 • They are crucial in **number theory**, **modular arithmetic**, and **algebraic geometry**.
 • They help solve congruences that are hard in the real world but easy in p-adics.
 """)
-
     if not simulate:
         return None
-
-    def p_adic_expansion(n, base, digits):
-        """Return the p-adic expansion of integer n in base `base`, up to `digits` terms."""
-        coeffs = []
-        for _ in range(digits):
-            r = n % base
-            coeffs.append(r)
-            n = (n - r) // base
-        return coeffs
-
-    # Simulate −1 by default to demonstrate infinite digit behavior
+    
     number = -1
-    expansion = p_adic_expansion(number, p, digits)
+    expansion = []
+    n = number
+    for _ in range(digits):
+        r = n % p
+        expansion.append(r)
+        n = (n - r) // p
+    
     print(f"\n{p}-adic expansion of {number} (up to {digits} digits):")
     print(" + ".join(f"{d}·{p}^{i}" for i, d in enumerate(expansion)))
     return expansion
