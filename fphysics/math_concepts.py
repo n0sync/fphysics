@@ -1132,4 +1132,56 @@ It shows that even within the rigid structure of arithmetic progressions, primes
 > “Primes may be elusive, but Dirichlet showed they are not random — they follow rules, even in patterns.”
 """)
 
+def types_of_infinity():
+    """
+    Explains the concept of different types of infinity in mathematics,
+    including countable and uncountable infinities, with examples.
+    """
+    print("""\
+Title: Different Types of Infinity — Countable and Uncountable
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Infinity in mathematics is not a single concept — there are **multiple sizes** or **types** of infinity. These arise especially in set theory, pioneered by **Georg Cantor**.
+
+1. Countable Infinity:
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+A set is *countably infinite* if its elements can be put in one-to-one correspondence with the natural numbers.
+
+Examples:
+✓ Natural numbers: 1, 2, 3, ...
+✓ Even numbers: 2, 4, 6, ...
+✓ Rational numbers (fractions): Though dense, they are still countable.
+
+→ All these sets have the same "size" of infinity, denoted **ℵ₀ (aleph-null)**.
+
+2. Uncountable Infinity:
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Some sets are so large that they **cannot** be matched with natural numbers.
+
+Examples:
+✓ Real numbers between 0 and 1  
+✓ Points on a line  
+✓ Irrational numbers (like π, √2)
+
+→ These have a **larger cardinality** than ℵ₀, called the **cardinality of the continuum** and denoted **𝑐**.
+
+Cantor's Diagonal Argument:
+Cantor proved that the real numbers are **uncountable** using a clever diagonalization argument — constructing a number not in any assumed complete list.
+
+3. Infinity Hierarchy:
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Infinity isn't just "countable" vs "uncountable". There's a **whole hierarchy** of infinities:
+
+✓ ℵ₀ < ℵ₁ < ℵ₂ < ...  
+Each new ℵ represents a strictly larger kind of infinity.
+
+Whether **𝑐 = ℵ₁** is known as the **Continuum Hypothesis**, one of the most famous problems in mathematics — it’s **independent** of standard set theory (ZFC).
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Conclusion:
+Infinity is not a single idea, but a landscape of different sizes. From the infinity of counting numbers to the uncountable infinity of real numbers, and even beyond, mathematics treats infinity with precision.
+
+> “Some infinities are bigger than others.” — Cantor's legacy in set theory
+""")
+
 
