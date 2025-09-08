@@ -1567,69 +1567,6 @@ It binds galaxies, shapes cosmic structure, and defines how matter clusters over
 
 """)
 
-def riemann_hypothesis(show_explanation=True):
-    """
-    Explains the Riemann Hypothesis — one of the most important unsolved problems in mathematics.
-    """
-    if show_explanation:
-        print("""\
-Title: The Riemann Hypothesis – Hidden Patterns in the Primes
-
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-1. What Is the Riemann Hypothesis?
-
-At the heart of the Riemann Hypothesis lies a question about the **distribution of prime numbers** — those indivisible building blocks of arithmetic (like 2, 3, 5, 7, 11, ...).
-
-The Riemann Hypothesis concerns a complex function called the **Riemann zeta function**, defined for complex numbers s (with real and imaginary parts) as:
-
-    ζ(s) = 1 + 1/2ˢ + 1/3ˢ + 1/4ˢ + ...
-
-This function converges when the real part of s is greater than 1, but it can be analytically continued to much of the complex plane.
-
-The famous hypothesis is about the **zeros** of this function — the values of s where ζ(s) = 0.
-
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-2. Statement of the Hypothesis
-
-All **nontrivial zeros** of the zeta function lie on the **critical line** in the complex plane:
-
-> Re(s) = 1/2
-
-This means that if ζ(s) = 0 and s is not a negative even integer (the so-called "trivial zeros"), then the real part of s must be exactly 1/2.
-
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-3. Why It Matters
-
-The Riemann Hypothesis is deeply connected to the **distribution of prime numbers**. Proving it true would sharpen our understanding of how primes are spread out among the natural numbers.
-
-For example:
-- It would give very tight bounds on the gaps between primes.
-- It would confirm the accuracy of the **Prime Number Theorem** with minimal error.
-- It connects with random matrix theory, quantum mechanics, and chaos theory.
-
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-4. Attempts and Evidence
-
-- Over **trillions** of nontrivial zeros have been computed, and **all** found lie on the critical line.
-- Yet, despite this overwhelming numerical evidence, no general proof exists.
-- Proposed by **Bernhard Riemann** in 1859, it remains unproven to this day.
-
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-5. The Million-Dollar Problem
-
-The **Clay Mathematics Institute** included the Riemann Hypothesis among its **7 Millennium Prize Problems** — offering **$1 million** for a proof or disproof.
-
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-6. In Summary
-
-- The Riemann Hypothesis asserts that all nontrivial zeros of ζ(s) lie on Re(s) = 1/2
-- It is central to understanding the **deep structure of the primes**
-- Despite enormous effort, the hypothesis remains unsolved
-- Its truth would validate many results across number theory and beyond
-
-> “The primes seem random — but hidden within their chaos may lie one of the most beautiful symmetries in mathematics.”
-""")
-
 def synchronization(show_explanation=True):
     """
     Explains the concept of synchronization — the process by which two or more systems align their states over time,
@@ -1696,59 +1633,6 @@ Synchronization is a powerful and universal behavior observed in nature, technol
 
 > “Out of chaos, alignment can emerge — not by command, but through connection.”
 """)
-
-def types_of_infinity():
-    """
-    Explains the concept of different types of infinity in mathematics,
-    including countable and uncountable infinities, with examples.
-    """
-    print("""\
-Title: Different Types of Infinity — Countable and Uncountable
-
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-Infinity in mathematics is not a single concept — there are **multiple sizes** or **types** of infinity. These arise especially in set theory, pioneered by **Georg Cantor**.
-
-1. Countable Infinity:
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-A set is *countably infinite* if its elements can be put in one-to-one correspondence with the natural numbers.
-
-Examples:
-✓ Natural numbers: 1, 2, 3, ...
-✓ Even numbers: 2, 4, 6, ...
-✓ Rational numbers (fractions): Though dense, they are still countable.
-
-→ All these sets have the same "size" of infinity, denoted **ℵ₀ (aleph-null)**.
-
-2. Uncountable Infinity:
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-Some sets are so large that they **cannot** be matched with natural numbers.
-
-Examples:
-✓ Real numbers between 0 and 1  
-✓ Points on a line  
-✓ Irrational numbers (like π, √2)
-
-→ These have a **larger cardinality** than ℵ₀, called the **cardinality of the continuum** and denoted **𝑐**.
-
-Cantor's Diagonal Argument:
-Cantor proved that the real numbers are **uncountable** using a clever diagonalization argument — constructing a number not in any assumed complete list.
-
-3. Infinity Hierarchy:
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-Infinity isn't just "countable" vs "uncountable". There's a **whole hierarchy** of infinities:
-
-✓ ℵ₀ < ℵ₁ < ℵ₂ < ...  
-Each new ℵ represents a strictly larger kind of infinity.
-
-Whether **𝑐 = ℵ₁** is known as the **Continuum Hypothesis**, one of the most famous problems in mathematics — it’s **independent** of standard set theory (ZFC).
-
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-Conclusion:
-Infinity is not a single idea, but a landscape of different sizes. From the infinity of counting numbers to the uncountable infinity of real numbers, and even beyond, mathematics treats infinity with precision.
-
-> “Some infinities are bigger than others.” — Cantor's legacy in set theory
-""")
-
 
 def brownian_motion():
     """
@@ -2491,6 +2375,7 @@ Interpretation:
     freq_energy = np.sum(np.abs(F)**2) / len(f)  # normalization for discrete case
 
     return time_energy, freq_energy
+
 
 
 
