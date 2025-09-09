@@ -2257,6 +2257,105 @@ emerge from simple deterministic rules.
 
     return None
 
+def earnshaws_theorem(*, show_explanation=True):
+    """
+    Provides a detailed overview of Earnshaw's Theorem, including its conceptual framework,
+    historical background, and implications for electrostatics and magnetic confinement.
+
+    Parameters
+    ----------
+    show_explanation : bool
+        Whether to print the theoretical and historical explanation.
+    """
+    if show_explanation:
+        print("""\
+Title: Earnshaw's Theorem — The Impossibility of Static Stable Equilibria in Inverse-Square Force Fields
+
+## Historical Background
+
+In 1842, the British mathematician **Samuel Earnshaw** formulated a remarkable theorem in classical physics:
+> *A collection of point charges cannot be maintained in a stable stationary equilibrium by electrostatic forces alone.*
+
+This insight extends beyond electrostatics to any **inverse-square law force field**, including Newtonian gravity and magnetostatics (in certain cases).  
+
+The theorem demonstrates a profound limitation: you cannot "trap" a charged particle in space using only static electric (or gravitational) fields.
+
+---
+
+## Conceptual Statement
+
+### Earnshaw’s Theorem:
+No system of point charges interacting solely via the Coulomb force can be in a position of **stable equilibrium**.
+
+- **Stable equilibrium** means that if a charge is displaced slightly, restoring forces push it back toward equilibrium.  
+- Earnshaw’s theorem proves that this condition cannot be satisfied everywhere in three-dimensional space for static fields.
+
+---
+
+## Mathematical Framework
+
+Electrostatic potentials \( \phi \) satisfy **Laplace’s equation** in charge-free regions:
+
+\[
+\nabla^2 \phi = 0
+\]
+
+Key property:  
+Solutions to Laplace’s equation cannot exhibit a **true local minimum** or **maximum** in free space (known as the **maximum-minimum principle**).  
+They can only have **saddle points**.
+
+- A **saddle point** means stable in one direction but unstable in another.  
+- Therefore, a trapped configuration cannot exist using static fields alone.
+
+---
+
+## Implications
+
+1. **Electrostatic Traps are Impossible**  
+   You cannot confine a charged particle with only static electric fields. Any attempt will always lead to instability.
+
+2. **Magnetostatics**  
+   Similarly, purely static magnetic fields cannot stably confine a paramagnetic particle.  
+   (Diamagnetic and superconducting materials are exceptions because they involve additional quantum or material effects beyond simple inverse-square laws.)
+
+3. **Gravitational Systems**  
+   Stable gravitational configurations require orbital motion (e.g., planets around the Sun), not static balance points.
+
+---
+
+## Ways Around Earnshaw’s Theorem
+
+Despite the restriction, nature and technology have devised methods to "bypass" the theorem:
+
+- **Dynamic Traps**:  
+  - **Paul Trap** (oscillating electric fields).  
+  - **Penning Trap** (combines static electric and magnetic fields).  
+- **Quantum Effects**:  
+  Electron orbitals around nuclei are stable due to quantum mechanics, not classical electrostatics.  
+- **Diamagnetism & Superconductivity**:  
+  Magnetic levitation becomes possible due to induced currents and quantum-mechanical exclusion effects.
+
+---
+
+## Physical Examples
+
+- A positively charged bead placed in an arrangement of fixed charges will always "roll away" in at least one direction.  
+- Magnetic levitation of a ferromagnet in static fields is impossible — unless diamagnetism or active stabilization is involved.  
+- Confinement of ions for precision spectroscopy relies on oscillating fields (Paul traps), explicitly designed to circumvent Earnshaw’s theorem.
+
+---
+
+## Summary
+
+Earnshaw’s Theorem is a cornerstone of classical electromagnetism, showing the limitations of static fields in confining particles.  
+
+It teaches us that:
+- **Static inverse-square force fields cannot yield stable equilibria**.  
+- Stable confinement requires **dynamics, material properties, or quantum mechanics**.
+
+This theorem elegantly illustrates how **mathematical constraints of Laplace’s equation** translate into profound physical impossibilities.
+""")
+
 
 
 
