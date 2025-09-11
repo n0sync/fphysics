@@ -1844,46 +1844,36 @@ def Wave_Function(psi=None, *, show_explanation=True):
     """
     Print an explanation of the quantum wave function and, if psi(x) is provided,
     return its probability density at a given point.
-
     Parameters
     ----------
     psi : callable | None
         A function representing the wave function ψ(x), which returns a complex number.
     show_explanation : bool, default True
         Whether to print the conceptual explanation.
-
     Returns
     -------
     prob_density : callable | None
         A function that, given x, returns |ψ(x)|² (probability density).
     """
-
     if show_explanation:
         print("""\
 Title: The Quantum Wave Function
-
 In quantum mechanics, the wave function ψ(x, t) contains all the information about a particle's
 state. It is generally complex-valued, and its squared modulus |ψ|² gives the probability density
 for finding the particle at position x at time t.
-
 Key properties:
     • ψ(x, t) is normalized so that the total probability over all space is 1.
     • The evolution of ψ is governed by the Schrödinger equation.
     • The complex phase of ψ plays a role in interference and superposition.
-
 Mathematically:
     Probability density ρ(x, t) = |ψ(x, t)|² = ψ*(x, t) × ψ(x, t),
 where ψ* is the complex conjugate of ψ.
 """)
-
     if psi is None:
         return None
+    return lambda x: abs(psi(x)) ** 2
 
-    def prob_density(x):
-        val = psi(x)
-        return abs(val) ** 2
 
-    return prob_density
 
 def godel_incompleteness_theorem(*, show_explanation=True, demo=False):
     """
@@ -2355,6 +2345,7 @@ It teaches us that:
 
 This theorem elegantly illustrates how **mathematical constraints of Laplace’s equation** translate into profound physical impossibilities.
 """)
+
 
 
 
