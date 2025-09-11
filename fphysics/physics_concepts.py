@@ -2347,6 +2347,100 @@ This theorem elegantly illustrates how **mathematical constraints of Laplace’s
 """)
 
 
+def morse_code(*, show_explanation=True):
+    """
+    Provides a detailed overview of Morse Code, including its historical development,
+    structure, rules of encoding, and applications in communication.
+
+    Parameters
+    ----------
+    show_explanation : bool
+        Whether to print the theoretical and historical explanation.
+    """
+    if show_explanation:
+        print("""\
+Title: Morse Code — The Language of Dots and Dashes
+
+## Historical Background
+
+In the early 1830s and 1840s, **Samuel F. B. Morse** and **Alfred Vail** developed a system of communication
+that revolutionized long-distance messaging. With the invention of the **telegraph**, 
+information could now travel at the speed of electricity instead of relying on couriers or ships.
+
+The solution was a simple yet powerful code:  
+> *Letters, numbers, and punctuation are represented as sequences of short and long signals — dots and dashes.*
+
+---
+
+## Structure of Morse Code
+
+- **Dot (·)**: A short signal (light blink, sound, or electrical pulse).  
+- **Dash (–)**: A long signal, typically three times the length of a dot.  
+
+### Timing Rules:
+- The space between **dots and dashes** in the same letter = 1 dot duration.  
+- The space between **letters** = 3 dots duration.  
+- The space between **words** = 7 dots duration.  
+
+This precise rhythm makes Morse code universally recognizable.
+
+---
+
+## Encoding Examples
+
+- **A** → · –  
+- **B** → – · · ·  
+- **C** → – · – ·  
+- **SOS** (distress signal) → · · · – – – · · ·  
+
+The **SOS** signal is the most famous, chosen not for its meaning but because its simple, unmistakable rhythm (3 short, 3 long, 3 short) is easily recognizable under distress.
+
+---
+
+## Variants
+
+1. **International Morse Code**  
+   - Adopted globally (standardized in the 1860s).  
+   - Still recognized in aviation, maritime, and amateur radio.  
+
+2. **American Morse Code**  
+   - An earlier version with irregular spacing; mostly obsolete today.  
+
+---
+
+## Applications
+
+- **Telegraphy**: The original use, sending electrical pulses through wires.  
+- **Maritime Communication**: Ships signaled distress and routine messages using radio telegraphy.  
+- **Military**: Extensively used in both World Wars for secure and reliable communication.  
+- **Aviation & Navigation**: Aircraft identifiers on radio beacons are still transmitted in Morse.  
+- **Amateur Radio (Ham Radio)**: Many enthusiasts continue using Morse for long-distance communication.  
+
+---
+
+## Modern Legacy
+
+Though largely replaced by digital systems, Morse Code persists as:  
+- A backup communication method.  
+- A skill in amateur radio culture.  
+- A cultural icon (e.g., SOS in films, survival training, and even spacecraft signals).  
+
+In 2013, the ITU recognized “@” as part of Morse Code (· – – · – ·), showing its adaptability even in the digital age.
+
+---
+
+## Summary
+
+Morse Code represents one of the earliest forms of **digital communication** — encoding information into discrete signals (dots and dashes).  
+
+It demonstrates:
+- The power of **simplicity in design**.  
+- The adaptability of communication systems across centuries.  
+- How rhythm and timing can form a universal language, transcending spoken words.
+
+Even today, Morse Code is a reminder that **communication is as much about clarity as it is about speed**.
+""")
+
 
 
 
