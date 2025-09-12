@@ -1712,70 +1712,6 @@ def ehrenfest_theorem():
     """
     pass
 
-def buffons_needle():
-    """
-    Buffon's Needle — Estimating π Using Probability
-
-    Buffon's Needle is a famous probability problem proposed by Georges-Louis Leclerc, Comte de Buffon in the 18th century.
-    It provides a surprising way to estimate the value of π using a simple physical experiment involving dropping a needle 
-    onto a plane ruled with parallel lines.
-
-    -------------------------------------
-    The Setup:
-    -------------------------------------
-    - You have a floor with parallel lines spaced `d` units apart.
-    - You randomly drop a needle of length `l` (where l <= d) onto the floor.
-    - You observe whether the needle crosses a line or not.
-
-    -------------------------------------
-    The Probability:
-    -------------------------------------
-    The probability `P` that the needle crosses a line is:
-
-        P = (2 * l) / (π * d)
-
-    Rearranging the formula gives an approximation of π:
-
-        π ≈ (2 * l * N) / (d * H)
-
-    Where:
-    - `N` is the total number of needle drops
-    - `H` is the number of times the needle crosses a line
-
-    -------------------------------------
-    Why It Works:
-    -------------------------------------
-    The probability comes from integrating over all possible orientations and positions of the needle. The result is 
-    directly tied to π because the probability involves averaging over angles (from trigonometric terms like sin(θ)), 
-    and circular functions always bring π into play.
-
-    -------------------------------------
-    A Monte Carlo Simulation Approach:
-    -------------------------------------
-    Buffon's Needle is one of the earliest known problems to use random sampling to estimate a constant — a technique 
-    central to Monte Carlo simulations.
-
-    -------------------------------------
-    Example Application:
-    -------------------------------------
-    Suppose:
-    - Needle length `l = 1 unit`
-    - Line spacing `d = 2 units`
-    - 1000 needle drops
-    - Needle crosses a line 318 times
-
-    Then:
-        π ≈ (2 * 1 * 1000) / (2 * 318) = 1000 / 318 ≈ 3.144
-
-    -------------------------------------
-    Key Insights:
-    -------------------------------------
-    - This problem beautifully links geometry, probability, and the value of π.
-    - It's an example of **geometric probability** — where randomness is connected to shape and measurement.
-    - Demonstrates how **randomness can lead to accurate constants** if averaged over enough trials.
-    """
-    pass
-
 
 def comptons_diffraction():
     """
@@ -2301,6 +2237,7 @@ It demonstrates:
 
 Even today, Morse Code is a reminder that **communication is as much about clarity as it is about speed**.
 """)
+
 
 
 
