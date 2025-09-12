@@ -1279,7 +1279,130 @@ Interpretation:
 
     return time_energy, freq_energy
 
+def godel_incompleteness_theorem(*, show_explanation=True, demo=False):
+    """
+    Display an overview of Gödel's Incompleteness Theorems and optionally give an illustrative analogy.
 
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the detailed historical and conceptual explanation.
+    demo : bool, default False
+        If True, show a metaphorical example illustrating the core idea.
+
+    Returns
+    -------
+    None
+        This function prints the explanation and optional analogy but returns nothing.
+    """
+    if show_explanation:
+        print("""\
+Title: Gödel's Incompleteness Theorems – Limits of Formal Mathematical Systems
+
+In 1931, Austrian logician **Kurt Gödel** published two groundbreaking theorems 
+that forever changed mathematics, logic, and philosophy.
+
+The First Incompleteness Theorem:
+    In any *consistent* formal system (rich enough to include arithmetic), 
+    there are true statements that **cannot** be proven within the system.
+
+    ➜ Meaning: No matter how powerful your axioms are, there will always be truths
+      they cannot reach.
+
+The Second Incompleteness Theorem:
+    Such a system cannot prove its **own consistency** from within.
+
+    ➜ Meaning: If you want to prove the system's consistency, you need to step 
+      outside the system — but then that new system faces the same problem.
+
+Philosophical Consequences:
+    • Mathematics is not a closed, complete universe — it has unavoidable "blind spots".
+    • Hilbert's dream of a fully complete, self-contained math (the 'Hilbert Program') failed.
+    • Truth and provability are not the same thing.
+
+Gödel achieved this by encoding statements about logic *within* logic itself —
+creating a statement that, in effect, says: "This statement is not provable."
+If it were provable, it would be false — a paradox — so it must be true, yet unprovable.
+""")
+
+    if demo:
+        print("""\
+Analogy: The Librarian's Impossible Catalogue
+
+Imagine a huge library with a perfect catalogue listing *every book it contains*.
+One day, someone writes a book titled:
+    "This book is not listed in the library's catalogue."
+
+Case 1: The catalogue lists it → contradiction (it says it's not listed, but it is).
+Case 2: The catalogue does not list it → contradiction (then it *should* be listed).
+
+This mirrors Gödel's construction: a statement that truthfully asserts its own
+unprovability inside the system.
+
+Conclusion: Every powerful enough system of rules will have truths it cannot capture.
+""")
+
+def Hilbert_Program(*, show_explanation=True):
+    """
+    Explain David Hilbert's three foundational goals for mathematics and how they were ultimately
+    shown to be unattainable.
+
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the full historical and conceptual explanation.
+    """
+
+    if show_explanation:
+        print("""\
+Title: Hilbert's Program and Its Collapse
+
+David Hilbert (1862–1943) envisioned placing all of mathematics on a perfectly solid foundation.
+His program, outlined in the early 20th century, had three central goals:
+
+1. Consistency:
+   The axioms must not produce contradictions. No statement should be both provable and disprovable.
+
+2. Completeness:
+   Every true statement expressible in the system's language should be provable from its axioms.
+
+3. Decidability (Entscheidungsproblem):
+   There should exist a finite mechanical procedure (algorithm) to decide the truth or falsehood
+   of any statement in the system.
+
+---------------------------------------------------
+How It Was Challenged and Eventually Debunked
+---------------------------------------------------
+
+1. Gödel's First Incompleteness Theorem (1931):
+   - Kurt Gödel proved that in any consistent formal system capable of expressing basic arithmetic,
+     there exist true statements that cannot be proven within the system.
+   - This shattered the goal of **completeness**: no matter how many axioms you add, there will
+     always be unprovable truths.
+
+2. Gödel's Second Incompleteness Theorem (1931):
+   - He further showed that such a system cannot prove its own consistency (unless it is inconsistent).
+   - This undermined Hilbert’s dream of proving **consistency** purely from within the system.
+
+3. The Entscheidungsproblem and Computability (1936):
+   - Alonzo Church and Alan Turing independently proved there is no general algorithm
+     to decide the truth of every mathematical statement.
+   - This resolved Hilbert’s **decidability** goal in the negative, showing that mathematics
+     is not fully mechanizable.
+
+4. Aftermath:
+   - Hilbert’s optimism (“Wir müssen wissen, wir werden wissen” — “We must know, we will know”)
+     inspired decades of research, but the dream of a perfect, complete, and decidable
+     foundation for mathematics was proven impossible.
+   - Modern mathematics instead embraces axiomatic systems knowing they are incomplete,
+     using separate consistency proofs relative to stronger systems, and accepting the limits
+     of algorithmic decision-making.
+
+Summary:
+    - Goal 1 (Consistency): Cannot be proven internally if the system is strong enough.
+    - Goal 2 (Completeness): Impossible — there will always be undecidable truths.
+    - Goal 3 (Decidability): Impossible — no universal decision algorithm exists.
+""")
 
 
 
