@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def atmospheric_pressure_altitude(altitude):
     """Atmospheric pressure at altitude"""
@@ -108,3 +108,4 @@ def carbon_cycle_flux(concentration_gradient, transfer_velocity):
 def photochemical_equilibrium(production_rate, loss_rate):
     """Photochemical equilibrium concentration"""
     return production_rate / loss_rate
+
