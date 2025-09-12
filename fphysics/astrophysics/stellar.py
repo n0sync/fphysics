@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def stellar_luminosity(mass, temperature, radius):
     """
@@ -147,3 +147,4 @@ def stellar_escape_velocity(mass, radius):
         float: Escape velocity (m/s)
     """
     return math.sqrt(2 * GRAVITATIONAL_CONSTANT * mass / radius)
+
