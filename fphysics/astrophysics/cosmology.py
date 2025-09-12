@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def hubble_distance():
     """
@@ -281,3 +281,4 @@ def dark_energy_equation_of_state(redshift, w0=-1, wa=0):
     """
     a = scale_factor(redshift)
     return w0 + wa * (1 - a)
+
