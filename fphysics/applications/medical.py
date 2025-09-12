@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def radiation_dose_rate(activity, distance, gamma_constant=0.5):
     """Calculate radiation dose rate"""
@@ -67,3 +67,4 @@ def effective_dose(absorbed_dose, radiation_weighting, tissue_weighting):
     """Calculate effective dose"""
     equivalent_dose = absorbed_dose * radiation_weighting
     return equivalent_dose * tissue_weighting
+
