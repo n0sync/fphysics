@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def solar_cell_efficiency(power_out, solar_irradiance, cell_area):
     """Solar cell efficiency"""
@@ -121,3 +121,4 @@ def transformer_efficiency(primary_voltage, primary_current, secondary_voltage, 
     power_in = primary_voltage * primary_current
     power_out = secondary_voltage * secondary_current
     return power_out / power_in
+
