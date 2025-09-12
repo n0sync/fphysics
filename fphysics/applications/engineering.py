@@ -1,6 +1,5 @@
 import math
-from ..
-constants import *
+from ..constants import *
 
 def stress(force, area):
     """Calculate stress"""
@@ -97,4 +96,5 @@ def skin_depth(frequency, conductivity, permeability):
 def doppler_shift(source_freq, source_velocity, observer_velocity, wave_speed):
     """Doppler frequency shift"""
     return source_freq * (wave_speed + observer_velocity) / (wave_speed - source_velocity)
+
 
