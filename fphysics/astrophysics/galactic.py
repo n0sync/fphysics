@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def circular_velocity(enclosed_mass, radius):
     """
@@ -209,3 +209,4 @@ def stellar_relaxation_time(stellar_density, stellar_mass, velocity_dispersion):
     """
     coulomb_log = 10  # Typical value
     return (velocity_dispersion**3) / (4 * PI * GRAVITATIONAL_CONSTANT**2 * stellar_mass**2 * stellar_density * coulomb_log)
+
