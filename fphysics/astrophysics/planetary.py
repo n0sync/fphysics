@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def orbital_velocity(central_mass, orbital_radius):
     """
@@ -195,3 +195,4 @@ def vis_viva_equation(central_mass, orbital_radius, semi_major_axis):
         float: Orbital velocity (m/s)
     """
     return math.sqrt(GRAVITATIONAL_CONSTANT * central_mass * (2/orbital_radius - 1/semi_major_axis))
+
