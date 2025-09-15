@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def ficks_first_law(diffusion_coefficient, concentration_gradient):
     return -diffusion_coefficient * concentration_gradient
@@ -48,3 +48,4 @@ def molecular_crowding_factor(volume_fraction):
 
 def diffusion_limited_reaction_rate(diffusion_coefficient, encounter_radius):
     return 4 * math.pi * encounter_radius * diffusion_coefficient
+
