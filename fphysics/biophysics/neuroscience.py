@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def hodgkin_huxley_sodium_m(voltage):
     alpha_m = 0.1 * (voltage + 40) / (1 - math.exp(-(voltage + 40) / 10))
@@ -55,3 +55,4 @@ def information_entropy_spike_train(spike_probabilities):
 
 def brain_connectivity_matrix(correlation_matrix, threshold):
     return [[1 if abs(corr) > threshold else 0 for corr in row] for row in correlation_matrix]
+
