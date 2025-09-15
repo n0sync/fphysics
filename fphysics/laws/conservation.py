@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def conservation_of_energy(kinetic_initial, potential_initial, kinetic_final, potential_final):
     return kinetic_initial + potential_initial == kinetic_final + potential_final
@@ -54,3 +54,4 @@ def conservation_of_baryon_number(initial_baryons, final_baryons):
 
 def conservation_of_lepton_number(initial_leptons, final_leptons):
     return initial_leptons == final_leptons
+
