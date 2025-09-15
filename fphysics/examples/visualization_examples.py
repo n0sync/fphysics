@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 from mpl_toolkits.mplot3d import Axes3D
-from constants import *
+from ..constants import *
 
 # Electric Field Visualization
 def plot_electric_field():
@@ -327,3 +327,4 @@ if __name__ == "__main__":
     
     # Animation (uncomment to run)
     # create_wave_packet_animation()
+
