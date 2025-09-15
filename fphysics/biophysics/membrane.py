@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def nernst_potential(ion_concentration_out, ion_concentration_in, valence):
     return (GAS_CONSTANT * BODY_TEMPERATURE) / (valence * FARADAY_CONSTANT) * math.log(ion_concentration_out / ion_concentration_in)
@@ -48,3 +48,4 @@ def electroporation_threshold_voltage(cell_radius, pulse_duration):
 
 def membrane_elastic_energy(area_strain, area_compressibility_modulus):
     return 0.5 * area_compressibility_modulus * area_strain**2
+
