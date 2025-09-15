@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def newtons_first_law(net_force):
     return net_force == 0
@@ -77,3 +77,4 @@ def impulse_from_force_time(force, time):
 
 def average_force_collision(mass, velocity_change, time_collision):
     return mass * velocity_change / time_collision
+
