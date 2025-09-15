@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def work(force, displacement, angle=0):
     return force * displacement * math.cos(angle)
