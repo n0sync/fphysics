@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def momentum(mass, velocity):
     return mass * velocity
