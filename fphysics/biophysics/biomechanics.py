@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def stress(force, area):
     return force / area
@@ -57,3 +57,4 @@ def ligament_strain_energy(force, displacement, spring_constant):
 
 def fracture_toughness(critical_stress, crack_length):
     return critical_stress * math.sqrt(math.pi * crack_length)
+
