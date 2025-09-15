@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from constants import *
+from ..constants import *
 
 # Projectile Motion Example
 def projectile_motion_demo():
@@ -110,3 +110,4 @@ if __name__ == "__main__":
     
     plt.tight_layout()
     plt.show()
+
