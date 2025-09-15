@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from constants import *
+from ..constants import *
 
 # Particle in a Box
 def particle_in_box_demo():
@@ -153,3 +153,4 @@ if __name__ == "__main__":
     
     # Uncomment to show plots
     # plot_wave_functions()
+
