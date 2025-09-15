@@ -1,8 +1,5 @@
 import numpy as np
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-from constants import SPEED_OF_LIGHT, PLANCK_CONSTANT, AVOGADRO_NUMBER
+from ..constants import *
 
 def calculate_wavelength(frequency):
     """Calculate wavelength from frequency using speed of light."""
@@ -35,3 +32,4 @@ def calculate_number_of_particles(substance_mass, molecular_weight):
     """Calculate the number of particles using Avogadro's number."""
     moles = substance_mass / molecular_weight
     return moles * AVOGADRO_NUMBER
+
