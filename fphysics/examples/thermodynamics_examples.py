@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from constants import *
+from ..constants import *
 
 # Ideal Gas Law Demonstrations
 def ideal_gas_demo():
@@ -210,3 +210,4 @@ if __name__ == "__main__":
     
     # Uncomment to show plots
     # plot_distributions()
+
