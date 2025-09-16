@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def force_from_mass_acceleration(mass, acceleration):
     return mass * acceleration
