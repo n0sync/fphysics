@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 
 def displacement(initial_position, velocity, time, acceleration=0):
@@ -54,4 +54,5 @@ def angular_acceleration(initial_angular_velocity, final_angular_velocity, time)
 
 def angular_displacement(initial_angular_velocity, time, angular_acceleration=0):
     return initial_angular_velocity * time + 0.5 * angular_acceleration * time**2
+
 
