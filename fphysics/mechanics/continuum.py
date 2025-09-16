@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def strain_tensor_2d(u_x_x, u_y_y, u_x_y, u_y_x):
     epsilon_xx = u_x_x
