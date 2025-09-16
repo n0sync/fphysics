@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def pressure(force, area):
     return force / area
@@ -51,3 +51,4 @@ def torricellis_law(height, gravity=EARTH_GRAVITY):
 
 def viscosity_poiseuille(flow_rate, pressure_diff, radius, length):
     return (math.pi * radius**4 * pressure_diff) / (8 * flow_rate * length)
+
