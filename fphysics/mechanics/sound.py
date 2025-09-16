@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def sound_intensity_level(intensity, reference_intensity=1e-12):
     return 10 * math.log10(intensity / reference_intensity)
@@ -15,3 +15,4 @@ def organ_pipe_frequency_open(length, wave_speed, harmonic=1):
 
 def organ_pipe_frequency_closed(length, wave_speed, harmonic=1):
     return (2 * harmonic - 1) * wave_speed / (4 * length)
+
