@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def normal_stress(force, area):
     return force / area
