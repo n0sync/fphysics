@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def lagrangian(kinetic_energy, potential_energy):
     return kinetic_energy - potential_energy
