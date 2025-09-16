@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def static_equilibrium_forces(*forces):
     sum_fx = sum(force[0] for force in forces)
