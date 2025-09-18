@@ -1,5 +1,5 @@
 import numpy as np
-from constants import *
+from ..constants import *
 
 def first_order_correction(E_n, psi_n, H_prime):
     return np.vdot(psi_n, H_prime @ psi_n)
@@ -91,3 +91,4 @@ def spin_orbit_interaction(l, s):
 
 def fermi_contact_interaction(A, I, J):
     return A * (I * (I + 1) + J * (J + 1) - 1.5)
+
