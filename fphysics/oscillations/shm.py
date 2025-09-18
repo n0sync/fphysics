@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def restoring_force(spring_constant,displacement):
     return -spring_constant * displacement
