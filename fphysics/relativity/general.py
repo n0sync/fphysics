@@ -1,5 +1,5 @@
 import math
-from constants import SPEED_OF_LIGHT, GRAVITATIONAL_CONSTANT
+from ..constants import *
 
 
 def schwarzschild_radius(mass):
@@ -55,3 +55,4 @@ def proper_time_factor(mass, radius):
     """Factor relating proper time to coordinate time"""
     rs = schwarzschild_radius(mass)
     return math.sqrt(1 - rs / radius)
+
