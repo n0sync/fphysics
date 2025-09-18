@@ -1,7 +1,5 @@
-"""Magnetohydrodynamics (MHD) equations and calculations."""
-
 import numpy as np
-from constants import *
+from ..constants import *
 
 
 def alfven_velocity(B, density):
@@ -51,3 +49,4 @@ def ohms_law_plasma(J, conductivity, v, B, E):
 def mhd_equilibrium_condition(grad_p, J, B):
     """MHD equilibrium condition: ∇p = J × B."""
     return grad_p - np.cross(J, B)
+
