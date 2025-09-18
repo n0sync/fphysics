@@ -1,5 +1,5 @@
 import numpy as np
-from constants import *
+from ..constants import *
 
 def momentum_operator(dx):
     return -1j * REDUCED_PLANCK * np.gradient(dx)
@@ -172,3 +172,4 @@ def phase_flip_channel(p, rho):
 
 def bit_phase_flip_channel(p, rho):
     return (1 - p) * rho + p * pauli_y() @ rho @ pauli_y()
+
