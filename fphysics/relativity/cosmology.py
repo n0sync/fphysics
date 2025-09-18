@@ -1,6 +1,6 @@
 import math
 import numpy as np
-from constants import *
+from ..constants import *
 
 def hubble_law(distance):
     """Calculate recession velocity using Hubble's law"""
@@ -80,3 +80,4 @@ def density_parameter(density_type, critical_density=CRITICAL_DENSITY_UNIVERSE):
 def sound_horizon(redshift_recombination=1100):
     """Calculate sound horizon at recombination"""
     return SPEED_OF_LIGHT / (3 * HUBBLE_CONSTANT * math.sqrt(redshift_recombination))
+
