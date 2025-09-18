@@ -1,5 +1,5 @@
 import numpy as np
-from constants import *
+from ..constants import *
 
 def harmonic_oscillator_energy(n, omega):
     return REDUCED_PLANCK * omega * (n + 0.5)
@@ -170,3 +170,4 @@ def quantum_fluctuations(n, omega, m):
 def vibrational_partition_function(omega, T):
     beta = 1 / (BOLTZMANN_CONSTANT * T)
     return np.exp(-beta * REDUCED_PLANCK * omega / 2) / (1 - np.exp(-beta * REDUCED_PLANCK * omega))
+
