@@ -1,5 +1,5 @@
 import numpy as np
-from constants import *
+from ..constants import *
 
 def hydrogen_energy_levels(n):
     return -RYDBERG_CONSTANT * PLANCK_CONSTANT * SPEED_OF_LIGHT / n**2
@@ -47,3 +47,4 @@ def fine_structure_constant():
 
 def quantum_numbers_hydrogen(n, l, m, s):
     return n, l, m, s
+
