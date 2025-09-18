@@ -1,5 +1,5 @@
 import numpy as np
-from constants import *
+from ..constants import *
 
 def spin_matrices():
     sigma_x = np.array([[0, 1], [1, 0]])
@@ -29,3 +29,4 @@ def spin_orbit_coupling(j, l, s):
 
 def total_angular_momentum(l, s):
     return np.sqrt((l + s) * (l + s + 1)) * REDUCED_PLANCK
+
