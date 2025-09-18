@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def sound_speed_air(temperature):
     return 331.3 * math.sqrt(1 + temperature / 273.15)
@@ -97,3 +97,4 @@ def helmholtz_resonator_frequency(neck_area, neck_length, cavity_volume, sound_s
 
 def acoustic_coupling_coefficient(mutual_impedance, self_impedance):
     return mutual_impedance / math.sqrt(self_impedance**2)
+
