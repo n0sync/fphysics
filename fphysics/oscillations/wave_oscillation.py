@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def wave_speed(frequency, wavelength):
     return frequency * wavelength
