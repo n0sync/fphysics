@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def natural_frequencies(num_modes, material_properties, geometry):
     E, density = material_properties
@@ -114,4 +114,5 @@ def isolation_transmissibility(frequency_ratio, damping_ratio):
 def vibration_absorber_tuning(primary_frequency, absorber_mass, primary_mass):
     mass_ratio = absorber_mass / primary_mass
     return primary_frequency / math.sqrt(1 + mass_ratio)
+
 
