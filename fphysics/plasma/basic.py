@@ -1,7 +1,5 @@
-"""Basic plasma properties and parameters."""
-
 import numpy as np
-from constants import *
+from ..constants import *
 
 def plasma_frequency(n_e):
     """Calculate electron plasma frequency."""
@@ -34,3 +32,4 @@ def plasma_beta(n, T, B):
     p_thermal = n * BOLTZMANN_CONSTANT * T
     p_magnetic = B**2 / (2 * VACUUM_PERMEABILITY)
     return p_thermal / p_magnetic
+
