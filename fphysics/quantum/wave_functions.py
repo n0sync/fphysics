@@ -1,5 +1,5 @@
 import numpy as np
-from constants import *
+from ..constants import *
 
 def schrodinger_time_dependent(psi, H, t):
     return 1j * REDUCED_PLANCK * np.gradient(psi, t) + H @ psi
@@ -170,3 +170,4 @@ def pauli_decomposition(rho):
     a3 = np.trace(rho @ sigma_z) / 2
     
     return a0, a1, a2, a3
+
