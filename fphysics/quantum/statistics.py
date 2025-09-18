@@ -1,5 +1,5 @@
 import numpy as np
-from constants import *
+from ..constants import *
 
 def fermi_dirac_distribution(E, mu, T):
     beta = 1 / (BOLTZMANN_CONSTANT * T)
@@ -116,3 +116,4 @@ def quantum_internal_energy(energies, T):
     beta = 1 / (BOLTZMANN_CONSTANT * T)
     Z = quantum_partition_function(energies, T)
     return np.sum(energies * np.exp(-beta * energies)) / Z
+
