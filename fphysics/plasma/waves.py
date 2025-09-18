@@ -1,7 +1,5 @@
-"""Plasma waves and dispersion relations."""
-
 import numpy as np
-from constants import *
+from ..constants import *
 
 
 def langmuir_frequency(n_e):
@@ -60,3 +58,4 @@ def group_velocity(omega, k):
 def phase_velocity(omega, k):
     """Calculate phase velocity."""
     return omega / k
+
