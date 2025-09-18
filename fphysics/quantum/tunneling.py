@@ -1,5 +1,5 @@
 import numpy as np
-from constants import *
+from ..constants import *
 
 def tunnel_probability(E, V0, a):
     if E < V0:
@@ -27,3 +27,4 @@ def alpha_decay_rate(Z, A, Q):
 
 def scanning_tunneling_current(V, d, phi):
     return np.exp(-2 * d * np.sqrt(2 * ELECTRON_MASS * phi) / REDUCED_PLANCK)
+
