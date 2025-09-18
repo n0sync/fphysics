@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def coupled_pendulum_normal_modes(length, coupling_constant, gravity=EARTH_GRAVITY):
     omega0 = math.sqrt(gravity / length)
@@ -91,3 +91,4 @@ def kuramoto_order_parameter(phases):
     real_part = sum(math.cos(phase) for phase in phases) / len(phases)
     imag_part = sum(math.sin(phase) for phase in phases) / len(phases)
     return math.sqrt(real_part**2 + imag_part**2)
+
