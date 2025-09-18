@@ -1,7 +1,5 @@
-"""Kinetic theory and distribution functions for plasma."""
-
 import numpy as np
-from constants import *
+from ..constants import *
 
 def maxwell_boltzmann(v, T, mass):
     """Maxwell-Boltzmann velocity distribution."""
@@ -41,3 +39,4 @@ def landau_damping_rate(k, omega_p, T, mass):
     v_th = np.sqrt(BOLTZMANN_CONSTANT * T / mass)
     xi = omega_p / (k * v_th)
     return np.sqrt(np.pi / 8) * omega_p * (1 / xi**3) * np.exp(-xi**2 / 2)
+
