@@ -1,7 +1,5 @@
-"""Crystallography"""
-
 import numpy as np
-from constants import *
+from ..constants import *
 
 class CrystalLattice:
     def __init__(self, a, b, c, alpha, beta, gamma):
@@ -51,3 +49,4 @@ class BravaisLattice:
             return np.array([[a, 0, 0], [-a/2, a*np.sqrt(3)/2, 0], [0, 0, c]])
         else:
             raise ValueError(f"Unknown lattice type: {self.lattice_type}")
+
