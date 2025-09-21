@@ -1,7 +1,5 @@
-"""Electronic properties"""
-
 import numpy as np
-from constants import *
+from ..constants import *
 
 class BandStructure:
     def __init__(self, k_points, energies):
@@ -46,3 +44,4 @@ class FermiSurface:
     
     def hall_coefficient(self, carrier_density):
         return 1 / (ELEMENTARY_CHARGE * carrier_density)
+
