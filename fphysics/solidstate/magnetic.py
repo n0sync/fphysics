@@ -1,5 +1,3 @@
-"""Magnetic materials"""
-
 import numpy as np
 from ..constants import *
 
@@ -49,3 +47,4 @@ class SpinModel:
         # Curie-Weiss law
         C = self.spin * (self.spin + 1) * BOHR_MAGNETON**2 / (3 * BOLTZMANN_CONSTANT)
         return C / temperature
+
