@@ -1,7 +1,5 @@
-"""Phonons"""
-
 import numpy as np
-from constants import *
+from ..constants import *
 
 class PhononDispersion:
     def __init__(self, q_points, frequencies):
@@ -44,3 +42,4 @@ class PhononDOS:
         x = REDUCED_PLANCK * self.frequencies / kT
         n_bose = 1 / (np.exp(x) - 1)
         return np.trapz(n_bose * self.dos, self.frequencies)
+
