@@ -1,7 +1,5 @@
-"""Superconducting properties"""
-
 import numpy as np
-from constants import *
+from ..constants import *
 
 class BCSTheory:
     def __init__(self, fermi_energy, coupling_constant):
@@ -52,3 +50,4 @@ class CooperPair:
     
     def josephson_frequency(self, voltage):
         return 2 * ELEMENTARY_CHARGE * voltage / REDUCED_PLANCK
+
