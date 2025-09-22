@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def canonical_partition_function(energies, temperature):
     beta = 1 / (BOLTZMANN_CONSTANT * temperature)
@@ -118,3 +118,4 @@ def anharmonic_oscillator_partition(frequency, anharmonicity, temperature):
     harmonic_part = 1 / (1 - math.exp(-x))
     anharmonic_correction = 1 + anharmonicity * x**2 / 24
     return harmonic_part * anharmonic_correction
+
