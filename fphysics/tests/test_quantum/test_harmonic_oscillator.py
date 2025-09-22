@@ -1,17 +1,11 @@
-"""
-Test quantum harmonic oscillator module.
-"""
-
 import unittest
 import sys
 import os
-from constants import REDUCED_PLANCK
+from ..constants import REDUCED_PLANCK
 
 class TestHarmonicOscillator(unittest.TestCase):
-    """Test quantum harmonic oscillator"""
     
     def test_energy_levels(self):
-        """Test energy levels of quantum harmonic oscillator"""
         # E_n = ħω(n + 1/2)
         omega = 1e14  # angular frequency
         n = 0  # ground state
@@ -27,3 +21,4 @@ class TestHarmonicOscillator(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
