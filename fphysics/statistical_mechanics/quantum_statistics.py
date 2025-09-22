@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def bose_einstein_distribution(energy, chemical_potential, temperature):
     exponent = (energy - chemical_potential) / (BOLTZMANN_CONSTANT * temperature)
@@ -40,4 +40,5 @@ def fermi_dirac_high_temperature(energy, temperature, chemical_potential):
 def planck_radiation_law(frequency, temperature):
     exponent = (PLANCK_CONSTANT * frequency) / (BOLTZMANN_CONSTANT * temperature)
     return (8 * math.pi * PLANCK_CONSTANT * frequency**3) / (SPEED_OF_LIGHT**3 * (math.exp(exponent) - 1))
+
 
