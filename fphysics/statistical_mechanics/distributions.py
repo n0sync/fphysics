@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def boltzmann_distribution(energy, temperature):
     return math.exp(-energy / (BOLTZMANN_CONSTANT * temperature))
@@ -104,3 +104,4 @@ def multinomial_distribution(counts, probabilities):
     coefficient = math.factorial(n) / math.prod(math.factorial(k) for k in counts)
     probability_term = math.prod(p**k for p, k in zip(probabilities, counts))
     return coefficient * probability_term
+
