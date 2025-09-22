@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def ising_model_magnetization(temperature, critical_temperature, magnetic_field):
     if temperature < critical_temperature:
@@ -45,3 +45,4 @@ def lifshitz_point(pressure, critical_pressure, alpha, temperature_star):
 
 def interfacial_tension(temperature, critical_temperature, delta):
     return abs(temperature - critical_temperature)**delta
+
