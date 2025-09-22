@@ -1,14 +1,9 @@
-"""
-Test thermodynamics laws module.
-"""
-
 import unittest
 import sys
 import os
-from constants import GAS_CONSTANT
+from ..constants import GAS_CONSTANT
 
 class TestThermodynamicsLaws(unittest.TestCase):
-    """Test thermodynamics laws"""
     
     def test_ideal_gas_law(self):
         """Test ideal gas law PV = nRT"""
@@ -19,7 +14,6 @@ class TestThermodynamicsLaws(unittest.TestCase):
         self.assertAlmostEqual(temperature, 273.15, places=0)
     
     def test_first_law_energy_conservation(self):
-        """Test first law of thermodynamics"""
         # ΔU = Q - W (change in internal energy = heat - work)
         heat_added = 1000  # J
         work_done = 400  # J
@@ -28,3 +22,4 @@ class TestThermodynamicsLaws(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
