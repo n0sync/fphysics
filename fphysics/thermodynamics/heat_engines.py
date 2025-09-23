@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def carnot_efficiency(hot_temp, cold_temp):
     return (hot_temp - cold_temp) / hot_temp
@@ -138,3 +138,4 @@ def engine_torque(power, angular_velocity):
 
 def engine_power_from_torque(torque, angular_velocity):
     return torque * angular_velocity
+
