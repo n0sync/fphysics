@@ -1,8 +1,5 @@
-"""
-Physics simulators for various systems and interactions.
-"""
+from ..constants import *
 
-# Example simulator class
 class ParticleSimulator:
     def __init__(self):
         pass
@@ -10,6 +7,4 @@ class ParticleSimulator:
     def simulate(self):
         pass
 
-# Constants can be used as needed
-# from constants import SPEED_OF_LIGHT
 
