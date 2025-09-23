@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def fourier_law_conduction(thermal_conductivity, area, temperature_gradient):
     return -thermal_conductivity * area * temperature_gradient
@@ -144,3 +144,4 @@ def peclet_number_heat(reynolds_number, prandtl_number):
 
 def peclet_number_mass(reynolds_number, schmidt_number):
     return reynolds_number * schmidt_number
+
