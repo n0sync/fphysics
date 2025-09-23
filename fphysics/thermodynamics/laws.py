@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 def ideal_gas_law(pressure, volume, temperature, moles):
     return pressure * volume == moles * GAS_CONSTANT * temperature
@@ -115,3 +115,4 @@ def thermal_diffusivity(thermal_conductivity, density, specific_heat):
 
 def heat_equation_1d(thermal_diffusivity, second_derivative_temp):
     return thermal_diffusivity * second_derivative_temp
+
