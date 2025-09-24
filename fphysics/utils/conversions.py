@@ -1,5 +1,5 @@
 import math
-from constants import *
+from ..constants import *
 
 LENGTH_CONVERSIONS = {
     'm': 1.0,
@@ -349,4 +349,5 @@ def resistance_conversion(value, from_unit, to_unit):
         raise ValueError(f"Unsupported resistance unit: {from_unit} or {to_unit}")
     ohms = value * conversions[from_unit]
     return ohms / conversions[to_unit]
+
 
