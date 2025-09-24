@@ -1,10 +1,3 @@
-
-"""
-Complete collection of physical constants for use in physics calculations.
-Includes SI base constants, particle physics, electromagnetism, thermodynamics, 
-atomic physics, nuclear physics, astronomical constants, and various unit systems.
-"""
-
 import math
 
 # SI Base Physical Constants
@@ -342,3 +335,4 @@ __all__ = [
     'LIPID_BILAYER_THICKNESS', 'ION_CHANNEL_CONDUCTANCE', 'SYNAPTIC_DELAY', 'NERVE_CONDUCTION_VELOCITY',
     'MYELIN_THICKNESS',
 ]
+
