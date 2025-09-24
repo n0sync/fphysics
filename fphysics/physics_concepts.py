@@ -2238,6 +2238,74 @@ It demonstrates:
 Even today, Morse Code is a reminder that **communication is as much about clarity as it is about speed**.
 """)
 
+def piezoelectric_effect(*, show_explanation=True):
+    """
+    Provides an overview of the Piezoelectric Effect, its main concept,
+    and key applications including analog clocks.
+
+    Parameters
+    ----------
+    show_explanation : bool
+        Whether to print the theoretical explanation.
+    """
+    if show_explanation:
+        print("""\
+Title: The Piezoelectric Effect — Mechanical-Electrical Energy Conversion
+
+## Main Concept
+
+The piezoelectric effect is a phenomenon where certain materials generate electrical charge when mechanically stressed, and conversely, deform when an electric field is applied. This **bidirectional coupling** between mechanical and electrical energy makes these materials uniquely useful.
+
+**Core Principle:** Mechanical stress ↔ Electrical charge
+
+---
+
+## Discovery and Mechanism
+
+Discovered in 1880 by **Pierre and Jacques Curie** in crystals like quartz. The effect occurs in materials with **non-centrosymmetric crystal structures** where mechanical deformation separates positive and negative charge centers, creating electric dipoles.
+
+**Direct Effect:** Mechanical stress → Electric charge
+**Converse Effect:** Electric field → Mechanical deformation
+
+---
+
+## Mathematical Relations
+
+**Direct:** D = d × T (charge density = coefficient × stress)
+**Converse:** S = d × E (strain = coefficient × electric field)
+
+Where 'd' is the piezoelectric coefficient.
+
+---
+
+## Key Materials
+
+- **Quartz (SiO₂):** Most stable, precise frequency control
+- **PZT ceramics:** High coefficients, widely used
+- **PVDF polymers:** Flexible applications
+
+---
+
+## Major Applications
+
+### Analog Clocks and Timekeeping
+**Quartz oscillators** are the heart of analog clocks and watches. A tiny quartz crystal vibrates at exactly **32,768 Hz** when voltage is applied. Electronic circuits count these vibrations to keep precise time. This is why modern analog clocks are so accurate compared to old mechanical timepieces.
+
+### Other Applications
+- **Sensors:** Pressure, acceleration, vibration detection
+- **Actuators:** Precision positioning, ultrasonic motors  
+- **Medical:** Ultrasound imaging, surgical tools
+- **Energy harvesting:** Converting vibrations to electricity
+- **Audio:** Microphones, speakers, buzzers
+
+---
+
+## Summary
+
+The piezoelectric effect transforms the relationship between mechanical force and electricity. From keeping time in analog clocks to enabling medical ultrasound, this phenomenon bridges the mechanical and electrical worlds with remarkable precision and reliability.
+
+**Key Insight:** Crystal symmetry + applied force = electrical response (and vice versa)
+""")
 
 
 
