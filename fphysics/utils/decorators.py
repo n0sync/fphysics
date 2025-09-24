@@ -1,6 +1,6 @@
 import functools
 import warnings
-from constants import *
+from ..constants import *
 
 def units(input_units=None, output_units=None):
     def decorator(func):
@@ -149,3 +149,4 @@ def physics_constants(func):
     def wrapper(*args, **kwargs):
         return func(*args, **kwargs)
     return wrapper
+
