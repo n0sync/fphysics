@@ -2308,6 +2308,96 @@ The piezoelectric effect transforms the relationship between mechanical force an
 """)
 
 
+def hilbert_space(*, show_explanation=True, simulate=False):
+    if show_explanation:
+        print("""\
+Title: Hilbert Space — The Mathematical Framework of Quantum Mechanics
+Hilbert space provides the complete mathematical foundation for quantum mechanics, 
+formalized by David Hilbert and applied to quantum theory by John von Neumann.
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. Definition
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+• A Hilbert space ℋ is a complete inner product space over complex numbers ℂ.
+• Complete means every Cauchy sequence converges to a limit within the space.
+• The inner product ⟨ψ|φ⟩ allows measurement of angles and distances between states.
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. Quantum States as Vectors
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+• Every quantum state |ψ⟩ is a unit vector in Hilbert space: ⟨ψ|ψ⟩ = 1
+• Superposition: |ψ⟩ = α|0⟩ + β|1⟩ where |α|² + |β|² = 1
+• The coefficients α, β are probability amplitudes for measurement outcomes.
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. Key Properties
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+• **Orthogonality**: ⟨ψ|φ⟩ = 0 means states are distinguishable
+• **Normalization**: ⟨ψ|ψ⟩ = 1 ensures probability conservation
+• **Completeness**: Any state can be expanded in a complete orthonormal basis
+• **Linearity**: Superposition principle follows from vector space structure
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. Physical Observables
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+• Observables are represented by Hermitian operators Â on Hilbert space
+• Eigenvalue equation: Â|aₙ⟩ = aₙ|aₙ⟩ gives possible measurement results aₙ
+• Born rule: P(aₙ) = |⟨aₙ|ψ⟩|² gives probability of measuring aₙ in state |ψ⟩
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+5. Time Evolution
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+• Schrödinger equation: iℏ d|ψ⟩/dt = Ĥ|ψ⟩
+• Unitary evolution: |ψ(t)⟩ = Û(t)|ψ(0)⟩ where Û†Û = I
+• Preserves inner products and maintains probabilistic interpretation
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+6. Examples of Hilbert Spaces
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+• **Finite**: ℂⁿ for n-level systems (qubits: ℂ²)
+• **Infinite discrete**: ℓ²(ℕ) for harmonic oscillator energy states
+• **Infinite continuous**: L²(ℝ) for particle position/momentum wavefunctions
+As von Neumann established:
+> "The mathematical framework of quantum mechanics is the theory of operators in Hilbert space."
+""")
+    
+    if simulate:
+        print("\nSimulating operations in 2D Hilbert space (qubit system):")
+        print("=" * 60)
+        
+        psi_coeffs = np.random.complex128(2)
+        psi_coeffs = psi_coeffs / np.linalg.norm(psi_coeffs)
+        
+        phi_coeffs = np.random.complex128(2)
+        phi_coeffs = phi_coeffs / np.linalg.norm(phi_coeffs)
+        
+        inner_product = np.conj(psi_coeffs).dot(phi_coeffs)
+        
+        prob_0 = abs(psi_coeffs[0])**2
+        prob_1 = abs(psi_coeffs[1])**2
+        
+        pauli_z = np.array([[1, 0], [0, -1]])
+        expectation_z = np.conj(psi_coeffs).dot(pauli_z.dot(psi_coeffs))
+        
+        superposition = (psi_coeffs + phi_coeffs) / np.sqrt(2)
+        superposition = superposition / np.linalg.norm(superposition)
+        
+        operations = {
+            'state_psi': psi_coeffs,
+            'state_phi': phi_coeffs,
+            'inner_product': inner_product,
+            'prob_measure_0': prob_0,
+            'prob_measure_1': prob_1,
+            'pauli_z_expectation': expectation_z,
+            'superposition_state': superposition
+        }
+        
+        print(f"State |ψ⟩ = ({psi_coeffs[0]:.3f})|0⟩ + ({psi_coeffs[1]:.3f})|1⟩")
+        print(f"State |φ⟩ = ({phi_coeffs[0]:.3f})|0⟩ + ({phi_coeffs[1]:.3f})|1⟩")
+        print(f"Inner product ⟨ψ|φ⟩ = {inner_product:.3f}")
+        print(f"Measurement probabilities for |ψ⟩: P(0) = {prob_0:.3f}, P(1) = {prob_1:.3f}")
+        print(f"⟨ψ|σᵤ|ψ⟩ = {expectation_z:.3f}")
+        print(f"Superposition (|ψ⟩ + |φ⟩)/√2 normalized = ({superposition[0]:.3f})|0⟩ + ({superposition[1]:.3f})|1⟩")
+        print(f"Verification: ||ψ||² = {np.linalg.norm(psi_coeffs)**2:.3f}")
+        print(f"Verification: ||φ||² = {np.linalg.norm(phi_coeffs)**2:.3f}")
+        
+        return operations
+    
+    return None
 
 
 
