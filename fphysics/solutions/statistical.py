@@ -1,181 +1,188 @@
 import numpy as np
 
-class FermiDiracDistribution:
-    def __init__(self, chemical_potential, temperature):
-        self.mu = chemical_potential
-        self.T = temperature
-        self.k_B = 1.381e-23
 
-    def occupation_probability(self, energy):
-        beta = 1 / (self.k_B * self.T)
-        return 1 / (np.exp(beta * (energy - self.mu)) + 1)
+def fermi_dirac_occupation(energy, chemical_potential, temperature):
+    k_B = 1.381e-23
+    beta = 1 / (k_B * temperature)
+    return 1 / (np.exp(beta * (energy - chemical_potential)) + 1)
 
-    def fermi_energy(self, electron_density):
-        h = 6.626e-34
-        m_e = 9.109e-31
-        return (h**2 / (2 * m_e)) * (3 * np.pi**2 * electron_density)**(2/3)
 
-    def average_energy(self, energy_levels, degeneracies):
-        total_energy = 0
-        total_particles = 0
-        for E, g in zip(energy_levels, degeneracies):
-            f = self.occupation_probability(E)
-            total_energy += g * f * E
-            total_particles += g * f
-        return total_energy / total_particles if total_particles > 0 else 0
+def fermi_energy(electron_density):
+    h = 6.626e-34
+    m_e = 9.109e-31
+    return (h**2 / (2 * m_e)) * (3 * np.pi**2 * electron_density)**(2/3)
 
-    def electronic_heat_capacity(self, energy_levels, degeneracies):
-        beta = 1 / (self.k_B * self.T)
-        heat_capacity = 0
-        for E, g in zip(energy_levels, degeneracies):
-            f = self.occupation_probability(E)
-            derivative = beta**2 * (E - self.mu)**2 * f * (1 - f)
-            heat_capacity += g * derivative
-        return self.k_B * heat_capacity
 
-class BoseEinsteinDistribution:
-    def __init__(self, chemical_potential, temperature):
-        self.mu = chemical_potential
-        self.T = temperature
-        self.k_B = 1.381e-23
+def fermi_average_energy(energy_levels, degeneracies, chemical_potential, temperature):
+    k_B = 1.381e-23
+    total_energy = 0
+    total_particles = 0
+    for E, g in zip(energy_levels, degeneracies):
+        f = fermi_dirac_occupation(E, chemical_potential, temperature)
+        total_energy += g * f * E
+        total_particles += g * f
+    return total_energy / total_particles if total_particles > 0 else 0
 
-    def occupation_number(self, energy):
-        beta = 1 / (self.k_B * self.T)
-        return 1 / (np.exp(beta * (energy - self.mu)) - 1)
 
-    def planck_distribution(self, frequency):
-        h = 6.626e-34
-        energy = h * frequency
-        beta = 1 / (self.k_B * self.T)
-        return 1 / (np.exp(beta * energy) - 1)
+def electronic_heat_capacity(energy_levels, degeneracies, chemical_potential, temperature):
+    k_B = 1.381e-23
+    beta = 1 / (k_B * temperature)
+    heat_capacity = 0
+    for E, g in zip(energy_levels, degeneracies):
+        f = fermi_dirac_occupation(E, chemical_potential, temperature)
+        derivative = beta**2 * (E - chemical_potential)**2 * f * (1 - f)
+        heat_capacity += g * derivative
+    return k_B * heat_capacity
 
-    def bose_einstein_condensation_temperature(self, particle_density):
-        h = 6.626e-34
-        m = 9.109e-31
-        return (h**2 / (2 * np.pi * m * self.k_B)) * (particle_density / 2.612)**(2/3)
 
-    def average_occupation(self, energy_levels, degeneracies):
-        total_occupation = 0
-        for E, g in zip(energy_levels, degeneracies):
-            n = self.occupation_number(E)
-            total_occupation += g * n
-        return total_occupation
+def bose_einstein_occupation(energy, chemical_potential, temperature):
+    k_B = 1.381e-23
+    beta = 1 / (k_B * temperature)
+    return 1 / (np.exp(beta * (energy - chemical_potential)) - 1)
 
-class MaxwellBoltzmannDistribution:
-    def __init__(self, temperature):
-        self.T = temperature
-        self.k_B = 1.381e-23
 
-    def velocity_distribution(self, v, mass):
-        beta = mass / (2 * self.k_B * self.T)
-        normalization = (beta / np.pi)**(3/2)
-        return 4 * np.pi * normalization * v**2 * np.exp(-beta * v**2)
+def planck_distribution(frequency, temperature):
+    h = 6.626e-34
+    k_B = 1.381e-23
+    energy = h * frequency
+    beta = 1 / (k_B * temperature)
+    return 1 / (np.exp(beta * energy) - 1)
 
-    def energy_distribution(self, energy):
-        beta = 1 / (self.k_B * self.T)
-        return 2 * np.sqrt(energy / np.pi) * beta**(3/2) * np.exp(-beta * energy)
 
-    def most_probable_speed(self, mass):
-        return np.sqrt(2 * self.k_B * self.T / mass)
+def bose_einstein_condensation_temperature(particle_density):
+    h = 6.626e-34
+    m = 9.109e-31
+    k_B = 1.381e-23
+    return (h**2 / (2 * np.pi * m * k_B)) * (particle_density / 2.612)**(2/3)
 
-    def average_kinetic_energy(self):
-        return 3/2 * self.k_B * self.T
 
-class QuantumEnsemble:
-    def __init__(self, hamiltonian, temperature):
-        self.hamiltonian = hamiltonian
-        self.T = temperature
-        self.k_B = 1.381e-23
-        self.beta = 1 / (self.k_B * self.T)
+def bose_average_occupation(energy_levels, degeneracies, chemical_potential, temperature):
+    total_occupation = 0
+    for E, g in zip(energy_levels, degeneracies):
+        n = bose_einstein_occupation(E, chemical_potential, temperature)
+        total_occupation += g * n
+    return total_occupation
 
-    def partition_function(self, energy_levels, degeneracies):
-        Z = 0
-        for E, g in zip(energy_levels, degeneracies):
-            Z += g * np.exp(-self.beta * E)
-        return Z
 
-    def helmholtz_free_energy(self, energy_levels, degeneracies):
-        Z = self.partition_function(energy_levels, degeneracies)
-        return -self.k_B * self.T * np.log(Z)
+def maxwell_boltzmann_velocity(v, mass, temperature):
+    k_B = 1.381e-23
+    beta = mass / (2 * k_B * temperature)
+    normalization = (beta / np.pi)**(3/2)
+    return 4 * np.pi * normalization * v**2 * np.exp(-beta * v**2)
 
-    def internal_energy(self, energy_levels, degeneracies):
-        Z = self.partition_function(energy_levels, degeneracies)
-        U = 0
-        for E, g in zip(energy_levels, degeneracies):
-            U += g * E * np.exp(-self.beta * E)
-        return U / Z
 
-    def entropy(self, energy_levels, degeneracies):
-        Z = self.partition_function(energy_levels, degeneracies)
-        U = self.internal_energy(energy_levels, degeneracies)
-        F = self.helmholtz_free_energy(energy_levels, degeneracies)
-        return (U - F) / self.T
+def maxwell_boltzmann_energy(energy, temperature):
+    k_B = 1.381e-23
+    beta = 1 / (k_B * temperature)
+    return 2 * np.sqrt(energy / np.pi) * beta**(3/2) * np.exp(-beta * energy)
 
-    def heat_capacity(self, energy_levels, degeneracies):
-        Z = self.partition_function(energy_levels, degeneracies)
-        avg_energy = self.internal_energy(energy_levels, degeneracies)
-        avg_energy_squared = 0
-        for E, g in zip(energy_levels, degeneracies):
-            avg_energy_squared += g * E**2 * np.exp(-self.beta * E)
-        avg_energy_squared /= Z
-        return self.k_B * self.beta**2 * (avg_energy_squared - avg_energy**2)
 
-class QuantumGas:
-    def __init__(self, particle_type, density, temperature):
-        self.particle_type = particle_type
-        self.density = density
-        self.temperature = temperature
-        self.k_B = 1.381e-23
-        self.h = 6.626e-34
+def most_probable_speed(mass, temperature):
+    k_B = 1.381e-23
+    return np.sqrt(2 * k_B * temperature / mass)
 
-    def thermal_de_broglie_wavelength(self, mass):
-        return self.h / np.sqrt(2 * np.pi * mass * self.k_B * self.temperature)
 
-    def quantum_concentration(self, mass):
-        lambda_th = self.thermal_de_broglie_wavelength(mass)
-        return 1 / lambda_th**3
+def average_kinetic_energy(temperature):
+    k_B = 1.381e-23
+    return 3/2 * k_B * temperature
 
-    def degeneracy_parameter(self, mass):
-        n_q = self.quantum_concentration(mass)
-        return self.density / n_q
 
-    def pressure_virial_expansion(self, mass, terms=3):
-        lambda_th = self.thermal_de_broglie_wavelength(mass)
-        pressure = self.density * self.k_B * self.temperature
+def partition_function(energy_levels, degeneracies, temperature):
+    k_B = 1.381e-23
+    beta = 1 / (k_B * temperature)
+    Z = 0
+    for E, g in zip(energy_levels, degeneracies):
+        Z += g * np.exp(-beta * E)
+    return Z
+
+
+def helmholtz_free_energy(energy_levels, degeneracies, temperature):
+    k_B = 1.381e-23
+    Z = partition_function(energy_levels, degeneracies, temperature)
+    return -k_B * temperature * np.log(Z)
+
+
+def internal_energy(energy_levels, degeneracies, temperature):
+    k_B = 1.381e-23
+    beta = 1 / (k_B * temperature)
+    Z = partition_function(energy_levels, degeneracies, temperature)
+    U = 0
+    for E, g in zip(energy_levels, degeneracies):
+        U += g * E * np.exp(-beta * E)
+    return U / Z
+
+
+def entropy(energy_levels, degeneracies, temperature):
+    U = internal_energy(energy_levels, degeneracies, temperature)
+    F = helmholtz_free_energy(energy_levels, degeneracies, temperature)
+    return (U - F) / temperature
+
+
+def heat_capacity(energy_levels, degeneracies, temperature):
+    k_B = 1.381e-23
+    beta = 1 / (k_B * temperature)
+    Z = partition_function(energy_levels, degeneracies, temperature)
+    avg_energy = internal_energy(energy_levels, degeneracies, temperature)
+    avg_energy_squared = 0
+    for E, g in zip(energy_levels, degeneracies):
+        avg_energy_squared += g * E**2 * np.exp(-beta * E)
+    avg_energy_squared /= Z
+    return k_B * beta**2 * (avg_energy_squared - avg_energy**2)
+
+
+def thermal_de_broglie_wavelength(mass, temperature):
+    h = 6.626e-34
+    k_B = 1.381e-23
+    return h / np.sqrt(2 * np.pi * mass * k_B * temperature)
+
+
+def quantum_concentration(mass, temperature):
+    lambda_th = thermal_de_broglie_wavelength(mass, temperature)
+    return 1 / lambda_th**3
+
+
+def degeneracy_parameter(density, mass, temperature):
+    n_q = quantum_concentration(mass, temperature)
+    return density / n_q
+
+
+def pressure_virial_expansion(density, mass, temperature, particle_type):
+    k_B = 1.381e-23
+    lambda_th = thermal_de_broglie_wavelength(mass, temperature)
+    pressure = density * k_B * temperature
+    
+    if particle_type == 'fermion':
+        correction = -1/(2**(5/2)) * (density * lambda_th**3)
+    elif particle_type == 'boson':
+        correction = 1/(2**(5/2)) * (density * lambda_th**3)
+    else:
+        correction = 0
         
-        if self.particle_type == 'fermion':
-            correction = -1/(2**(5/2)) * (self.density * lambda_th**3)
-        elif self.particle_type == 'boson':
-            correction = 1/(2**(5/2)) * (self.density * lambda_th**3)
-        else:
-            correction = 0
-            
-        return pressure * (1 + correction)
+    return pressure * (1 + correction)
 
-class DebyeModel:
-    def __init__(self, debye_temperature, num_atoms):
-        self.theta_D = debye_temperature
-        self.N = num_atoms
-        self.k_B = 1.381e-23
 
-    def debye_function(self, x, n):
-        def integrand(t):
-            return t**n / (np.exp(t) - 1)
-        
-        integral = 0
-        dt = x / 1000
-        for i in range(1000):
-            t = i * dt
-            if t > 0:
-                integral += integrand(t) * dt
-        return (n / x**n) * integral
+def debye_function(x, n):
+    def integrand(t):
+        return t**n / (np.exp(t) - 1)
+    
+    integral = 0
+    dt = x / 1000
+    for i in range(1000):
+        t = i * dt
+        if t > 0:
+            integral += integrand(t) * dt
+    return (n / x**n) * integral
 
-    def heat_capacity(self, temperature):
-        x = self.theta_D / temperature
-        debye_3 = self.debye_function(x, 3)
-        return 9 * self.N * self.k_B * (temperature / self.theta_D)**3 * debye_3
 
-    def internal_energy(self, temperature):
-        x = self.theta_D / temperature
-        debye_3 = self.debye_function(x, 3)
-        return 9 * self.N * self.k_B * temperature * debye_3
+def debye_heat_capacity(temperature, debye_temperature, num_atoms):
+    k_B = 1.381e-23
+    x = debye_temperature / temperature
+    debye_3 = debye_function(x, 3)
+    return 9 * num_atoms * k_B * (temperature / debye_temperature)**3 * debye_3
+
+
+def debye_internal_energy(temperature, debye_temperature, num_atoms):
+    k_B = 1.381e-23
+    x = debye_temperature / temperature
+    debye_3 = debye_function(x, 3)
+    return 9 * num_atoms * k_B * temperature * debye_3
