@@ -2401,6 +2401,103 @@ As von Neumann established:
 
 
 
+def penrose_diagram(*, show_explanation=True, show_diagram=True):
+    """
+    Print a detailed explanation of Penrose diagrams, including their purpose,
+    structure, and importance in general relativity.
+    
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the background and theoretical explanation.
+    show_diagram : bool, default True
+        Whether to print an ASCII representation of a basic Penrose diagram.
+    """
+    
+    if show_explanation:
+        print("""\
+Title: Penrose Diagrams – Mapping the Causal Structure of Spacetime
+
+A Penrose diagram (also called a conformal diagram or Carter-Penrose diagram) is a 
+two-dimensional representation that captures the entire causal structure of a spacetime, 
+compressing infinite distances into a finite picture.
+
+--- Purpose ---
+In general relativity, spacetimes can extend to infinity, making them difficult to 
+visualize completely. Penrose diagrams solve this by applying a conformal transformation 
+that preserves angles and light cone structure while bringing infinitely distant regions 
+to finite coordinate values.
+
+Key features:
+- Light rays always travel at 45° angles (±45° from vertical)
+- Timelike paths have slopes greater than 45° from horizontal
+- Spacelike paths have slopes less than 45° from horizontal
+- Horizons appear as diagonal lines at 45°
+- The entire causal structure is visible in one compact diagram
+
+--- Structure ---
+Typical features on a Penrose diagram include:
+
+- i⁺ (future timelike infinity): where timelike observers end up in infinite future
+- i⁻ (past timelike infinity): where timelike observers come from in infinite past
+- i⁰ (spatial infinity): infinitely far away in space
+- ℐ⁺ (future null infinity): where light rays escape to
+- ℐ⁻ (past null infinity): where light rays come from
+- Singularities: often shown as jagged lines (e.g., r=0 in black holes)
+- Event horizons: boundaries beyond which events cannot affect external observers
+
+--- Core Insight ---
+- Penrose diagrams sacrifice detailed metric information (distances and times) to reveal
+  the global causal structure of spacetime.
+- They make it immediately clear which events can influence which other events.
+- Different spacetimes (Minkowski, Schwarzschild, de Sitter, etc.) have characteristically
+  different Penrose diagrams.
+- These diagrams are essential tools for understanding black holes, cosmology, and the
+  nature of singularities.
+
+The genius of Penrose diagrams lies in their ability to make the infinite comprehensible,
+transforming complex questions about causality into geometric problems we can visualize.
+""")
+    
+    if show_diagram:
+        print("""\
+
+--- Example: Minkowski Spacetime (Flat Spacetime) ---
+
+        i⁺
+        /\\
+       /  \\
+      /    \\
+     /      \\
+    /        \\
+   /          \\
+  /            \\
+ /      t       \\
+/       ↑        \\
+|       |        |
+|       |        |   
+|   ←---+---→ x  |
+|       |        |
+|       |        |
+\\       |        /
+ \\             /
+  \\           /
+   \\         /
+    \\       /
+     \\     /
+      \\   /
+       \\ /
+        i⁻
+
+Boundaries:
+- i⁺, i⁻: timelike infinities (top and bottom vertices)
+- i⁰: spacelike infinities (left and right edges)
+- ℐ⁺: future null infinity (top diagonal edges)
+- ℐ⁻: past null infinity (bottom diagonal edges)
+
+Light rays travel at 45° angles. Any point can send/receive signals to/from any other region.
+This represents the causal structure of flat, empty spacetime with no horizons or singularities.
+""")
 
 
 
