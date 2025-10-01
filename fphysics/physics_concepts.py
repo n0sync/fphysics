@@ -2401,17 +2401,22 @@ As von Neumann established:
 
 
 
-def penrose_diagram(*, show_explanation=True, show_diagram=True):
+def penrose_diagram(*, show_explanation=True, show_diagram=True, show_kruskal=True, show_multiverse=True):
     """
     Print a detailed explanation of Penrose diagrams, including their purpose,
-    structure, and importance in general relativity.
+    structure, and importance in general relativity, with emphasis on Kruskal coordinates
+    and the Schwarzschild black hole representation, including multiverse implications.
     
     Parameters
     ----------
     show_explanation : bool, default True
         Whether to print the background and theoretical explanation.
     show_diagram : bool, default True
-        Whether to print an ASCII representation of a basic Penrose diagram.
+        Whether to print ASCII representations of Penrose diagrams.
+    show_kruskal : bool, default True
+        Whether to include explanation and diagram of Kruskal-Szekeres coordinates.
+    show_multiverse : bool, default True
+        Whether to include discussion of multiverse and parallel universe implications.
     """
     
     if show_explanation:
@@ -2498,8 +2503,216 @@ Boundaries:
 Light rays travel at 45° angles. Any point can send/receive signals to/from any other region.
 This represents the causal structure of flat, empty spacetime with no horizons or singularities.
 """)
+    
+    if show_kruskal:
+        print("""\
 
+===================================================================================
+--- Kruskal-Szekeres Coordinates and the Schwarzschild Black Hole ---
+===================================================================================
 
+--- The Problem with Schwarzschild Coordinates ---
+The standard Schwarzschild metric uses coordinates (t, r, θ, φ) which become singular at 
+the event horizon (r = 2M, where M is the black hole mass). This is a coordinate singularity,
+not a physical one, but it obscures the true causal structure of the spacetime.
+
+Limitations:
+- Time coordinate t becomes ill-defined at the horizon
+- Cannot describe what happens inside the black hole
+- Hides the existence of multiple causally disconnected regions
+- Suggests the horizon is a special place (it's not for a freely falling observer)
+
+--- Kruskal-Szekeres Coordinates ---
+In 1960, Martin Kruskal and George Szekeres independently discovered coordinates (T, X) that:
+- Are well-defined everywhere except at the true singularity (r = 0)
+- Make the metric manifestly regular at the horizon
+- Reveal the maximal analytic extension of the Schwarzschild solution
+- Show that the black hole connects to four distinct regions
+
+The Kruskal coordinates are related to Schwarzschild coordinates by:
+  T = (r/(2M) - 1)^(1/2) * e^(r/(4M)) * sinh(t/(4M))
+  X = (r/(2M) - 1)^(1/2) * e^(r/(4M)) * cosh(t/(4M))    (outside horizon, r > 2M)
+
+Key properties:
+- Light rays travel at 45° in the (T, X) plane
+- The horizon is at T² - X² = 0 (two straight lines at 45°)
+- The singularity is at T² - X² = 1 (hyperbolas)
+- Surfaces of constant r are hyperbolas
+- Surfaces of constant t are straight lines through the origin
+
+--- Kruskal Diagram (Penrose Diagram of Schwarzschild Black Hole) ---
+
+    r=0 ~~~~~~~~ Future Singularity ~~~~~~~~
+        /\\                              /\\
+       /  \\                            /  \\
+      /    \\        Region II         /    \\
+     /      \\      (Black Hole)      /      \\
+    /        \\      Interior        /        \\
+   /   Future \\                    /  Future  \\
+  /   Horizon  \\                  / Horizon    \\
+ /              \\                /              \\
+/________________\\______________/________________\\
+\\                /              \\                /
+ \\              /                \\              /
+  \\   Past     /                  \\    Past    /
+   \\  Horizon /                    \\  Horizon /
+    \\        /                      \\        /
+     \\      /        Region I        \\      /
+      \\    /      (Our Universe)      \\    /
+       \\  /                            \\  /
+        \\/                              \\/
+         i⁻                             i⁻
+                                      
+    ← Region IV          |          Region III →
+    (Parallel Universe)  |      (White Hole Interior)
+
+    r=0 ~~~~~~~~ Past Singularity ~~~~~~~~~
+
+The Four Regions:
+- Region I (Right): External universe (r > 2M) - where we live
+- Region II (Top): Black hole interior (r < 2M) - future-trapped, ends at singularity
+- Region III (Left): White hole interior (r < 2M) - past-trapped, emerges from singularity
+- Region IV (Bottom): Parallel external universe (r > 2M) - causally disconnected from us
+
+Horizons:
+- Future horizon (diagonal lines going up): r = 2M, boundary into black hole
+- Past horizon (diagonal lines going down): r = 2M, boundary from white hole
+
+--- Physical Interpretation ---
+The maximal extension shows:
+- A black hole is connected to a WHITE HOLE (time-reversed black hole)
+- There exists a parallel universe (Region IV) we can never access
+- An observer falling into the black hole cannot escape or signal out
+- The singularity at r = 0 is spacelike (a moment in time, not a place)
+- An infalling observer hits the singularity in finite proper time
+
+--- Reality Check ---
+While mathematically complete, the full Kruskal diagram may not be physically realized:
+- Real black holes form from stellar collapse (no eternal black holes)
+- Regions III and IV likely don't exist in nature
+- The diagram shows the "maximally extended" mathematical solution
+- Real black hole Penrose diagrams are simpler, showing only Regions I and II
+
+--- Why Kruskal Time Matters ---
+Kruskal time (T coordinate) is crucial because:
+- It's well-behaved everywhere (no coordinate singularities)
+- It properly describes the causal flow across the horizon
+- It reveals that the horizon is NOT a barrier in local physics
+- It shows the inexorable pull toward the singularity inside the horizon
+- In Region II, moving forward in T necessarily means decreasing r (toward singularity)
+
+The transformation to Kruskal coordinates demonstrates a key principle in general relativity:
+coordinate singularities can hide the true nature of spacetime, and choosing the right
+coordinates reveals the deep geometric structure of the universe.
+""")
+    
+    if show_multiverse:
+        print("""\
+
+===================================================================================
+--- Multiverse Interpretations and Parallel Universes ---
+===================================================================================
+
+--- Classical General Relativity: Multiple Universes in the Mathematics ---
+The Kruskal extension of the Schwarzschild black hole naturally produces multiple regions
+that can be interpreted as "parallel universes":
+
+Region IV - The Parallel Universe:
+- Mathematically identical to our universe (Region I)
+- Shares the same black hole/white hole structure
+- Completely causally disconnected - no signals can pass between Regions I and IV
+- No observer in Region I can ever know what happens in Region IV, and vice versa
+- Connected through the interior of the black hole, but the connection is non-traversable
+
+The Einstein-Rosen Bridge (Wormhole):
+- Regions I and IV are connected by a "bridge" through the black hole
+- This is the original Einstein-Rosen bridge, proposed in 1935
+- However, the bridge collapses too quickly for anything to traverse it
+- Any attempt to pass through results in hitting the singularity
+- Would need exotic matter with negative energy to keep it open (not known to exist)
+
+--- Physical vs Mathematical Universes ---
+Important distinctions:
+- The parallel universe in Region IV is a solution to Einstein's equations
+- It emerges naturally from demanding mathematical consistency
+- However, it may not exist in physical reality
+- Real black holes form from collapse, which changes the diagram structure
+- The "eternal" black hole is an idealization
+
+--- Multiverse Theories in Cosmology ---
+Beyond black holes, other multiverse concepts appear in physics:
+
+1. Many-Worlds Interpretation (Quantum Mechanics):
+   - Every quantum measurement branches the universe into multiple versions
+   - Each outcome occurs in a separate branch
+   - Not directly related to Penrose diagrams, but philosophically similar
+   - All branches exist in a vast "multiverse" of quantum possibilities
+
+2. Eternal Inflation (Cosmology):
+   - Inflation creates "pocket universes" with different properties
+   - Each universe has its own Penrose diagram
+   - Our observable universe is just one bubble in an infinite foam
+   - Other universes may have different physical constants
+
+3. String Theory Landscape:
+   - 10^500 possible vacuum states, each a potential universe
+   - Different compactifications of extra dimensions
+   - Each universe has different physics
+
+--- Connection Between Black Holes and Quantum Mechanics ---
+Modern research explores deep connections:
+
+Black Hole Information Paradox:
+- What happens to information that falls into a black hole?
+- Hawking radiation suggests black holes evaporate
+- But evaporation seems to destroy information (violates quantum mechanics)
+- Resolution may require quantum gravity and new understanding of spacetime
+
+Holographic Principle:
+- Information in a region is encoded on its boundary
+- Black hole entropy is proportional to horizon area (not volume)
+- The entire universe might be a holographic projection
+- Penrose diagrams may be emergent, not fundamental
+
+ER = EPR Conjecture:
+- Einstein-Rosen bridges (wormholes) = Einstein-Podolsky-Rosen (quantum entanglement)
+- Quantum entanglement may be geometric, connected by tiny wormholes
+- Black holes entangled with external radiation create connections
+- Suggests deep unity between quantum mechanics and general relativity
+
+--- Do Parallel Universes Really Exist? ---
+The answer depends on the context:
+
+In eternal black holes: Mathematically yes, physically probably no
+- Real black holes form from collapse and don't have Region IV
+- However, the mathematics is self-consistent and beautiful
+
+In quantum mechanics: Depends on interpretation
+- Many-worlds says yes, all branches are equally real
+- Copenhagen interpretation says no, only one outcome is realized
+- Still debated after nearly a century
+
+In cosmology: Unknown, possibly untestable
+- Eternal inflation predicts other universes but they're beyond our horizon
+- May be forever beyond experimental verification
+- Raises philosophical questions about scientific method
+
+--- Philosophical Implications ---
+The multiverse raises profound questions:
+
+- If parallel universes exist but are unobservable, are they scientific?
+- Does every mathematical possibility correspond to physical reality?
+- Are we special, or just one among infinite variations?
+- Can we ever distinguish between "one universe" and "many"?
+
+Penrose diagrams, by revealing hidden structure in spacetime, force us to confront these
+questions. They show that our intuitive notions of "universe" and "reality" may be far
+more limited than the mathematics suggests.
+
+The lesson: The universe may be vastly stranger than we imagine, and the boundaries
+between mathematics, physics, and philosophy become increasingly blurred as we probe
+the deepest questions about existence itself.
+""")
 
 
 
