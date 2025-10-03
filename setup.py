@@ -19,7 +19,7 @@ def read_requirements():
 
 setup(
     name="fphysics",
-    version="0.1.0",
+    version="1.0",
     author="Shakee",
     description="A comprehensive physics library providing constants, equations, and formulas",
     long_description=read_readme(),
