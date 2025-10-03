@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fphysics"
-version = "0.1.0"
+version = "1.0"
 authors = [{name = "n0sync", email = "n0sync.76@gmail.com"}]
 description = "A comprehensive physics library providing constants, equations, and formulas"
 readme = "README.md"
@@ -59,3 +59,4 @@ testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
+
