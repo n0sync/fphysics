@@ -2714,6 +2714,121 @@ between mathematics, physics, and philosophy become increasingly blurred as we p
 the deepest questions about existence itself.
 """)
 
+def quantum_teleportation(*, show_explanation=True):
+    """
+    Explains Quantum Teleportation, how it transfers quantum states without moving particles,
+    why it's fundamental to quantum computing and communication, and real-world applications.
+    
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the theoretical explanation.
+    """
+    if show_explanation:
+        print("""\
+Title: Quantum Teleportation — Moving Information Without Moving Matter
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. What Is Quantum Teleportation?
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Imagine you have a quantum state that would be destroyed if measured, and you want to:
+> "Transfer it perfectly to another location without physically moving the particle."
+
+**Quantum Teleportation** uses entanglement and classical communication to:
+> Reconstruct an exact quantum state at a distant location, destroying the original.
+
+It transfers quantum information without the information traveling through space.
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. Why Is This Revolutionary?
+Quantum teleportation achieves the impossible in classical physics:
+✓ Transfer unknown quantum states without measuring them  
+✓ Enable quantum communication networks  
+✓ Build distributed quantum computers  
+✓ Create unhackable quantum cryptography  
+✓ Demonstrate fundamental quantum nonlocality
+
+> You can't copy quantum states (No-Cloning Theorem).  
+> But you can **teleport** them perfectly!
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. The Core Protocol
+Three ingredients make teleportation work:
+- **Entangled pair**: Alice and Bob share (|00⟩ + |11⟩)/√2
+- **Bell measurement**: Alice measures her qubit + entangled qubit jointly
+- **Classical bits**: Alice sends 2 bits telling Bob which correction to apply
+
+The quantum state vanishes at Alice and appears at Bob.
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. The Mathematical Formula
+**To teleport state |ψ⟩ = α|0⟩ + β|1⟩:**
+
+Initial combined state:
+|ψ⟩ ⊗ |Φ⁺⟩ = [α|0⟩ + β|1⟩] ⊗ [(|00⟩ + |11⟩)/√2]
+
+Rewrite in Bell basis:
+= (1/2)[|Φ⁺⟩(α|0⟩ + β|1⟩) + |Φ⁻⟩(α|0⟩ - β|1⟩)
+      + |Ψ⁺⟩(α|1⟩ + β|0⟩) + |Ψ⁻⟩(α|1⟩ - β|0⟩)]
+
+Alice's measurement yields one outcome (25% each)
+Bob applies correction based on outcome:
+- |Φ⁺⟩ → Identity
+- |Φ⁻⟩ → Z gate
+- |Ψ⁺⟩ → X gate  
+- |Ψ⁻⟩ → XZ gates
+
+Result: Bob has |ψ⟩ = α|0⟩ + β|1⟩
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+5. What Actually Gets Teleported?
+**NOT teleported:**
+✗ Physical particles or matter
+✗ Information faster than light
+
+**TELEPORTED:**
+✓ Quantum state coefficients (α, β)
+✓ Superposition and phase relationships
+✓ All quantum information in the qubit
+
+The particle stays. The quantum information moves.
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+6. Key Properties
+**Perfect Fidelity**: State transferred with 100% accuracy when successful
+
+**No Cloning**: Original state destroyed, so no copying occurs
+
+**Speed Limit**: Classical communication required, so limited to light speed
+
+**Entanglement Consumed**: Each teleportation uses one entangled pair
+
+**State-Independent**: Works for any quantum state, even unknown ones
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+7. Real-World Applications
+✓ Quantum internet connecting quantum computers  
+✓ Quantum cryptography and secure communication  
+✓ Distributed quantum computing networks  
+✓ Quantum repeaters for long-distance links  
+✓ Quantum memory and state transfer  
+✓ Testing fundamental quantum mechanics
+
+Foundation of the quantum information age!
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+8. Experimental Progress
+**1997**: First photon teleportation demonstration
+**2012**: Teleportation between atoms
+**2017**: Ground-to-satellite teleportation (1,400 km)
+**2020s**: Implementation in quantum processors
+
+From theory to reality in under 30 years.
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+9. Summary: Quantum Teleportation = Information Without Journey
+- Transfers **quantum states using entanglement and classical bits**  
+- Enables **quantum networks** and distributed computing  
+- Demonstrates **quantum nonlocality** experimentally  
+- Forms the backbone of **quantum communication technology**
+
+> "The state doesn't travel—it vanishes here and appears there."  
+> "Teleportation: Where quantum mechanics meets practical technology."
+
+"Quantum teleportation is the foundation of the quantum internet."
+                                                    ~Quantum Information Theory
+""")
 
 
 
