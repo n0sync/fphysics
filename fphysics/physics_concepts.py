@@ -2831,4 +2831,135 @@ From theory to reality in under 30 years.
 """)
 
 
+def cherenkov_radiation(
+        *, 
+        show_explanation: bool = True,
+        calculate: bool = False, 
+        particle_velocity: float = None,
+        medium_refractive_index: float = None,
+        particle_charge: float = None
+    ):
+    """
+    Print an overview of Cherenkov radiation and optionally calculate the emission angle.
+    
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the historical/theoretical summary.
+    calculate : bool, default False
+        If True, compute the Cherenkov angle and threshold velocity based on
+        `particle_velocity`, `medium_refractive_index`, and `particle_charge`.
+    particle_velocity : float | None
+        Velocity of the charged particle as a fraction of speed of light (β = v/c).
+        Must be in range (0, 1).
+    medium_refractive_index : float | None
+        Refractive index n of the medium (n > 1 for transparent media).
+    particle_charge : float | None
+        Charge of the particle in units of elementary charge (e.g., 1 for electron/proton).
+        Used for qualitative assessment of intensity.
+    
+    Returns
+    -------
+    result : dict | None
+        Dictionary containing 'cherenkov_angle' (degrees), 'threshold_velocity',
+        'is_emitting' (bool), and 'relative_intensity' if calculation is performed,
+        else None.
+    """
+    if show_explanation:
+        print("""\
+Title: Cherenkov Radiation
+Discovered by Pavel Cherenkov (1934) and theoretically explained by Igor Tamm and
+Ilya Frank (1937), Cherenkov radiation is electromagnetic radiation emitted when a
+charged particle traverses a dielectric medium at a velocity greater than the phase
+velocity of light in that medium.
+
+Key Principles:
+- Occurs when v > c/n, where v is particle velocity, c is speed of light in vacuum,
+  and n is the refractive index of the medium.
+- The particle creates a "shock wave" of light, analogous to a sonic boom.
+- The radiation forms a characteristic cone with half-angle θ given by:
+      cos(θ) = c/(nv) = 1/(nβ), where β = v/c
+- The effect is coherent and produces the distinctive blue glow in nuclear reactors
+  and water-based particle detectors.
+
+Physical Mechanism:
+- As the charged particle moves faster than light can propagate in the medium,
+  it polarizes atoms/molecules along its path.
+- These polarized molecules emit light that constructively interferes at angle θ.
+- Intensity ∝ particle charge squared and path length.
+- Spectrum weighted toward blue/UV (intensity ∝ 1/λ²).
+
+Applications:
+- Particle detectors (e.g., Super-Kamiokande, IceCube neutrino observatory)
+- Particle velocity measurement and identification
+- Medical imaging (Cherenkov luminescence imaging)
+- Nuclear reactor monitoring (characteristic blue glow)
+
+The 1958 Nobel Prize in Physics was awarded to Cherenkov, Frank, and Tamm for
+this discovery and its theoretical interpretation.
+""")
+    
+    if calculate:
+        if particle_velocity is None or medium_refractive_index is None:
+            raise ValueError("Provide both `particle_velocity` (β = v/c) and "
+                           "`medium_refractive_index` for calculation.")
+        
+        if not (0 < particle_velocity < 1):
+            raise ValueError("particle_velocity must be between 0 and 1 (fraction of c).")
+        
+        if medium_refractive_index <= 1:
+            raise ValueError("medium_refractive_index must be > 1 for transparent media.")
+        
+        # Threshold condition: β > 1/n
+        threshold_beta = 1.0 / medium_refractive_index
+        threshold_velocity_kmps = threshold_beta * 299792.458  # km/s
+        
+        # Check if Cherenkov radiation occurs
+        is_emitting = particle_velocity > threshold_beta
+        
+        result = {
+            'threshold_velocity': threshold_beta,
+            'threshold_velocity_kmps': threshold_velocity_kmps,
+            'is_emitting': is_emitting,
+            'cherenkov_angle': None,
+            'relative_intensity': None
+        }
+        
+        if is_emitting:
+            # Calculate Cherenkov angle
+            cos_theta = 1.0 / (medium_refractive_index * particle_velocity)
+            
+            # Ensure numerical stability
+            if cos_theta > 1.0:
+                cos_theta = 1.0
+            
+            import math
+            theta_rad = math.acos(cos_theta)
+            theta_deg = math.degrees(theta_rad)
+            
+            result['cherenkov_angle'] = theta_deg
+            
+            # Relative intensity (qualitative, proportional to charge squared)
+            if particle_charge is not None:
+                result['relative_intensity'] = particle_charge ** 2
+            
+            print(f"\n✓ Cherenkov radiation IS emitted:")
+            print(f"  • Particle velocity: β = {particle_velocity:.4f} (v = {particle_velocity * 299792.458:.1f} km/s)")
+            print(f"  • Medium refractive index: n = {medium_refractive_index:.3f}")
+            print(f"  • Threshold velocity: β_threshold = {threshold_beta:.4f}")
+            print(f"  • Cherenkov angle: θ = {theta_deg:.2f}°")
+            
+            if particle_charge is not None:
+                print(f"  • Relative intensity factor (∝ q²): {result['relative_intensity']:.2f}")
+        else:
+            print(f"\n✗ Cherenkov radiation is NOT emitted:")
+            print(f"  • Particle velocity: β = {particle_velocity:.4f} (v = {particle_velocity * 299792.458:.1f} km/s)")
+            print(f"  • Medium refractive index: n = {medium_refractive_index:.3f}")
+            print(f"  • Threshold velocity: β_threshold = {threshold_beta:.4f}")
+            print(f"  • Particle is moving too slowly (β ≤ 1/n)")
+        
+        return result
+    
+    return None
+
 
