@@ -2963,3 +2963,147 @@ this discovery and its theoretical interpretation.
     return None
 
 
+def Geiger_Nuttall_Law(*, show_explanation=True):
+    """
+    Print a full explanation of the Geiger-Nuttall Law,
+    including its historical development, mathematical derivation, and physical interpretation.
+    """
+    if show_explanation:
+        print("""\
+Title: The Geiger-Nuttall Law – Decoding Radioactive Decay Rates
+One of the earliest empirical laws of nuclear physics reveals a profound truth:
+    "The rate at which an atomic nucleus decays is intimately connected to the
+     energy of the particles it emits—a relationship so precise, it enabled
+     predictions before quantum mechanics fully explained the mechanism."
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. The Law and Its Historical Context
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+In **1911**, Hans Geiger and John Nuttal discovered an empirical relationship
+between the decay constant (λ) of radioactive nuclei and the kinetic energy (T_α)
+of the emitted alpha particles.
+
+The **Geiger-Nuttall Law** states:
+        log(λ) = a·log(T_α) + b
+or equivalently:
+        λ = C·T_α^n
+    where:
+        • λ is the **decay constant** (probability per unit time of decay)
+        • T_α is the **kinetic energy** of the emitted alpha particle
+        • a (or n) and b (or C) are empirical constants specific to decay chains
+        • log denotes logarithm (base 10 or natural)
+
+▶ Physical Meaning:
+    Higher-energy alpha particles ⟹ More frequent alpha decay
+    Lower-energy alpha particles ⟹ Less frequent alpha decay
+    A difference of just 1 MeV in alpha energy can change decay rates by orders
+    of magnitude (factors of 10^10 or more).
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. Mathematical Formulation and the Decay Constant
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+The number of nuclei N(t) decays exponentially:
+        N(t) = N₀ · e^(-λt)
+The **activity** (decay rate) is:
+        A(t) = λN(t) = λN₀ · e^(-λt)
+The **half-life** t₁/₂ is related to λ by:
+        t₁/₂ = ln(2)/λ ≈ 0.693/λ
+
+    ◾ Short half-life ⟺ Large decay constant (λ large)
+    ◾ Long half-life ⟺ Small decay constant (λ small)
+
+▶ The Geiger-Nuttall Relationship (logarithmic form):
+        log(λ) = a·log(T_α) + b
+Rearranging:
+        log(λ) − log(λ_ref) = a·(log(T_α) − log(T_α,ref))
+For **alpha decay chains**, empirically:
+        log(λ) ≈ 0.31·log(T_α) − 1.8  (approximate coefficients for U/Th/Ra series)
+
+▶ Numerical Example:
+    Radon-222 (T_α ≈ 5.5 MeV):  t₁/₂ ≈ 3.8 days
+    Polonium-218 (T_α ≈ 6.1 MeV):  t₁/₂ ≈ 3 minutes
+    ▸ A 0.6 MeV increase in alpha energy reduces half-life by ~3000 times!
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. Quantum Mechanical Foundation: Barrier Tunneling
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+The Geiger-Nuttall Law remained empirical until **George Gamow** (1928) and
+**Ronald Wilkinson** developed the quantum tunneling explanation:
+
+An alpha particle inside a nucleus is trapped by the strong nuclear force.
+However, it can **quantum mechanically tunnel** through the Coulomb barrier.
+
+The tunneling probability (and thus decay constant) depends on:
+    ◾ **Height of the barrier**: V_C = k·Z₁·Z₂·e²/r
+        where Z₁ = 2 (alpha particle), Z₂ = nuclear charge
+    ◾ **Width of the barrier**: determined by nuclear and Coulomb radii
+    ◾ **Energy of the alpha particle**: T_α
+
+The tunneling probability is:
+        P ∝ exp(-2π·η)
+where η is the **Sommerfeld parameter**:
+        η = Z₁·Z₂·e²/(2·ℏ·v)  = Z₁·Z₂·e²/√(2m_α·T_α·ℏ²)
+
+▶ Key insight:
+    The decay constant λ is proportional to the tunneling probability:
+        λ ∝ P ∝ exp(-√(T_α)⁻¹)
+This exponential dependence leads to the logarithmic Geiger-Nuttall relation!
+
+    More precisely (Gamow's formula):
+        log(λ) ∝ −√(1/T_α)    (inverted relationship with square root)
+This semi-classical result qualitatively matches experiments.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. Generalization and Variants
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+▸ **For alpha decay** (most common):
+        log(λ) ≈ a·log(T_α) + b
+    where a ≈ 0.2 to 0.3 and b ≈ −1.8 to −2.0 (empirical)
+
+▸ **For beta decay** (electron/positron emission):
+    The law also applies, though with different constants, as beta particles
+    tunnel through a different potential landscape.
+
+▸ **For spontaneous fission**:
+    Heavy nuclei (U, Cf, etc.) can split without absorbing energy.
+    The Geiger-Nuttall principle applies, but with different parameters.
+
+▸ **Inverse relationship**:
+    One can rewrite the law in terms of energy and half-life:
+        log(t₁/₂) = a'·log(T_α) + b'
+    This form is often used for practical predictions.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+5. Why It's Deep and Historically Significant
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+✓ **Predicted quantum tunneling before theory**: The Geiger-Nuttall law was
+  discovered in 1911 — it was unexplained until Gamow's tunneling explanation
+  in 1928. This empirical law essentially predicted that particles could pass
+  through "impossible" barriers!
+
+✓ **Connected decay rates to particle energy**: Long before we understood the
+  nuclear force, the law showed that faster particles escape more easily—hinting
+  at barrier penetration.
+
+✓ **Revolutionized nuclear physics**: It enabled researchers to predict half-lives,
+  identify new isotopes, and verify quantum mechanics experimentally.
+
+✓ **Universal principle**: The law applies across different decay modes and
+  elements, suggesting a deep connection between nuclear structure and quantum
+  tunneling.
+
+✓ **Practical applications**:
+    • Geochronology: Dating rocks using U-Pb and U-Th decay
+    • Astrophysics: Understanding stellar nucleosynthesis
+    • Nuclear safety: Predicting long-term behavior of radioactive waste
+    • Particle detection: Identifying decay products in experiments
+
+As Gamow reflected on his tunneling insight:
+> "The alpha particle doesn't ask permission from the barrier to leave the nucleus—
+> it just tunnels through with a probability that depends exponentially on its
+> energy. Nature found a quantum shortcut that physics hadn't yet learned to see."
+
+In essence, the **Geiger-Nuttall Law** transformed radioactive decay from a
+mysterious process into a window onto quantum mechanics and nuclear forces.
+""")
+
+
