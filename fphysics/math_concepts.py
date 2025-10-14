@@ -1998,3 +1998,174 @@ Understanding ROC ensures your transforms are **mathematically valid**.
  it is the language in which engineers speak to dynamic systems."
                                                     ~Engineering Tradition
 """)
+
+
+def Inscribed_Square_Problem(*, show_explanation=True):
+    """
+    Print a full explanation of the Inscribed Square Problem,
+    including its historical development, mathematical proofs, and topological significance.
+    """
+    if show_explanation:
+        print("""\
+Title: The Inscribed Square Problem – A Deceptively Simple Question
+At first glance, it seems trivial. Yet for over a century, this problem resisted
+proof and sparked a revolution in topology:
+    "Does every continuous closed curve in the plane contain four points that
+     form the vertices of a square?"
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. The Problem Statement
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+**The Inscribed Square Conjecture** (also called the **Square Peg Problem**):
+Given any continuous closed curve (Jordan curve) in the plane ℝ², does there
+always exist four points on the curve that form the vertices of a square?
+
+    ◾ The curve need not be convex or smooth—only continuous and closed
+    ◾ A square has four equal sides and four right angles (90°)
+    ◾ The question asks if *some* square exists, not all squares
+
+▶ Visual Intuition:
+    • Circle: Obviously contains infinitely many inscribed squares
+    • Triangle: Contains at least one inscribed square
+    • Random squiggly closed curve: ???
+    
+This deceptively simple question launched decades of research in topology.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. Historical Development
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+**1911**: Otto Toeplitz posed the **Inscribed Square Problem** at the International
+Congress of Mathematicians. He conjectured that every Jordan curve contains an
+inscribed square—a simpler variant of his broader question about inscribed
+rectangles.
+
+**1913**: **Arnold Emch** proved the conjecture for smooth curves (curves with
+continuous derivatives).
+
+**1929**: **Lev Schnirelmann** proved it for "sufficiently nice" closed curves.
+
+**1950**: **Beniamino Segre** extended results to broader classes of curves.
+
+**1968**: **Walter Stromquist** made significant progress using topological methods.
+
+**1988**: **Walter Stromquist** proved the conjecture for smooth, convex curves
+using sophisticated topological and analytic techniques.
+
+**2005**: **Andrew Tobin** proved the result for all smooth curves (not just convex).
+
+**Today**: The problem remains **open for arbitrary continuous curves**. However,
+it is proven for large important classes: smooth curves, curves of bounded
+curvature, and many others.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. Mathematical Formulation and Approach
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Let C be a closed curve in ℝ² parameterized as:
+        C = {(x(t), y(t)) : t ∈ [0, 1], (x(0), y(0)) = (x(1), y(1))}
+
+We seek four points P₁, P₂, P₃, P₄ on C such that:
+        |P₁P₂| = |P₂P₃| = |P₃P₄| = |P₄P₁|  (all sides equal)
+        ∠P₁P₂P₃ = ∠P₂P₃P₄ = ∠P₃P₄P₁ = ∠P₄P₁P₂ = 90°  (all angles right angles)
+
+▶ Parametrization Approach:
+    Parameterize the curve by arc length: t ∈ [0, L] where L is total length.
+    
+    For four points t₁ < t₂ < t₃ < t₄ on the curve, define:
+        F(t₁, t₂, t₃, t₄) = (side differences, angle errors)
+    
+    We seek a zero of this function in a 4D domain.
+
+▶ Key Topological Insight (Stromquist's approach):
+    Define a **configuration map** that takes a parameter and outputs whether
+    four points on the curve form a square.
+    
+    Using the **topological degree** of this map and properties of the Jordan
+    curve, one can show that the zero set is non-empty.
+
+▶ Intermediate Value Theorem Generalization:
+    For smooth curves, the approach uses:
+        1. Parameterize points by angles or distances along the curve
+        2. Create a continuous map from curve configurations to "square error"
+        3. Show that this map must pass through zero (by topological arguments)
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. Special Cases and Results
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+✓ **Circle**: Infinitely many inscribed squares (any square centered at origin
+  with appropriate size works).
+
+✓ **Smooth closed curves**: **PROVEN** (Toeplitz, Stromquist, Tobin).
+  Any smooth closed curve (C¹ or better) contains at least one inscribed square.
+
+✓ **Convex curves**: **PROVEN**.
+  Convex closed curves definitely contain inscribed squares.
+
+✓ **Polygons**: **PROVEN** for triangles and quadrilaterals.
+  For general n-gons, partial results exist.
+
+✓ **Non-convex but smooth curves**: **PROVEN** (Tobin, 2005).
+  Even curves that loop back on themselves contain inscribed squares.
+
+✓ **Continuous but non-smooth curves**: **OPEN**.
+  If the curve has corners or cusps, the problem is unsolved.
+
+▶ Counterexample Attempts:
+    Many researchers tried to construct a pathological continuous curve with
+    NO inscribed square. Despite decades of effort, none succeeded, supporting
+    the conjecture's truth.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+5. Related Problems and Generalizations
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+▸ **Inscribed Rectangle Problem** (Toeplitz's original question):
+    Does every closed curve contain an inscribed rectangle?
+    STATUS: **OPEN** even for some smooth curves!
+    (Easier for convex curves, where it's proven.)
+
+▸ **Inscribed Regular Polygon Problem**:
+    Does every smooth closed curve contain an inscribed regular n-gon?
+    STATUS: **OPEN** for most n > 4.
+
+▸ **Higher Dimensions**:
+    Does every continuous surface in ℝ³ contain an inscribed cube?
+    STATUS: Largely unexplored; even more mysterious than the 2D case.
+
+▸ **Different geometries**:
+    What about hyperbolic planes, spheres, or other metric spaces?
+    STATUS: Partially studied; results vary by geometry.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+6. Why It's Deep and Why It Matters
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+✓ **Deceptive simplicity**: The problem is trivial to state but extraordinarily
+  difficult to prove. This gulf between statement and proof reveals deep truths
+  about topology and geometry.
+
+✓ **Bridges discrete and continuous**: The problem connects combinatorial
+  geometry (counting discrete objects like squares) with continuous topology
+  (properties of curves).
+
+✓ **Inspired topological methods**: The attempts to solve this problem led to
+  new techniques in algebraic topology, including refined versions of fixed-point
+  theorems and degree theory.
+
+✓ **Connects to dynamics**: Related problems in dynamical systems and chaotic
+  curves led to insights about how iteration and continuous maps behave.
+
+✓ **Philosophical significance**: It demonstrates that even "simple" geometric
+  facts require sophisticated mathematics to prove. Intuition alone is insufficient.
+
+✓ **Still has mysteries**: Over 110 years later, the problem isn't fully solved.
+  This shows that fundamental questions in geometry remain open.
+
+▶ A Quote from Toeplitz:
+    "This problem is not merely a curiosity; it is a gateway to understanding
+    how the properties of discrete geometric objects emerge inevitably from
+    continuous shapes. The answer, when finally established in complete generality,
+    will illuminate the nature of topology itself."
+
+In essence, the **Inscribed Square Problem** is a beautiful reminder that
+mathematics harbors deep mysteries even in its most elementary domains. A
+question a child can ask, yet one that has consumed the lifetimes of leading
+mathematicians.
+
+""")
