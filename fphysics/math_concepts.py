@@ -2169,3 +2169,113 @@ question a child can ask, yet one that has consumed the lifetimes of leading
 mathematicians.
 
 """)
+
+def tensors(*, show_explanation=True):
+    """
+    Explains the concept of tensors, their mathematical foundation,
+    different types, and their central role in Einstein’s field equations.
+    
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the theoretical explanation.
+    """
+    if show_explanation:
+        print("""\
+Title: Tensors — The Language of Geometry and Physics
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. What Is a Tensor?
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+At their core:
+> A **tensor** is a mathematical object that generalizes scalars, vectors, and matrices.
+> It encodes relationships between sets of vectors, scalars, and other tensors.
+
+**Key Idea:**
+- Scalars → rank-0 tensors
+- Vectors → rank-1 tensors
+- Matrices (linear maps) → rank-2 tensors
+- Higher-rank tensors → multidimensional generalizations
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. The Mathematical Foundation
+**Formal Definition:**
+A tensor is a **multilinear map**:
+T : V* × V* × … × V → ℝ
+
+- Rank (or order): number of indices
+- Components: depend on the chosen basis
+- Transformation law: ensures the object is basis-independent
+
+**Example:**
+- Vector vᵢ transforms as v'ᵢ = Aᵢⱼ vⱼ
+- Tensor Tᵢⱼ transforms as T'ᵢⱼ = Aᵢₖ Aⱼₗ Tₖₗ
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. Types of Tensors
+- **Contravariant tensors** (upper indices): transform like vectors
+- **Covariant tensors** (lower indices): transform like dual vectors
+- **Mixed tensors**: combination of both
+- **Symmetric tensors**: Tᵢⱼ = Tⱼᵢ
+- **Antisymmetric tensors**: Tᵢⱼ = –Tⱼᵢ
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. Tensors in Physics
+Tensors naturally describe physical laws that must hold in all coordinate systems.
+
+**Examples:**
+- Scalar (rank-0): Temperature at a point
+- Vector (rank-1): Velocity, force
+- Rank-2 tensor: Stress tensor, moment of inertia
+- Rank-4 tensor: Riemann curvature tensor
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+5. Einstein’s Field Equations
+The pinnacle of tensor application in physics:
+
+**Equation:**
+G_{μν} + Λg_{μν} = (8πG / c⁴) T_{μν}
+
+Where:
+- G_{μν} = Einstein tensor (built from curvature tensors)
+- g_{μν} = metric tensor (describes spacetime geometry)
+- T_{μν} = stress-energy tensor (matter and energy content)
+- Λ = cosmological constant
+
+**Interpretation:**
+- Left-hand side: Geometry of spacetime (curvature)
+- Right-hand side: Energy and momentum of matter
+- Profound statement: **Matter tells spacetime how to curve, curvature tells matter how to move.**
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+6. Geometric Beauty
+- Metric tensor g_{μν}: measures distances and angles
+- Christoffel symbols Γ: connection coefficients (not tensors themselves)
+- Riemann tensor R_{μνρσ}: measures curvature
+- Ricci tensor R_{μν}: contraction of Riemann
+- Einstein tensor G_{μν}: divergence-free combination ensuring conservation laws
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+7. Why Tensors Are Essential
+✓ Coordinate-independent formulation of laws  
+✓ Natural language of differential geometry  
+✓ Bridge between mathematics and physics  
+✓ Foundation of General Relativity  
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+8. Educational Impact
+Tensors teach us:
+- How abstract algebraic structures describe physical reality
+- Why geometry and physics are inseparable
+- How Einstein unified gravity with geometry
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+9. Summary: Tensors as the Universal Language
+- **Mathematical reality**: Multilinear maps, basis-independent
+- **Physical role**: Express universal laws of nature
+- **Einstein’s insight**: Gravity is geometry, written in tensors
+- **Enduring lesson**: Tensors are the grammar of the universe
+
+> "In the language of tensors, the universe writes its laws."
+> "Geometry is not just abstract — it is the stage of reality itself."
+""")
+
