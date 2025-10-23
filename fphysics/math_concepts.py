@@ -2279,3 +2279,103 @@ Tensors teach us:
 > "Geometry is not just abstract — it is the stage of reality itself."
 """)
 
+def bayes_theorem(*, show_explanation=True):
+    """
+    Explains Bayes’ Theorem, its mathematical formulation, intuitive meaning,
+    and applications in statistics, machine learning, and decision-making.
+    
+    Parameters
+    ----------
+    show_explanation : bool, default True
+        Whether to print the theoretical explanation.
+    """
+    if show_explanation:
+        print("""\
+Title: Bayes’ Theorem — Reasoning Under Uncertainty
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+1. What Is Bayes’ Theorem?
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Bayes’ Theorem is a fundamental result in probability theory:
+
+> It tells us how to **update our beliefs** in light of new evidence.
+
+**Mathematical Formulation:**
+P(A|B) = [P(B|A) × P(A)] / P(B)
+
+Where:
+- P(A|B): Probability of A given B (posterior)
+- P(B|A): Probability of B given A (likelihood)
+- P(A): Prior probability of A
+- P(B): Marginal probability of B
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+2. Intuitive Meaning
+Imagine:
+> You have a prior belief about something (P(A)),  
+> You observe new evidence (B),  
+> Bayes’ Theorem tells you how to revise your belief (P(A|B)).
+
+**Example:**
+- A medical test detects a rare disease.
+- Prior: 1 in 1000 people have the disease → P(Disease) = 0.001
+- Test is 99% accurate → P(Positive|Disease) = 0.99
+- You test positive. What’s the chance you actually have the disease?
+
+Bayes’ Theorem reveals: **It’s not 99%!**  
+You must account for **false positives** and **base rates**.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+3. Real-World Applications
+✓ **Medical diagnosis**  
+✓ **Spam filtering**  
+✓ **Machine learning (Naive Bayes classifier)**  
+✓ **Forensic science**  
+✓ **Weather prediction**  
+✓ **Decision-making under uncertainty**
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+4. Visual Interpretation
+Bayes’ Theorem is about **partitioning probability space**.
+
+- Prior: Your initial slice of belief
+- Likelihood: How well the evidence fits each slice
+- Posterior: Rescaled belief after seeing evidence
+
+**Think of it as:**
+> Prior × Likelihood → Posterior (normalized by total evidence)
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+5. Bayesian vs Frequentist Thinking
+| Aspect         | Frequentist               | Bayesian                         |
+|----------------|---------------------------|----------------------------------|
+| Probability    | Long-run frequency        | Degree of belief                 |
+| Parameters     | Fixed but unknown         | Random variables with distributions |
+| Inference      | Based on sampling         | Based on prior + evidence        |
+| Flexibility    | Less adaptive             | Highly adaptive to new data      |
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+6. Why Bayes Is Powerful
+✓ Handles uncertainty elegantly  
+✓ Incorporates prior knowledge  
+✓ Updates beliefs dynamically  
+✓ Works even with incomplete data  
+✓ Forms the backbone of probabilistic AI
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+7. Educational Impact
+Bayes’ Theorem teaches:
+- How to think probabilistically  
+- Why evidence must be weighed against context  
+- How to avoid intuitive traps (e.g., base rate neglect)
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+8. Summary: Bayes as a Belief Engine
+- **Mathematical core**: Conditional probability
+- **Philosophical insight**: Belief revision
+- **Practical power**: Decision-making under uncertainty
+- **Enduring lesson**: Evidence is meaningful only in context
+
+> "Bayes’ Theorem is the compass that guides rational belief."
+> "In a world of uncertainty, Bayes helps us reason with clarity."
+""")
+
