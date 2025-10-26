@@ -1,6 +1,6 @@
 # fphysics — A Comprehensive Physics Library in Python
 
-**fphysics** is a pure Python library that offers an extensive collection of physical constants, equations, and formulas.  
+**fphysics** (short for fun-physics) is a pure Python library that offers an extensive collection of physical constants, equations, and formulas.  
 It's built as a one-stop toolkit for students, researchers, educators, and developers covering everything from classical mechanics to cutting-edge quantum theory.
 
 ## Key Features
