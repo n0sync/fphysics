@@ -1,5 +1,4 @@
 # A collection of fascinating concepts and theories from physics and mathematics that I find intriguing and worth exploring.
-# Mentions: Most of these concepts were inspired by videos from Veritasium, 3Blue1Brown, and Real Engineering.
 
 import math
 import cmath
@@ -3105,5 +3104,6 @@ As Gamow reflected on his tunneling insight:
 In essence, the **Geiger-Nuttall Law** transformed radioactive decay from a
 mysterious process into a window onto quantum mechanics and nuclear forces.
 """)
+
 
 
