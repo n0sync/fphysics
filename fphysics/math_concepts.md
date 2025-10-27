@@ -1,6 +1,5 @@
 # Mathematical Topics
 ##### A collection of fascinating math theories that I find intriguing and worth exploring.
-##### Mentions: Most of these concepts were introduced to me through videos from Veritasium and 3Blue1Brown.
 
 ## Analysis & Calculus
 * [Taylor Series](https://en.wikipedia.org/wiki/Taylor_series)
