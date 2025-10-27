@@ -1,5 +1,4 @@
 # A collection of fascinating math theories that I find intriguing and worth exploring.
-# Mentions: Most of these concepts were inspired by videos from Veritasium, 3Blue1Brown.
 
 import math
 import cmath
