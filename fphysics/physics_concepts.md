@@ -2,8 +2,6 @@
 
 A collection of fascinating concepts in physics, quantum mechanics, computer science, and related fields worth exploring.
 
-**Mentions:** I learned about most of these concepts from videos by Veritasium and 3Blue1Brown.
-
 ## Quantum Mechanics & Quantum Computing
 * [Copenhagen Interpretation](https://en.wikipedia.org/wiki/Copenhagen_interpretation)
 * [Double Slit Experiment](https://en.wikipedia.org/wiki/Double-slit_experiment)
