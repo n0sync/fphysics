@@ -9,6 +9,7 @@ A collection of fascinating concepts in physics, quantum mechanics, computer sci
 * [Wave Function](https://en.wikipedia.org/wiki/Wave_function)
 * [Ehrenfest Theorem](https://en.wikipedia.org/wiki/Ehrenfest_theorem)
 * [Compton Scattering](https://en.wikipedia.org/wiki/Compton_scattering)
+* [Quantum Spin](https://en.wikipedia.org/wiki/Spin_(physics))
 * [Quantum Teleportation](https://en.wikipedia.org/wiki/Quantum_teleportation)
 * [Grover's Algorithm](https://en.wikipedia.org/wiki/Grover%27s_algorithm)
 
