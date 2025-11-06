@@ -29,12 +29,16 @@ pip install fphysics
 import fphysics as fp
 from fphysics.relativity.general import schwarzschild_radius
 from fphysics import physics_concepts
+from fphysics.thermodynamics.heat_engines import carnot_efficiency
 
 # Access fundamental constants
-print(fp.constants.speed_of_light)   # 299792458 m/s
+print(fp.constants.SPEED_OF_LIGHT)   
 
 # Calculate Schwarzschild radius
 print(schwarzschild_radius(10))
+
+#Calulate the Carnot Efficiency
+print(carnot_efficiency(500, 300))
 
 # Access physics concepts and explanations
 print(physics_concepts.P_vs_NP())
@@ -42,7 +46,7 @@ print(physics_concepts.P_vs_NP())
 
 ## Contributing
 
-We welcome all contributions — from adding new formulas to refining documentation.
+I welcome all contributions — from adding new formulas to refining documentation.
 
 1. **Fork** the repository
 2. **Create** a feature branch
