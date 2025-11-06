@@ -2,7 +2,12 @@ import math
 from ..constants import *
 
 def carnot_efficiency(hot_temp, cold_temp):
-    return (hot_temp - cold_temp) / hot_temp
+    if hot_temp <= 0 or cold_temp <= 0:
+        raise ValueError("Temperatures must be positive and in Kelvin.")
+    if cold_temp >= hot_temp:
+        raise ValueError("Cold temperature must be less than hot temperature.")
+
+        return (hot_temp - cold_temp) / hot_temp
 
 def otto_cycle_efficiency(compression_ratio, gamma):
     return 1 - compression_ratio**(1 - gamma)
