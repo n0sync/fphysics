@@ -47,6 +47,7 @@ A collection of fascinating concepts in physics, quantum mechanics, computer sci
 * [Prisoner's Dilemma](https://en.wikipedia.org/wiki/Prisoner%27s_dilemma)
 * [Axiom of Choice](https://en.wikipedia.org/wiki/Axiom_of_choice)
 * [Sleeping Beauty Problem](https://en.wikipedia.org/wiki/Sleeping_Beauty_problem)
+* [Barber Paradox](https://en.wikipedia.org/wiki/Barber_paradox)
 
 ## Mathematical Physics
 * [Hilbert Space](https://en.wikipedia.org/wiki/Hilbert_space)
