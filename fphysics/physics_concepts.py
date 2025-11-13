@@ -3230,5 +3230,3 @@ As Russell demonstrated:
 > "The paradoxes are not errors; they are revelations of the need for a new logic."
 """)
 
-
-
