@@ -5,6 +5,7 @@
 * [Taylor Series](https://en.wikipedia.org/wiki/Taylor_series)
 * [Laplace Transform](https://en.wikipedia.org/wiki/Laplace_transform)
 * [Plancherel Theorem](https://en.wikipedia.org/wiki/Plancherel_theorem)
+* [Newton-Raphson Method](https://en.wikipedia.org/wiki/Newton%27s_method)
 
 ## Number Theory
 * [Basel Problem](https://en.wikipedia.org/wiki/Basel_problem)
