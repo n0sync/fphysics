@@ -1,21 +1,20 @@
 # fphysics — A Comprehensive Physics Library in Python
 
-**fphysics** (short for fun-physics) is a pure Python library that offers an extensive collection of physical constants, equations, and formulas.  
-It's built as a one-stop toolkit for students, researchers, educators, and developers covering everything from classical mechanics to cutting-edge quantum theory.
+**fphysics** is a Python library that offers an extensive collection of physical constants, equations, and formulas.  
 
 ## Key Features
 
-### Extensive Constants Database
+### Constants Database
 Includes essential physical constants — SI base units, quantum constants, astronomical parameters, and more.
 
-### Modular & Well-Organized Formula Collections
+### Modular Formula Collections
 Separate modules for mechanics, thermodynamics, electromagnetism, atomic physics, nuclear physics, relativity, statistical mechanics, and beyond.
 
-### Unit Conversion Made Easy
+### Unit Conversion 
 Convert seamlessly between SI, CGS, and natural units.
 
-### Built for Learning & Research
-Perfect for integration into scientific calculators, simulations, teaching aids, or advanced research codebases.
+### Built for Learning 
+Perfect for integration into scientific calculators, simulations and teaching aids.
 
 ## Installation
 Install directly from PyPI:
@@ -28,7 +27,6 @@ pip install fphysics
 ```python
 import fphysics as fp
 from fphysics.relativity.general import schwarzschild_radius
-from fphysics import physics_concepts
 from fphysics.thermodynamics.heat_engines import carnot_efficiency
 
 # Access fundamental constants
@@ -39,9 +37,6 @@ print(schwarzschild_radius(10))
 
 #Calulate the Carnot Efficiency
 print(carnot_efficiency(500, 300))
-
-# Access physics concepts and explanations
-print(physics_concepts.P_vs_NP())
 ```
 
 ## Contributing
